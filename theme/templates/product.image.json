@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "template": {
+      "type": "product-template-gb",
+      "settings": {
+        "show_quantity_selector": true,
+        "show_variant_labels": true,
+        "show_vendor": false,
+        "enable_payment_button": false,
+        "show_share_buttons": false,
+        "show_gallery": false,
+        "show_subscription_section": false,
+        "title": "",
+        "subtitle": "",
+        "subcription_link": "",
+        "media_type": false,
+        "media_size": "large",
+        "enable_image_zoom": false,
+        "enable_video_looping": false,
+        "btn_policy_show": true,
+        "btn_policy_text": "FAQ  & Policies",
+        "btn_policy_link": "shopify:\/\/pages\/faq"
+      }
+    },
+    "CTA": {
+      "type": "text-full-background",
+      "disabled": true,
+      "settings": {
+        "show": false,
+        "top_title": "",
+        "title": "",
+        "content": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "Recommendations": {
+      "type": "product-recommendations-gb",
+      "settings": {
+        "show_product_recommendations": true,
+        "heading": "",
+        "show_vendor": false
+      }
+    },
+    "Script": {
+      "type": "product-script",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "template",
+    "CTA",
+    "Recommendations",
+    "Script"
+  ]
+}

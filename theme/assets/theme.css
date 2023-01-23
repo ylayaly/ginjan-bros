@@ -1,0 +1,102 @@
+.bg-header-msg {
+    background-image: url(./header-msg.png);
+}
+
+.bg-menu-mark {
+    background-image: url(./menu-mark.png);
+    width: 405px;
+    height: 446px;
+}
+
+.bg-instagram {
+    background-image: url(./instagram.png);
+    background-repeat: no-repeat;
+}
+
+.bg-facebook {
+    background-image: url(./facebook.png);
+    background-repeat: no-repeat;
+}
+.bg-bag {
+    background-image: url(./bag.png);
+    background-repeat: no-repeat;
+}
+.bg-menu{
+
+}
+.bg-menu:before{
+    content: '';
+    position: absolute;
+    transition: top 0.3s 0.6s ease-in-out,transform 0.3s ease-in-out;
+    background-image: url(./menu-bottom.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0.5rem;
+    top: 0;
+
+}
+.bg-menu.open:before{
+    transition: top 0.3s ease-in-out,transform 0.3s 0.5s ease-in-out;
+    background-image: url(./menu-bottom-white.svg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    top: 8px;
+
+}
+.bg-menu:after{
+    content: '';
+    position: absolute;
+    transition: bottom 0.3s 0.6s ease-in-out,transform 0.3s ease-in-out;
+    background-image: url(./menu-top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0.5rem;
+    bottom: 0;
+}
+.bg-menu.open:after{
+    transition: bottom 0.3s ease-in-out,transform 0.3s 0.5s ease-in-out;
+    transform: rotate3d(0, 0, 1, 45deg);
+    background-image: url(./menu-top-white.svg);
+    bottom: 5px;
+}
+.mobile-menu{
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+}
+.mobile-menu.open{
+    max-height: 100vh;
+    overflow: auto;
+    transition: max-height 0.5s ease-in;
+}
+.mobile-menu.open .opacity-0{
+    opacity: 1;
+}
+@media (max-width: 1024px) {
+    .bg-menu-mark {
+        width: 45vw;
+        height: 41vw;
+        background-size: 120%;
+        background-position: 8vw bottom;
+    }
+}
+@media (max-width: 768px) {
+    .bg-menu.open:before{
+        top: 5px;
+    }
+    .bg-menu.open:after{
+        bottom: 2px;
+    }
+}
+@media (max-width: 468px) {
+    .bg-menu:before, .bg-menu:after{
+        height: 0.3rem;
+    }
+    .bg-menu.open:before{
+        top: -3px;
+    }
+    .bg-menu.open:after{
+        bottom: -3px;
+    }
+}

@@ -1,0 +1,683 @@
+<style>
+.contact input::placeholder{
+    color: {{ section.settings.color_footer_text}};
+    font-weight: bold;
+}
+</style>
+<footer>
+    <div class="4xl:container mx-auto grid grid-cols-1 xl:grid-cols-footer relative overflow-hidden" style="background-color: {{ section.settings.color_footer_bg}}">
+        <div class="flex flex-col justify-between font-bold p-10 md:p-20 pr-10 md:pr-0" style="color: {{ section.settings.color_footer_text}}">
+            <div>
+                <ul class="flex text-xl xl:text-26 flex-wrap gap-y-3 justify-center md:justify-start">
+                    {% for link in linklists[section.settings.main_linklist].links %}
+                        {%- assign outerLoopIndex = forloop.index -%}
+                        <li class=" mr-6 md:mr-12">
+                        <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %} class="pb-1 border-b-4 border-white block w-max"> 
+                            <span class=""> {{ link.title | escape }} </span></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="flex mt-10 justify-center md:justify-start">
+                    <a href="{{ settings['social_instagram_link'] | escape }}" class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-instagram bg-contain"></a>
+                    <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-facebook bg-contain"></a>
+                </div>
+                <div class="mt-8 flex flex-col items-center md:items-start">
+                    <p class="font-bold text-26" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text }}</p>
+                    <p class="text-base" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text_1 }}</p>
+        
+                </div>
+            </div>
+            <div class="text-2xl xl:text-4xl mt-28 flex flex-col items-center md:items-start">
+                <span>{{ section.settings.copyright }}</span>
+            </div>
+        </div>
+        <div class="py-0 px-10 md:px-20 xl:px-0 xl:py-20 pb-10 md:pb-20 xl:pb-0 xl:relative overflow-hidden" style="color: {{ section.settings.color_footer_text}}">
+            <div class="xl:pr-10 xl:pr-20 w-full md:w-1/2 xl:w-full">
+                <div class="text-2xl xl:text-4xl flex flex-col items-center md:items-start">
+                    <span>{{ section.settings.newsletter_signup_title }}</span>
+                </div>
+                <div class="text-base flex flex-col items-center md:items-start">{{ section.settings.newsletter_signup_subtitle }}</div>
+                <div class="mt-5">
+                <div class="site-footer__newsletter {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                    {%- assign formId = 'ContactFooter' -%}
+                    {% form 'customer', id: formId, novalidate: 'novalidate' %}
+                        {%- if form.posted_successfully? -%}
+                        <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                            {{ 'general.newsletter_form.confirmation' | t }}
+                        </p>
+                        {%- endif -%}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="input-group {% if form.errors %} input-group--error{% endif %} contact border-2 border-white flex-nowrap overflow-hidden">
+                        <input type="email"
+                            name="contact[email]"
+                            id="{{ formId }}-email"
+                            class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %} border-0 p-5 w-full mb-0"
+                            value="{{ form.email }}"
+                            placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-required="true"
+                            required
+                            autocorrect="off"
+                            autocapitalize="off"
+                            {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="{{ formId }}-email-error"
+                            data-form-status
+                            {% endif %}
+                            style="background-color: {{ section.settings.color_footer_bg}}; color: {{ section.settings.color_footer_text}}"
+                            >
+                        <span class="input-group__btn w-20">
+                            <button type="submit" class="newsletter__submit h-full w-full cursor-pointer" name="commit" id="Subscribe">
+                            <span class="newsletter__submit-text--large"></span>
+                            </button>
+                        </span>
+                        </div>
+                        {% if form.errors contains 'email' %}
+                        <span id="{{ formId }}-email-error" class="input-error-message">
+                            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                            {% include 'icon-error' %}
+                            <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                        </span>
+                        {% endif %}
+                    {% endform %}
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bg-contain bg-footer-mark -bottom-1/4 w-8/12 hidden md:block"></div>
+        </div>
+    </div>
+    
+</footer>
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Sidefod",
+    "de": "Fußzeile",
+    "en": "Footer GB",
+    "es": "Pie de página GB",
+    "fi": "Alatunniste",
+    "fr": "Pied de page",
+    "hi": "फुटर",
+    "it": "Footer",
+    "ja": "フッター",
+    "ko": "바닥글",
+    "nb": "Footer",
+    "nl": "Voettekst",
+    "pt-BR": "Rodapé",
+    "pt-PT": "Rodapé",
+    "sv": "Sidfot",
+    "th": "ส่วนท้าย",
+    "zh-CN": "页脚",
+    "zh-TW": "頁尾"
+  },
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+        "da": "Farve",
+        "de": "Farbe",
+        "en": "Color",
+        "es": "Color",
+        "fi": "Väri",
+        "fr": "Couleur",
+        "hi": "रंग",
+        "it": "Colore",
+        "ja": "色",
+        "ko": "색상",
+        "nb": "Farge",
+        "nl": "Kleur",
+        "pt-BR": "Cor",
+        "pt-PT": "Cor",
+        "sv": "Färg",
+        "th": "สี",
+        "zh-CN": "颜色",
+        "zh-TW": "顏色"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_footer_bg",
+      "label": {
+        "da": "Baggrund",
+        "de": "Hintergrund",
+        "en": "Background",
+        "es": "Fondo",
+        "fi": "Tausta",
+        "fr": "Couleur de fond",
+        "hi": "पृष्ठभूमि",
+        "it": "Sfondo",
+        "ja": "背景",
+        "ko": "배경",
+        "nb": "Bakgrunn",
+        "nl": "Achtergrond",
+        "pt-BR": "Plano de fundo",
+        "pt-PT": "Fundo",
+        "sv": "Bakgrund",
+        "th": "พื้นหลัง",
+        "zh-CN": "背景",
+        "zh-TW": "背景"
+      },
+      "default": "#f6f6f6"
+    },
+    {
+      "type": "color",
+      "id": "color_footer_text",
+      "label": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": "#333232"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": {
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "hi": "मेनू",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Location",
+        "de": "Location",
+        "en": "Location",
+        "es": "Ubicación",
+        "fi": "Location",
+        "fr": "Location",
+        "hi": "Location",
+        "it": "Location",
+        "ja": "Location",
+        "ko": "Location",
+        "nb": "Location",
+        "nl": "KlLocationeur",
+        "pt-BR": "Location",
+        "pt-PT": "Location",
+        "sv": "Location",
+        "th": "Location",
+        "zh-CN": "Location",
+        "zh-TW": "Location"
+      }
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": {
+        "da": "Location detail",
+        "de": "Location detail",
+        "en": "Location detail",
+        "es": "Ubicación",
+        "fi": "Location detail",
+        "fr": "Location detail",
+        "hi": "Location detail",
+        "it": "Location detail",
+        "ja": "Location detail",
+        "ko": "Location detail",
+        "nb": "Location detail",
+        "nl": "Location detail",
+        "pt-BR": "Location detail",
+        "pt-PT": "Location detail",
+        "sv": "Location detail",
+        "th": "Location detail",
+        "zh-CN": "Location detail",
+        "zh-TW": "Location detail"
+      }
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": {
+        "da": "Location state",
+        "de": "Location state",
+        "en": "Location state",
+        "es": "Ubicación",
+        "fi": "Location state",
+        "fr": "Location state",
+        "hi": "Location state",
+        "it": "Location state",
+        "ja": "Location state",
+        "ko": "Location state",
+        "nb": "Location state",
+        "nl": "Location state",
+        "pt-BR": "Location state",
+        "pt-PT": "Location state",
+        "sv": "Location state",
+        "th": "Location state",
+        "zh-CN": "Location state",
+        "zh-TW": "Location state"
+      }
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": {
+        "da": "Copy Right",
+        "de": "Copy Right",
+        "en": "Copy Right",
+        "es": "Derechos de autor",
+        "fi": "Copy Right",
+        "fr": "Copy Right",
+        "hi": "Copy Right",
+        "it": "Copy Right",
+        "ja": "Copy Right",
+        "ko": "Copy Right",
+        "nb": "Copy Right",
+        "nl": "Copy Right",
+        "pt-BR": "Copy Right",
+        "pt-PT": "Copy Right",
+        "sv": "Copy Right",
+        "th": "Copy Right",
+        "zh-CN": "Copy Right",
+        "zh-TW": "Copy Right"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Tilmelding til nyhedsbrev",
+        "de": "Newsletter-Anmeldung",
+        "en": "Newsletter signup",
+        "es": "Suscripción al boletín",
+        "fi": "Uutiskirjeen tilaus",
+        "fr": "Inscription",
+        "hi": "न्यूज़लेटर साइनअप",
+        "it": "Iscriviti alla Newsletter",
+        "ja": "ニュースレターの登録",
+        "ko": "뉴스레터 신청",
+        "nb": "Registrering for nyhetsbrev",
+        "nl": "Nieuwsbriefaanmelding",
+        "pt-BR": "Assinatura da newsletter",
+        "pt-PT": "Registo na newsletter",
+        "sv": "Nyhetsbrevsregistrering",
+        "th": "การสมัครรับจดหมายข่าว",
+        "zh-CN": "新闻通讯注册",
+        "zh-TW": "訂閱電子報"
+      }
+    },
+    {
+      "type": "text",
+      "id": "newsletter_signup_title",
+      "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+      }
+    },
+    {
+      "type": "text",
+      "id": "newsletter_signup_subtitle",
+      "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Subtitle",
+            "es": "Subtítulo",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+      }
+    }
+    
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": {
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "hi": "मेनू",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "da": "Hurtige links",
+            "de": "Quick-Links",
+            "en": "Quick links",
+            "es": "Enlaces rápidos",
+            "fi": "Pikalinkit",
+            "fr": "Liens rapides",
+            "hi": "त्वरित लिंक",
+            "it": "Link rapidi",
+            "ja": "クイックリンク",
+            "ko": "빠른 링크",
+            "nb": "Hurtigkoblinger",
+            "nl": "Snelle links",
+            "pt-BR": "Links rápidos",
+            "pt-PT": "Ligações rápidas",
+            "sv": "Snabblänkar",
+            "th": "ลิงก์ด่วน",
+            "zh-CN": "快速链接",
+            "zh-TW": "快速連結"
+          }
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": {
+            "da": "Menu",
+            "de": "Menü",
+            "en": "Menu",
+            "es": "Menú",
+            "fi": "Valikko",
+            "fr": "Menu",
+            "hi": "मेनू",
+            "it": "Menu",
+            "ja": "メニュー",
+            "ko": "메뉴",
+            "nb": "Meny",
+            "nl": "Menu",
+            "pt-BR": "Menu",
+            "pt-PT": "Menu",
+            "sv": "Meny",
+            "th": "เมนู",
+            "zh-CN": "菜单",
+            "zh-TW": "選單"
+          },
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "da": "Fortæl om din virksomhed",
+            "de": "Reden Sie über Ihr Unternehmen",
+            "en": "Talk about your business",
+            "es": "Habla sobre tu negocio",
+            "fi": "Kerro yrityksestäsi",
+            "fr": "Parlez de votre entreprise",
+            "hi": "अपने व्यवसाय के बारे में बात करें",
+            "it": "Parla della tua attività commerciale",
+            "ja": "あなたのビジネスについて語る",
+            "ko": "비즈니스에 대한 이야기하기",
+            "nb": "Snakk om bedriften din",
+            "nl": "Vertel over je bedrijf",
+            "pt-BR": "Fale sobre o seu negócio",
+            "pt-PT": "Fale sobre o seu negócio",
+            "sv": "Prata om ditt företag",
+            "th": "พูดถึงธุรกิจของคุณ",
+            "zh-CN": "介绍您的业务",
+            "zh-TW": "描述您的商家"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": {
+            "da": "Tekst",
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fi": "Teksti",
+            "fr": "Texte",
+            "hi": "टेक्स्ट",
+            "it": "Testo",
+            "ja": "テキスト",
+            "ko": "텍스트",
+            "nb": "Tekst",
+            "nl": "Tekst",
+            "pt-BR": "Texto",
+            "pt-PT": "Texto",
+            "sv": "Text",
+            "th": "ข้อความ",
+            "zh-CN": "文本",
+            "zh-TW": "文字"
+          },
+          "default": {
+            "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
+            "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+            "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+            "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+            "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
+            "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+            "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
+            "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+            "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+            "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
+            "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
+            "nl": "<p>Deel winkeldetails, promoties of merkcontent met uw klanten.</p>",
+            "pt-BR": "<p>Compartilhe informações da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+            "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
+            "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
+            "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
+            "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+            "zh-TW": "<p>與顧客分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+          }
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "limit": 1,
+      "name": {
+        "da": "Tilmelding til nyhedsbrev",
+        "de": "Newsletter-Anmeldung",
+        "en": "Newsletter signup",
+        "es": "Suscripción al boletín",
+        "fi": "Uutiskirjeen tilaus",
+        "fr": "Inscription",
+        "hi": "न्यूज़लेटर साइनअप",
+        "it": "Iscriviti alla Newsletter",
+        "ja": "ニュースレターの登録",
+        "ko": "뉴스레터 신청",
+        "nb": "Registrering for nyhetsbrev",
+        "nl": "Nieuwsbriefaanmelding",
+        "pt-BR": "Assinatura da newsletter",
+        "pt-PT": "Registo na newsletter",
+        "sv": "Nyhetsbrevsregistrering",
+        "th": "การสมัครรับจดหมายข่าว",
+        "zh-CN": "新闻通讯注册",
+        "zh-TW": "訂閱電子報"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "info": {
+            "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
+            "de": "Abonnenten werden zu Ihrer Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
+            "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
+            "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
+            "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
+            "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
+            "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
+            "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
+            "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
+            "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
+            "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
+            "nl": "Abonnees worden toegevoegd aan uw \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
+            "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
+            "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
+            "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
+            "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
+            "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
+            "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
+          },
+          "default": {
+            "da": "Nyhedsbrev",
+            "de": "Newsletter",
+            "en": "Newsletter",
+            "es": "Boletín",
+            "fi": "Uutiskirje",
+            "fr": "Newsletter",
+            "hi": "न्यूज़लेटर",
+            "it": "Newsletter",
+            "ja": "ニュースレター",
+            "ko": "뉴스레터",
+            "nb": "Nyhetsbrev",
+            "nl": "Nieuwsbrief",
+            "pt-BR": "Newsletter",
+            "pt-PT": "Newsletter",
+            "sv": "Nyhetsbrev",
+            "th": "จดหมายข่าว",
+            "zh-CN": "新闻通讯",
+            "zh-TW": "電子報"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

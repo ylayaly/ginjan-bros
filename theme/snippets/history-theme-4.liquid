@@ -1,0 +1,31 @@
+<section class="4xl:container">
+    <div class="block lg:hidden w-full h-auto items-center pl-6 sm:pl-12 md:pl-24 pt-10">
+        <span class="font-aeonik font-bold text-2xl sm:text-4xl md:text-6xl xl:text-68 opacity-70 ">{{ block.settings.year }}</span>
+    </div>
+    <div class="flex" style="color: {{ block.settings.color }}" >
+        <div class="w-full py-12 md:pt-20 lg:pt-30 px-6 sm:px-12 md:px-24 xl:pr-0 xl:pl-48 3xl:pl-77 sm:pb-12 xl:pb-18" >
+            <h1 class="text-5xl md:text-7xl xl:text-20 mb-4 leading-none font-bold">{{ block.settings.title }}</h1>
+            <h4 class="text-xl md:text-2xl lg:text-3xl xl:text-32 font-bold" >{{ block.settings.subtitle }}</h4>
+            <div class="font-aeonik text-base md:text-lg xl:text-22 mt-10 xl:mt-20 pr-8 md:pr-16 xl:pr-28">
+                <div class="grid lg:grid-cols-2">
+                    <div class="lg:mr-10">
+                        {{ block.settings.content }}
+                    </div>
+                    <div class="lg:ml-10">
+                        {{ block.settings.content_right }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-24 md:w-48 xl:w-64 hidden lg:grid h-auto items-center">
+            <span class="font-aeonik font-bold text-2xl sm:text-4xl md:text-5xl xl:text-68 opacity-70 ">{{ block.settings.year }}</span>
+            <span class="font-bold text-lg sm:text-xl md:text-2xl xl:text-8 mt-auto pb-20 opacity-70">{{ block.settings.text }}</span>
+        </div>
+    </div>
+    <div class="block lg:hidden w-full h-auto items-center pl-6 sm:pl-12 md:pl-24 pb-10">
+        <span class="font-aeonik font-bold text-2xl sm:text-4xl md:text-6xl xl:text-68 opacity-70 ">{{ block.settings.text }}</span>
+    </div>
+</section>
+<section class="4xl:container">
+    <div class="h-96 sm:h-128 xl:h-196 bg-cover bg-no-repeat bg-center" style="background-image: url({{ block.settings.image | image_url: width: auto }});"></div>
+</section>

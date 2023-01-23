@@ -1,0 +1,18 @@
+<section class="4xl:container">
+    <div class="xl:flex bg-blue py-12 md:pt-20 lg:pt-30 sm:pb-12 xl:pb-18">
+        <div class="w-full px-6 sm:px-12 md:px-24 xl:pr-0 xl:pl-48 3xl:pl-77 ">
+            <h1 class="text-5xl md:text-7xl xl:text-20 mb-4 leading-none font-bold text-white" >{{ block.settings.title }}</h1>
+            <h4 class="text-xl md:text-2xl lg:text-3xl xl:text-32 font-bold text-yellow" >{{ block.settings.subtitle }}</h4>
+        </div>
+        <div class="xl:w-1/2 flex flex-col justify-end pl-6 sm:pl-12 md:pl-24">
+            <a href="{{ block.settings.link }}" class="text-xl md:text-2xl lg:text-3xl xl:text-32 font-bold font-aeonik w-fit mt-12 text-white">
+                {{ block.settings.label }}
+                <div class="w-full h-3 border-b-4 border-white"></div>
+            </a>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 mt-8 xl:mt-16 mb-4 xl:mb-8 gap-4">
+        <img src="{{ block.settings.image1 | image_url: width: auto }}" class="object-cover w-full" alt="">
+        <img src="{{ block.settings.image2 | image_url: width: auto }}" class="object-cover w-full" alt="">
+    </div>
+</section>

@@ -1,0 +1,98 @@
+<div class="4xl:container mx-auto bg-blue pb-20 lg:pb-8 pt-28 lg:pt-32 2xl:pt-40 mb-13">
+  <div class="px-10 md:px-20 flex flex-col lg:flex-row font-loto gap-12 lg:gap-0">
+    <div class="w-full lg:w-3/5">
+      <h1 class="text-5xl 2xl:text-7xl"><span class="text-white">Welcome</span> <span class="text-dark-orange block md:inline">{{ customer.name }}</span></h1>
+    </div>
+    <div class="w-full lg:w-2/5 ">
+      <div class="flex font-loto text-base gap-5 lg:gap-3 lg:justify-end">
+        <a class="bg-dark-orange rounded-xl py-2 lg:py-4 px-4 lg:px-8 text-blue border border-dark-orange" href="mailto:{{ section.settings.support_mail }}">{{ section.settings.support_text }}</a>
+        {{ 'layout.customer.log_out' | t | customer_logout_link }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="4xl:container mx-auto px-10 md:px-20">
+  <div class="grid myaccount mb-13">
+    <div class="grid__item myaccount__order-history border-2 border-blue rounded-3xl py-3 xxs:py-6 lg:py-8 px-3 xxs:px-6 xl:px-8 2xl:px-13">
+      <h2 class="text-xl md:text-2xl 2xl:text-[2.2rem] 2xl:leading-10 mb-8 capitalize text-blue tracking-normal">Your {{ 'customer.orders.title' | t }}</h2>
+
+      {% paginate customer.orders by 20 %}
+        {% if customer.orders.size != 0 %}
+
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
+                <th scope="col">{{ 'customer.orders.date' | t }}</th>
+                <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
+                <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th scope="col">{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
+                    <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+                  </th>
+                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+                  <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        {% else %}
+
+          <p>{{ 'customer.orders.none' | t }}</p>
+
+        {% endif %}
+        {%- if paginate.pages > 1 -%}
+          {% include 'pagination', paginate: paginate %}
+        {%- endif -%}
+      {% endpaginate %}
+    </div>
+    <div class="grid__item myaccount__account-details border-2 border-blue rounded-3xl py-3 xxs:py-6 lg:py-8 px-3 xxs:px-6 xl:px-8 2xl:px-13 ">
+      <h2 class="text-xl md:text-2xl 2xl:text-[2.2rem] 2xl:leading-10 mb-8 capitalize text-blue tracking-normal">{{ 'customer.account.details' | t }}</h2>
+
+      {{ customer.default_address | format_address }}
+    
+      <div class="flex gap-4">
+        <p class="mt-8">
+          <a href="{{ routes.account_addresses_url }}" class="btn btn--small bg-green-1 rounded-full text-base capitalize font-loto px-4 xl:px-6">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+        </p>
+      </div>
+    </div>
+    <div class="border-2 border-blue rounded-3xl py-3 xxs:py-6 lg:py-8 px-3 xxs:px-6 xl:px-8 2xl:px-13 text-blue ">
+      <h2 class="text-xl md:text-2xl 2xl:text-[2.2rem] 2xl:leading-10 mb-8 capitalize text-blue tracking-normal">Your Subscriptions</h2>
+      <p class="mt-8"><a href="/tools/recurring/login/" class="btn btn--small bg-green-1 rounded-full text-base capitalize font-loto px-4 xl:px-6">Manage Subscriptions</a></p>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Account",
+    "settings": [
+        {
+            "type": "text",
+            "id": "support_text",
+            "label": "Btn Support Text"
+        },
+        {
+            "type": "text",
+            "id": "support_mail",
+            "label": "Email Support"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

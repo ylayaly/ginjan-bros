@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "PageHeader": {
+      "type": "header-page",
+      "settings": {
+        "title": "<p>Meet <br\/>Mohammed <br\/>& Rahim<\/p>",
+        "subtitle": "The Ginjan Brothers",
+        "image": "shopify:\/\/shop_images\/our-story-5.png",
+        "theme": true
+      }
+    },
+    "Content": {
+      "type": "page_content",
+      "settings": {
+      }
+    },
+    "CTABanner": {
+      "type": "cta_banner",
+      "settings": {
+        "title": "<p><strong>Take your<br\/>First Sip<br\/>of Ginjan.<\/strong><\/p>",
+        "text": "",
+        "label": "Shop Ginjan Now >",
+        "link": "shopify:\/\/collections\/the-shop",
+        "image1": "shopify:\/\/shop_images\/our-story-6.png",
+        "image2": "shopify:\/\/shop_images\/hero1.png"
+      }
+    }
+  },
+  "order": [
+    "PageHeader",
+    "Content",
+    "CTABanner"
+  ]
+}

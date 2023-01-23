@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "template": {
+      "type": "login",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/login-1.png",
+        "title": "<p>Your <strong>Ginjan<\/strong> Account<\/p>",
+        "subtitle": "<p>View your orders, change delivery and manage subscriptions <\/p>",
+        "btn_label": "LOG IN >",
+        "text_lost_password": "Lost your password?",
+        "title_register": "Don’t have an account?",
+        "register_btn_label": "Sign up"
+      }
+    },
+    "83370337-203a-4816-85c2-8924507a7147": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "Best Sellers right now",
+        "collection": "the-shop",
+        "grid": 4,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "template",
+    "83370337-203a-4816-85c2-8924507a7147"
+  ]
+}

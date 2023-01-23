@@ -1,0 +1,73 @@
+<span class="hidden data-detail-blog bg-blue opacity-60 rounded-full border-8 border-white recipe-detail p-10 xl:p-20 flex-col justify-center items-center"></span>
+<section class="4xl:container blog blog__title px-10 lg:px-20">
+    <div class="text-blue mt-20 lg:mt-36 mb-14 lg:mb-24">
+        <div>
+            <h1 class="font-bold text-4xl lg:text-6xl xl:text-87">{{ page_title }}</h1>
+        </div>
+    </div>
+</section>
+<section class="4xl:container blog blog_recipe">
+    <div class="relative">
+        <div class="bg-cover bg-no-repeat bg-center w-full h-screen" style="background-image: url({{ article.image.src | image_url }})"></div>
+        <div class="absolute inset-0 flex justify-center items-center">
+            <div class="flex flex-col items-center justify-center recipe-detail relative">
+                <div class="absolute w-full h-full insect-0 bg-blue opacity-60 rounded-full border-8 border-white"></div>
+                <div class="relative p-10 xl:p-20 flex flex-col justify-center items-center">
+                    {% include 'icon-recipe' %}
+                    {{ article.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="4xl:container blog blog_recommendation px-10 lg:px-0">
+    <h4 class="font-recoleta text-black text-2xl lg:text-4xl text-center mt-16 xl:mt-28 mb-12 xl:mb-24">you may also like</h4>
+    <div class="grid lg:grid-cols-3 gap-4 md:px-24 xl:px-44">
+        {% for item in blog.articles %}
+            {% assign id = item.id %}
+            {% if article.id <> id and forloop.index < 5 %}
+                <a href="{{ item.url }}">
+                    <div>
+                        <img class="object-cover w-full aspect-square" src="{{ item.image.src | image_url: width: '1200px' }}" />
+                    </div>
+                    <h4 class="text-black text-xl lg:text-2xl mt-6">{{ item.title }}</h4>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Article header",
+  "class": "blog-section",
+  "settings" : [
+
+  ],
+  "presets": [
+    {
+      "name": "Blog header",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

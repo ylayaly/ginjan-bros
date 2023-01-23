@@ -1,0 +1,46 @@
+<section class="4xl:container relative bg-white">
+    <div class="relative 4xl:container hidden-br mt-10">
+        <div class="h-cta-banner bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="absolute inset-0">
+            <div class="px-10 md:px-20 flex flex-col justify-center h-full">
+                <h1 class="text-white font-bold text-5xl md:text-6xl xl:text-8xl mb-8 md:mb-12 lg:mb-24">{{ section.settings.title }}</h1>
+                <h3 class="text-white font-bold text-lg md:text-xl xl:text-4xl mb-6 lg:mb-9">{{ section.settings.text }}</h3>
+                <a class="block w-max" href="{{ section.settings.link }}">
+                    {% include 'icon-arrow' %} 
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": {
+    "en": "Banner & CTA",
+    "es": "Imagen con Link"
+  },
+  "class": "index-section index-section--flush",
+  "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text in top background"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+  ]
+}
+{% endschema %}

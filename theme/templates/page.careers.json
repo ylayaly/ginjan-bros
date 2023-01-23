@@ -1,0 +1,74 @@
+{
+  "sections": {
+    "PageHeader": {
+      "type": "header-page",
+      "settings": {
+        "title": "<p>Join the<br\/>Ginjan Tribe<\/p>",
+        "subtitle": "",
+        "image": "shopify:\/\/shop_images\/careers-1.png",
+        "theme": false
+      }
+    },
+    "Content": {
+      "type": "page_content",
+      "settings": {
+      }
+    },
+    "Careers": {
+      "type": "careers_form",
+      "blocks": {
+        "43d01ba9-7d84-47a8-aa9b-e3e86e463310": {
+          "type": "items",
+          "settings": {
+            "title": "Barista — Ginjan Café Brooklyn",
+            "description": "<p>Do you barista?  The Brooklyn Café opens January 2022 and we’re looking for prime peeps.   <\/p>",
+            "label": "APPLY NOW >"
+          }
+        },
+        "f539dacb-499a-4b33-bda5-ae5b890c77d7": {
+          "type": "items",
+          "settings": {
+            "title": "Barista — Ginjan Café Harlem",
+            "description": "<p>Work where you live.   We’re looking for enthusiastic individuals for a competitive hourly package.<\/p>",
+            "label": "APPLY NOW >"
+          }
+        },
+        "d036e156-a854-4420-b838-159a69480c53": {
+          "type": "items",
+          "settings": {
+            "title": "Marketing Intern",
+            "description": "<p>Get real experience.  We’re looking for a dynamic marketing intern.<\/p>",
+            "label": "APPLY NOW >"
+          }
+        }
+      },
+      "block_order": [
+        "43d01ba9-7d84-47a8-aa9b-e3e86e463310",
+        "f539dacb-499a-4b33-bda5-ae5b890c77d7",
+        "d036e156-a854-4420-b838-159a69480c53"
+      ],
+      "settings": {
+        "title": "Now Hiring in Harlem, Brooklyn & Remotely",
+        "title_form": "<p>Join the<br\/>Ginjan Tribe<\/p>",
+        "text_form": "<p>Thanks for your interest in our growing brand.   Please complete this form and we’ll be in touch soon.<br\/><br\/>We typically respond within 48 hours.<\/p>"
+      }
+    },
+    "CTABanner": {
+      "type": "cta_banner",
+      "settings": {
+        "title": "<p><strong>Take your<br\/>First Sip<br\/>of Ginjan.<\/strong><\/p>",
+        "text": "",
+        "label": "Shop Ginjan Now >",
+        "link": "shopify:\/\/collections\/the-shop",
+        "image1": "shopify:\/\/shop_images\/our-story-6.png",
+        "image2": "shopify:\/\/shop_images\/hero1.png"
+      }
+    }
+  },
+  "order": [
+    "PageHeader",
+    "Content",
+    "Careers",
+    "CTABanner"
+  ]
+}

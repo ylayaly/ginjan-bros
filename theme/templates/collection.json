@@ -1,0 +1,98 @@
+{
+  "sections": {
+    "template": {
+      "type": "collection-template-gb",
+      "settings": {
+        "title": "<p><strong>Shipping <br\/>across the US.<\/strong><\/p>",
+        "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
+        "layout": "grid",
+        "grid": 4,
+        "rows": 1,
+        "show_collection_image": true,
+        "show_vendor": false,
+        "sort_enable": false,
+        "tags_enable": false,
+        "show_paginate": false
+      }
+    },
+    "cta": {
+      "type": "grid-cta",
+      "disabled": true,
+      "settings": {
+        "hero_size": "h-40vh xl:h-50vh min-h-192",
+        "image": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_40.png",
+        "text_size": "text-2xl md:text-4xl xl:text-5xl",
+        "text_align": "left",
+        "text_vertical_align": "justify-end",
+        "text": "<p>The Ginjan Juice Subscription.<\/p>",
+        "subtitle_size": "text-lg md:text-xl xl:text-2xl",
+        "sub_text": "<p>Organic goodness straight outta New York City to your door — weekly.<\/p>",
+        "button_label": "learn more >",
+        "button_link": "shopify:\/\/products\/subscribe",
+        "color_text": "#ffffff",
+        "color_subtitle": "#ffffff",
+        "image_right": "shopify:\/\/shop_images\/Cafe_CTA.png",
+        "text_size_right": "text-lg md:text-xl xl:text-2xl font-recoleta",
+        "text_align_right": "left",
+        "text_vertical_align_right": "justify-end",
+        "text_right": "<p>VISIT & EXPLORE<\/p>",
+        "subtitle_size_right": "text-2xl md:text-4xl xl:text-5xl",
+        "sub_text_right": "<p><strong>The Ginjan Café<\/strong><\/p>",
+        "button_label_right": "",
+        "button_link_right": "shopify:\/\/pages\/ginjan-cafe",
+        "button_align_right": "justify-end mt-8 xl:mt-14",
+        "color_text_right": "#ffffff"
+      }
+    },
+    "164727700365f2b7dc": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "",
+        "collection": "the-shop-second-row",
+        "grid": 4,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    },
+    "59aeba3e-1ab8-444a-b1d3-abb3753f7dc1": {
+      "type": "collection-list",
+      "disabled": true,
+      "blocks": {
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-0",
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-1",
+        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-2"
+      ],
+      "settings": {
+        "title": "Collection list",
+        "grid": 3
+      }
+    }
+  },
+  "order": [
+    "template",
+    "cta",
+    "164727700365f2b7dc",
+    "59aeba3e-1ab8-444a-b1d3-abb3753f7dc1"
+  ]
+}

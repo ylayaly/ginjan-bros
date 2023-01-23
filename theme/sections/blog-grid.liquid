@@ -1,0 +1,209 @@
+{% assign articles_id = "" | split: ", " %}
+<style>
+    .blog__item:nth-child(even) .blog__item-text{
+        order: 1;
+        background: {{ section.settings.bg_color_even }};
+        color: {{ section.settings.text_color_even }};
+    }
+    .blog__item:nth-child(odd) .blog__item-text{
+        order: 3;
+        background: {{ section.settings.bg_color_odd }};
+        color: {{ section.settings.text_color_odd }};
+    }
+    .blog__item-text::after{
+        background-color: {{ section.settings.bg_color_odd }};
+    }
+    .blog__item:nth-child(even) .blog__item-text::after{
+        background-color:{{ section.settings.bg_color_even }};
+    }
+</style>
+<section class="4xl:container blog blog__grid grid gap-6">
+    {% for block in section.blocks %}
+        
+        {% assign id = block.settings.article.id | split: "," %}
+        {% assign articles_id = articles_id | concat: id %}
+
+        <div class="relative min-h-96 lg:min-h-192 flex {{ block.settings.vertical_align }} {% if forloop.index == 2 %} row-span-2 {% endif %} ">
+            <div class="absolute inset-0 bg-no-repeat bg-cover" style="background-image: url({{ block.settings.article.image.src | image_url: width: '1200px' }}); background-position: center right;"></div>
+            <div class="absolute inset-0 opacity-40 bg-black sm:hidden"></div>
+            <div class="featured-article-text relative w-full {% if block.settings.vertical_align == "items-start" %} ml-10 sm:mt-10 lg:mt-32 lg:ml-32 xl:mt-56 xl:ml-64 3xl:mt-72 3xl:ml-96 pr-10 md:pr-16 lg:pr-20 {% else %} px-10 md:px-16 lg:px-20 {% endif %}" style="color: {{ block.settings.color }};">
+                <h3 class="text-4xl xl:text-6xl mb-4 mt-12 lg:mt-12">{{ block.settings.article.title }}</h3>
+                <div class="flex {% if block.settings.theme == 'theme-i' %} flex-col {% else %} md:items-end flex-col md:flex-row {% endif %} justify-between">
+                    <div class="recoleta text-lg mb-8 lg:mb-11 w-4/5">{{ block.settings.article.content }}</div>
+                    <a class="blog__btn font-bold uppercase block w-max mb-10 lg:mb-16 h-max" href="{{ block.settings.article.url }}">LEARN HOW ></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+<section class="4xl:container blog blog__repeat">
+    {% for article in blog.articles %}
+        {% assign id = article.id | append: "" %}
+        {% unless articles_id contains id  %}
+            <div class="lg:flex mt-6 min-h-136 blog__item">
+                <div class="w-full lg:w-1/45 order-2 blog__item-image">
+                    <img class="object-cover h-full w-full" src="{{ article.image.src | image_url: width: '1200px' }}" alt="">
+                </div>
+                <div class="w-full flex items-center blog__item-text py-16">
+                    <div class="relative px-10 sm:px-16 lg:px-20">
+                        <h3 class="text-4xl xl:text-6xl mb-6">{{ article.title }}</h3>
+                        <div class="recoleta text-xl lg:text-28 leading-7 lg:leading-9 mb-11 lg:mb-16">{{ article.content }}</div>
+                        <a class="blog__btn font-bold uppercase block w-max" href="{{ article.url }}">LEARN HOW ></a>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        {% endunless %}
+    {% endfor %}
+    {% comment %} <div class="flex mt-6 h-136">
+        <div class="w-full flex items-center blog__item mr-6" style="background: #081346;">
+            <div class="relative px-16 lg:px-20" style="color: white;">
+                <h3 class="text-4xl xl:text-6xl mb-6">Gingembre Fizz</h3>
+                <p class="recoleta text-xl lg:text-28 leading-7 lg:leading-9 mb-11 lg:mb-16">A new take on the Penicillin.  We lean in heavy on our ginger heritage with a rich and deep expression of bourbon, lemon and the kick of our Ginjan Ginger.</p>
+                <a class="blog__btn font-bold uppercase block w-max" href="">LEARN HOW ></a>
+            </div>
+        </div>
+        <div class="w-full ">
+            <img class="object-cover h-full w-full" src="./img/Blog 5.png" alt="">
+        </div>
+    </div> {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "Blog Grid",
+  "class": "blog-section",
+  "settings" : [
+    {
+        "type": "header",
+        "content": "Odd item"
+    },
+    {
+        "id": "bg_color_odd",
+        "type": "color",
+        "label": "Background color"
+    },
+    {
+        "id": "text_color_odd",
+        "type": "color",
+        "label": "Text color"
+    },
+    {
+        "type": "header",
+        "content": "Even item"
+    },
+    {
+        "id": "bg_color_even",
+        "type": "color",
+        "label": "Background color"
+    },
+    {
+        "id": "text_color_even",
+        "type": "color",
+        "label": "Text color"
+    }
+    
+  ],
+  "blocks" : [
+        {
+            "name": "Time theme 1",
+            "type": "article",
+            "settings": [
+                {
+                    "id": "article",
+                    "type": "article",
+                    "label": "Article"
+                },
+                {
+                    "id": "color",
+                    "type": "color",
+                    "label": "Text color"
+                },
+                {
+                    "type": "select",
+                    "id": "vertical_align",
+                    "label": "Vertical align",
+                    "default": "items-end",
+                    "options": [
+                        {
+                            "value": "items-start",
+                            "label":"Top"
+                        },
+                        {
+                            "value": "items-center",
+                            "label":"Center"
+                        },
+                        {
+                            "value": "items-end",
+                            "label":"Bottom"
+                        }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "horizontal_align",
+                    "label": "Horizontal align",
+                    "default": "justify-start",
+                    "options": [
+                        {
+                            "value": "justify-start",
+                            "label":"Left"
+                        },
+                        {
+                            "value": "justify-center",
+                            "label":"Center"
+                        },
+                        {
+                            "value": "justify-end",
+                            "label":"Right"
+                        }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "theme",
+                    "label": "Theme",
+                    "default": "theme-i",
+                    "options": [
+                        {
+                            "value": "theme-i",
+                            "label":"Theme I"
+                        },
+                        {
+                            "value": "theme-ii",
+                            "label":"Theme II"
+                        }
+                    ]
+                }
+            ]
+        }
+  ],
+  "presets": [
+    {
+      "name": "Blog Grid",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

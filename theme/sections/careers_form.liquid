@@ -1,0 +1,114 @@
+<section class="4xl:container">
+    <div class="w-3/4 mx-auto py-12 lg:py-24">
+        <h3 class="font-bold text-orange text-2xl lg:text-4xl">{{ section.settings.title }}</h3>
+        <div class="content text-blue py-16 font-aeonik">
+            {% for block in section.blocks %}
+                <a href="" class="open-form-careers pt-7 pb-10 md:flex items-end block" data-value="{{ block.settings.title }}">
+                    <div class="w-full">
+                        <h4 class="mb-5 xl:mb-7 text-xl md:text-2xl xl:text-28 font-semibold">{{ block.settings.title }}</h4>
+                        <div class="text-lg xl:text-xl">
+                            {{ block.settings.description }}
+                        </div>
+                    </div>
+                    <div class="md:w-1/5 md:ml-16 xl:ml-32 md:text-right font-bold mt-6 md:mt-0">{{ block.settings.label }}</div>
+                </a>
+                <div class="border-b border-blue last:border-b-0 opacity-30"></div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="form_careers absolute top-0 right-0 left-0 h-auto z-40">
+        <div class="absolute inset-0 bg-green opacity-90"></div>
+        <div class="4xl:container relative text-white py-10 md:py-16 px-10 md:px-20">
+            <div class="bg-menu bg-menu-careers open w-6 xs:w-8 md:w-12 relative z-40 xs:h-4 md:h-5 cursor-pointer"><span></span></div>
+            <div class="md:mx-12 lg:mx-36 xl:mx-48 3xl:mx-64 mt-36 xl:mt-53">
+                <div class="text-5xl md:text-7xl xl:text-20 mb-6 xl:mb-10 leading-none font-bold ">
+                    {{ section.settings.title_form }}
+                </div>
+                <div class="block lg:hidden text-lg xl:text-2xl py-10">
+                    {{ section.settings.text_form }}
+                </div>
+                <div class="form grid lg:grid-cols-3 gap-18">
+                    <div class="lg:col-span-2">
+                        {% form 'contact' %}
+                            {{ form.errors | default_errors }}
+                            <div class="form-input mb-12">
+                                <select name="contact[body]" id="career-item" class="rounded-2xl text-xl lg:text-28 py-4 md:py-6 px-4 md:px-10 md:px-14 w-full font-light bg-transparent border-2 border-white appearance-none bg-select leading-6 md:leading-10 truncate" placeholder="Position interested in">
+                                    {% for block in section.blocks %}
+                                        <option value="{{ block.settings.title }}">{{ block.settings.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-input mb-12">
+                                <input name="contact[zip_code]" type="text" class="rounded-2xl text-xl lg:text-28 py-3 md:py-5 px-4 md:px-10 md:px-14 w-full font-light bg-transparent border-2 border-white" placeholder="Your Zip Code">
+                            </div>
+                            <div class="form-input mb-12">
+                                <input name="contact[full_name]" type="text" class="rounded-2xl text-xl lg:text-28 py-3 md:py-5 px-4 md:px-10 md:px-14 w-full font-light bg-transparent border-2 border-white" placeholder="Your Full Name">
+                            </div>
+                            <div class="form-input mb-12">
+                                <input name="contact[email]" type="email" class="rounded-2xl text-xl lg:text-28 py-3 md:py-5 px-4 md:px-10 md:px-14 w-full font-light bg-transparent border-2 border-white" placeholder="Your email Address">
+                            </div>
+                            <div class="form-input mb-12">
+                                <input name="contact[phone]" type="text" class="rounded-2xl text-xl lg:text-28 py-3 md:py-5 px-4 md:px-10 md:px-14 w-full 3xl:w-1/2 font-light bg-transparent border-2 border-white" placeholder="Your Phone No">
+                            </div>
+                            <button type="submit" class="font-bold text-2xl lg:text-4xl font-loto mt-18 lg:mt-28 mb-2">Send
+                            {% include 'icon-arrow' %}
+                            </button>
+                        {% endform %}
+                    </div>
+                    <div class="hidden lg:block text-lg xl:text-2xl">
+                        {{ section.settings.text_form }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": {
+    "en": "Careers Form",
+    "es": "Formulario"
+  },
+  "class": "index-section index-section--flush",
+  "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title section"
+        },
+        {
+            "type": "richtext",
+            "id": "title_form",
+            "label": "Title Form"
+        },
+        {
+            "type": "richtext",
+            "id": "text_form",
+            "label": "Text Form"
+        }
+  ],
+  "blocks": [
+      {
+          "type": "items",
+          "name": "Items",
+          "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "text",
+                    "id": "label",
+                    "label": "Button label"
+                }
+          ]
+      }
+  ]
+}
+{% endschema %}

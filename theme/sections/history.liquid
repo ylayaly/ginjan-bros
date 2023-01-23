@@ -1,0 +1,268 @@
+{% for block in section.blocks %}
+    {% assign type = block.type %}
+    {% case type %}
+        {% when 'theme-1' %}
+            {% include 'history-theme-1', block: block %}
+        {% when 'theme-2' %}
+            {% include 'history-theme-2', block: block %}
+        {% when 'theme-3' %}
+            {% include 'history-theme-3', block: block %}
+        {% when 'theme-4' %}
+            {% include 'history-theme-4', block: block %}
+        {% when 'theme-5' %}
+            {% include 'history-theme-5', block: block %}
+    {% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "History",
+    "settings": [],
+    "blocks" : [
+        {
+            "name": "Time theme 1",
+            "type": "theme-1",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Sub Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "year",
+                    "label": "Year"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Background image"
+                },
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Color"
+                }
+            ]
+        },
+        {
+            "name": "Time theme 2",
+            "type": "theme-2",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Sub Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "year",
+                    "label": "Year"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Background image"
+                },
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Color"
+                }
+            ]
+        },
+        {
+            "name": "Time theme 3",
+            "type": "theme-3",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Sub Title"
+                },
+                {
+                    "type": "text",
+                    "id": "year",
+                    "label": "Year"
+                },                
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Color"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                },
+                {
+                    "type": "header",
+                    "content" : "Please add text - year."
+                },
+                {
+                    "type": "text",
+                    "id": "content1",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content2",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content3",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content4",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content5",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content6",
+                    "label": "Content"
+                },
+                {
+                    "type": "header",
+                    "content" : "Images"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image1",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image2",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image3",
+                    "label": "Image"
+                }
+            ]
+        },
+        {
+            "name": "Time theme 4",
+            "type": "theme-4",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Sub Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content Left"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content_right",
+                    "label": "Content Right"
+                },
+                {
+                    "type": "text",
+                    "id": "year",
+                    "label": "Year"
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Bottom text"
+                },
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Color"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Background image"
+                }
+            ]
+        },
+        {
+            "name": "Time theme 5",
+            "type": "theme-5",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Sub Title"
+                },
+                {
+                    "type": "text",
+                    "id": "label",
+                    "label": "Button label"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image1",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image2",
+                    "label": "Image"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

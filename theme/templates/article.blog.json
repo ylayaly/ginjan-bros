@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "Template": {
+      "type": "article-blog-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "Template"
+  ]
+}

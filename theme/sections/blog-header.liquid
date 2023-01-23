@@ -1,0 +1,59 @@
+<section class="4xl:container blog blog__title px-10 lg:px-20">
+    <div class="grid md:grid-cols-2 text-blue mt-20 lg:mt-36 mb-14 lg:mb-24">
+        <div>
+            <h1 class="font-bold text-4xl lg:text-6xl xl:text-87">{{ page_title }}</h1>
+            <p class="font-recoleta text-xl lg:text-32 mt-8">{{ section.settings.subtitle }}</p>
+        </div>
+        <div class="mt-10 md:mt-0 flex items-center">
+            <p class="font-recoleta text-lg lg:text-28 leading-6 xl:leading-9">
+              {{ section.settings.description }}
+            </p>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog header",
+  "class": "blog-section",
+  "settings" : [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Natural or Super-Natural"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Libations, for us, invoke a sense of place or a memories from time long past.  We’ve selected the best recipes mixing our signature Ginger and Bissap juices — in full ABV and zero-proof/non-alcoholic options."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog header",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

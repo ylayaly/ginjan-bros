@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "template": {
+      "type": "register",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/login-1.png",
+        "title": "Sign up",
+        "subtitle": "<p>Don’t have an account?  Sign up below.<\/p>",
+        "btn_label": "REGISTER >",
+        "title_register": "Have an account already?",
+        "register_btn_label": "Log In >"
+      }
+    },
+    "e1b0eaec-bcb5-4976-ab9e-0dda61feac64": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "Best Sellers right now",
+        "collection": "the-shop",
+        "grid": 4,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "template",
+    "e1b0eaec-bcb5-4976-ab9e-0dda61feac64"
+  ]
+}

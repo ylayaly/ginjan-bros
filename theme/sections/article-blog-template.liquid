@@ -1,0 +1,109 @@
+<span class="hidden data-detail-blog bg-blue opacity-60 rounded-full border-8 border-white drink-detail p-10 xl:p-20 flex-col justify-center items-center"></span>
+<section class="4xl:container blog blog__title px-10 lg:px-20">
+    <div class="text-blue mt-20 lg:mt-30 mb-14 lg:mb-24 w-full lg:w-3/4 2xl:w-4/6 mx-auto">
+        <div class="mb-6">
+            <span class="text-orange font-bold">{{ article.metafields.post.top_tag }}</span>
+        </div>
+        <div>
+            <h1 class="font-bold text-[2.5rem] md:text-6xl">{{ page_title }}</h1>
+        </div>
+        <div class="mt-10 flex gap-5">
+            <button type="button" id="share-facebook" class="shared_btn w-8 h-8 bg_facebook_blog"></button>
+            <button type="button" id="share-twitter" class="shared_btn w-8 h-8 bg_twitter_blog"></button>
+            <button type="button" id="share-link" class="shared_btn w-8 h-8 bg_link_blog"></button>
+        </div>
+    </div>
+</section>
+<section class="mt-10 mb-18 lg:mb-16 overflow-hidden">
+    <img src="{{ article.image.src | image_url }}" loading="lazy" width="auto" height="auto" class="w-full h-60 md:h-160 object-cover object-center"/>
+</section>
+<section class="4xl:container blog blog_drink">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+        {{ article.content }}
+    </div>
+</section>
+<section class="4xl:container blog blog_drink">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+        <div id="" class="border-blue border-t-2 py-10">
+            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal"> {{ article.metafields.custom.products_title | newline_to_br }} </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                {%- for product in article.metafields.recommendation.products.value -%}
+                <div class="">
+                    {% include 'product-card-recommendation-gb', max_height: 250, product: product, show_vendor: false %}
+                </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="4xl:container blog blog_drink--recommendation mb-24">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+        <div id="" class="border-blue border-t-2 py-10">
+            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal "> {{ article.metafields.post.recommendation_title | newline_to_br }} </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                {% if article.metafields.recommendation_i.title %}
+                    <div class="w-full h-full text-white relative">
+                        <img src="{{ article.metafields.recommendation_i.image | image_url }}" class="relative object-cover object-center w-full h-full" loading="lazy" width="auto" height="auto"/>
+                        <div class="absolute inset-0 p-6 lg:p-12">
+                            <h2 class="mb-4 normal-case tracking-normal text-2xl lg:text-4xl font-bold">{{ article.metafields.recommendation_i.title }}</h2>
+                            <div class="block mb-12 text-[10px] xxs:text-xs xs:text-sm">
+                                {{ article.metafields.recommendation_i.subtitle | newline_to_br }}
+                            </div>
+                            <a href="{{ article.metafields.recommendation_i.url }}" class="border-b-2 border-white pb-1 font-bold text-[9px] lg:text-xs">LEARN HOW > </a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if article.metafields.recommendation_ii.title %}
+                    <div class="w-full h-full text-blue relative">
+                        <img src="{{ article.metafields.recommendation_ii.image | image_url }}" class="relative object-cover object-center w-full h-full" loading="lazy" width="auto" height="auto"/>
+                        <div class="absolute inset-0 p-6 lg:p-12 flex justify-end flex-col">
+                            <h2 class="mb-4 normal-case tracking-normal text-2xl lg:text-4xl font-bold">{{ article.metafields.recommendation_ii.title }}</h2>
+                            <div class="flex flex-col 2xl:flex-row gap-6 justify-between 2xl:items-end">
+                                <p class="2xl:w-3/4 2xl:basis-auto">
+                                    {{ article.metafields.recommendation_ii.subtitle | newline_to_br }}
+                                </p>
+                                <div class="2xl:basis-1/4 2xl:text-right"><a href="{{ article.metafields.recommendation_ii.url }}" class="border-b-2 border-blue pb-1 font-bold w-1/4 text-[9px] lg:text-xs">LEARN HOW > </a></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Article Blog",
+  "class": "blog-section",
+  "settings" : [
+
+  ],
+  "presets": [
+    {
+      "name": "Blog header",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

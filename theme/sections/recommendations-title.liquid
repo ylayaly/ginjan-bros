@@ -1,0 +1,52 @@
+<section class="4xl:container blog blog__title px-10 lg:px-20 mt-16 xl:mt-28">
+    <div class="text-blue text-center">
+        <h3 class="font-bold text-2xl xl:text-4xl">{{ section.settings.title }}</h3>
+        <p class="text-base xl:text-xl mt-5">{{ section.settings.subtitle }}</p>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recommendations Title",
+  "class": "blog-section",
+  "settings" : [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Start a new Cocktail Regime"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "SHOP GINJAN JUICES"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommendations Title",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

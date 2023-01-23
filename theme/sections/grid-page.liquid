@@ -1,0 +1,339 @@
+<section>
+    <div class="4xl:container">
+        <div class="grid lg:grid-cols-2 ">
+            <div class="grid sm:grid-cols-2-gb-1">
+                <div class="w-full h-full  bg-cover bg-no-repeat bg-center min-h-112" style="background-image: url({{ section.settings.image_1 | image_url: width: auto }});"></div>
+                <div class="flex flex-col justify-center p-6 lg:p-12 font-aeonic min-h-112"
+                    style="background-color: #081833; color: #C7A945">
+                    <div class="text-lg sm:text-xl lg:text-2xl xl:text-3xl pb-4 xl:pb-8">
+                        {{ section.settings.title }}
+                    </div>
+                    <div class="text-sm lg:text-base xl:text-lg pb-5 xl:pb-9 font-medium">
+                        {{ section.settings.content }}
+                    </div>
+                    <div>
+                        <a href="javascript:void(0)" onclick="goToMenu()" class="font-bold">
+                            {{ section.settings.button_label }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-full bg-cover bg-no-repeat bg-center min-h-112"
+                style="background-image: url({{ section.settings.image_3 | image_url: width: auto }});"></div>
+        </div>
+        <div class="grid lg:grid-cols-2 w-full">
+            <div class="grid w-full sm:grid-cols-2-gb-2">
+                <div class="w-full h-full bg-cover bg-no-repeat bg-center min-h-80"
+                    style="background-image: url({{ section.settings.image_4 | image_url: width: auto }});"></div>
+                <div class="w-full h-full bg-cover bg-no-repeat bg-center min-h-80"
+                    style="background-image: url({{ section.settings.image_5 | image_url: width: auto }});"></div>
+            </div>
+            <div class="grid w-full sm:grid-cols-2-gb-2 w-full">
+                <div class="w-full h-full bg-cover bg-no-repeat bg-center min-h-80"
+                    style="background-image: url({{ section.settings.image_6 | image_url: width: auto }});"></div>
+                <div class="w-full h-full bg-cover bg-no-repeat bg-center min-h-80"
+                    style="background-image: url({{ section.settings.image_7 | image_url: width: auto }});"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Grid page",
+    "settings": [
+        {
+            "type": "header",
+            "content": {
+                "da": "Text block",
+                "de": "Text block",
+                "en": "Text block",
+                "es": "Bloque de texto",
+                "fi": "Text block",
+                "fr": "Text block",
+                "hi": "Text block",
+                "it": "Text block",
+                "ja": "Text block",
+                "ko": "Text block",
+                "nb": "Text block",
+                "nl": "Text block",
+                "pt-BR": "Text block",
+                "pt-PT": "Text block",
+                "sv": "Text block",
+                "th": "Text block",
+                "zh-CN": "Text block",
+                "zh-TW": "Text block"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": {
+                "da": "Title",
+                "de": "Title",
+                "en": "Title",
+                "es": "Title",
+                "fi": "Title",
+                "fr": "Title",
+                "hi": "Title",
+                "it": "Title",
+                "ja": "Title",
+                "ko": "Title",
+                "nb": "Title",
+                "nl": "Title",
+                "pt-BR": "Title",
+                "pt-PT": "Title",
+                "sv": "Title",
+                "th": "Title",
+                "zh-CN": "Title",
+                "zh-TW": "Title"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "content",
+            "label": {
+                "da": "Content",
+                "de": "Content",
+                "en": "Content",
+                "es": "Contenido",
+                "fi": "Content",
+                "fr": "Content",
+                "hi": "Content",
+                "it": "Content",
+                "ja": "Content",
+                "ko": "Content",
+                "nb": "Content",
+                "nl": "Content",
+                "pt-BR": "Content",
+                "pt-PT": "Content",
+                "sv": "Content",
+                "th": "Content",
+                "zh-CN": "Content",
+                "zh-TW": "Content"
+            }
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": {
+                "da": "Knaptekst",
+                "de": "Button-Etikett",
+                "en": "Button label",
+                "es": "Etiqueta de botón",
+                "fi": "Tekstipainike",
+                "fr": "Texte du bouton",
+                "hi": "बटन लेबल",
+                "it": "Etichetta pulsante",
+                "ja": "ボタンのラベル",
+                "ko": "버튼 레이블",
+                "nb": "Knappetikett",
+                "nl": "Knoplabel",
+                "pt-BR": "Etiqueta de botão",
+                "pt-PT": "Etiqueta do botão",
+                "sv": "Knappetikett",
+                "th": "ป้ายกำกับปุ่ม",
+                "zh-CN": "按钮标签",
+                "zh-TW": "按鈕標籤"
+            }
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": {
+                "da": "Knaplink",
+                "de": "Button-Etikett",
+                "en": "Button link",
+                "es": "Enlace de botón",
+                "fi": "Painikelinkki",
+                "fr": "Lien du bouton",
+                "hi": "बटन लिंक",
+                "it": "Link pulsante",
+                "ja": "ボタンのリンク",
+                "ko": "버튼 링크",
+                "nb": "Kobling for knapp",
+                "nl": "Knoplink",
+                "pt-BR": "Link de botão",
+                "pt-PT": "Ligação do botão",
+                "sv": "Knapplänk",
+                "th": "ลิงก์ปุ่ม",
+                "zh-CN": "按钮链接",
+                "zh-TW": "按鈕連結"
+            }
+        },
+        {
+            "type": "header",
+            "content": {
+                "da": "Image blocks",
+                "de": "Image blocks",
+                "en": "Image blocks",
+                "es": "Bloques de imagen",
+                "fi": "Image blocks",
+                "fr": "Image blocks",
+                "hi": "Image blocks",
+                "it": "Image blocks",
+                "ja": "Image blocks",
+                "ko": "Image blocks",
+                "nb": "Image blocks",
+                "nl": "Image blocks",
+                "pt-BR": "Image blocks",
+                "pt-PT": "Image blocks",
+                "sv": "Image blocks",
+                "th": "Image blocks",
+                "zh-CN": "Image blocks",
+                "zh-TW": "Image blocks"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 1",
+                "es": "Imagen 1",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_3",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 3",
+                "es": "Imagen 3",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_4",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 4",
+                "es": "Imagen 4",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_5",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 5",
+                "es": "Imagen 5",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_6",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 6",
+                "es": "Imagen 6",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "image_7",
+            "label": {
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Image Block 7",
+                "es": "Imagen 7",
+                "fi": "Kuva",
+                "fr": "Image",
+                "hi": "इमेज",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

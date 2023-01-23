@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "Header": {
+      "type": "blog-header",
+      "settings": {
+        "subtitle": "Natural or Super-Natural",
+        "description": "Libations, for us, invoke a sense of place or memories from time long past.  We’ve selected the best recipes mixing our signature Ginger and Bissap juices — in full proof and zero-proof\/non-alcoholic options."
+      }
+    },
+    "Grid": {
+      "type": "blog-grid",
+      "blocks": {
+        "25b46e35-ce01-40aa-9cb2-29ed06e9e8cf": {
+          "type": "article",
+          "settings": {
+            "article": "recipes\/ginjan-mule",
+            "color": "#081346",
+            "vertical_align": "items-end",
+            "horizontal_align": "justify-start",
+            "theme": "theme-i"
+          }
+        },
+        "b599a703-e7b5-40c0-a8f9-3f502f9304e8": {
+          "type": "article",
+          "settings": {
+            "article": "recipes\/grande-passe-spritz",
+            "color": "#ffffff",
+            "vertical_align": "items-start",
+            "horizontal_align": "justify-center",
+            "theme": "theme-i"
+          }
+        },
+        "98fc15f2-d181-41c2-b815-539e8e8b749b": {
+          "type": "article",
+          "settings": {
+            "article": "recipes\/flor-de-conakry",
+            "color": "#111e2b",
+            "vertical_align": "items-end",
+            "horizontal_align": "justify-start",
+            "theme": "theme-ii"
+          }
+        }
+      },
+      "block_order": [
+        "25b46e35-ce01-40aa-9cb2-29ed06e9e8cf",
+        "b599a703-e7b5-40c0-a8f9-3f502f9304e8",
+        "98fc15f2-d181-41c2-b815-539e8e8b749b"
+      ],
+      "settings": {
+        "bg_color_odd": "#eaa48b",
+        "text_color_odd": "#081346",
+        "bg_color_even": "#081346",
+        "text_color_even": "#ffffff"
+      }
+    },
+    "RecommendationsTitle": {
+      "type": "recommendations-title",
+      "settings": {
+        "title": "Start a new Cocktail Regime",
+        "subtitle": "SHOP GINJAN JUICES"
+      }
+    },
+    "Recommendations": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "",
+        "collection": "the-shop",
+        "grid": 2,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "Header",
+    "Grid",
+    "RecommendationsTitle",
+    "Recommendations"
+  ]
+}

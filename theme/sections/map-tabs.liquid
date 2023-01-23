@@ -1,0 +1,69 @@
+<div class="4xl:container mb-2 xl:mb-4">
+    <div class="tabs">
+        <div class="map-tab-header bg-blue text-white font-bold text-2xl xl:text-4xl py-3 lg:py-5">
+            {% for block in section.blocks %}
+                {% assign key = block.settings.name | split : " " | join : "-" %}
+                <button onclick="setTab(this)" type="button" class="btn-tab py-2 ml-10 lg:ml-20 {% if forloop.first == true %} active {% endif %}" data-active="#tab-{{ key }}">{{ block.settings.name }}</button>
+            {% endfor %}
+        </div>
+        <div class="w-full">
+            {% for block in section.blocks %}
+                {% assign key = block.settings.name | split : " " | join : "-" %}
+                <div id="tab-{{ key }}" class="tab-body h-128 md:h-172 {% if forloop.first == true %} active {% endif %}">
+                    <iframe src="{{ block.settings.google_link }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Map with tabs",
+    "settings": [],
+    "blocks": [
+     {
+       "name": "Locations",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "text",
+           "id": "name",
+           "label": "Name location"
+         },
+         {
+            "type": "text",
+            "id": "google_link",
+            "label": "Google location",
+            "info": {
+                "da": "Google Maps finder den nøjagtige lokation. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "de": "Google Maps findet die richtige Adresse. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "en": "Google Maps will find the exact location. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "es": "Google Maps encontrará la ubicación exacta. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "fi": "Google Maps hakee tarkan sijainnin. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "fr": "Google Maps trouvera l'adresse exacte. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "hi": "Google मैप को सटीक स्थान मिलेगा. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "it": "Google Maps troverà l'esatta posizione. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "ja": "Googleマップが正確な位置を見つけます。. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "ko": "Google 지도에서 정확한 위치를 찾습니다.. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "nb": "Google Maps vil finne nøyaktig plassering. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "nl": "Google Maps zoekt de exacte locatie. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "pt-BR": "O Google Maps encontrará a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "pt-PT": "O Google Maps vai encontrar a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "sv": "Google Maps kommer hitta den exakta platsen. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "th": "Google Maps จะค้นหาตำแหน่งที่ตั้งที่แน่นอน. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "zh-CN": "Google 地图会显示确切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+                "zh-TW": "Google 地圖會找出確切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec"
+            }
+         }
+       ]
+     }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

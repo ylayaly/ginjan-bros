@@ -1,0 +1,838 @@
+{
+  "current": {
+    "color_button": "#009344",
+    "product_colors": "Blue#081346 Yellow#FAA440 Orange#CB5027 Green#458334\nTangerine#F48D00",
+    "type_header_font": "harmonia_sans_n4",
+    "social_facebook_link": "https:\/\/www.facebook.com\/ginjanbros",
+    "social_instagram_link": "http:\/\/www.instagram.com\/ginjanbros",
+    "favicon": "shopify:\/\/shop_images\/ico.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/wordmark-black-trans.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/wordmark-black-trans.png",
+          "logo_max_width": 250,
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": true,
+          "message_text": "Welcome! Given current supply chain limitations, please allow additional time for delivery. 🚚💨",
+          "message_link": "",
+          "color_bg": "#009344",
+          "color_text": "#ffffff"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "disabled": true,
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "Shop Ginjan",
+          "collection": "frontpage",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "disabled": true,
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "image-bar-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "image-bar-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "image-bar-2": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Sign up to FreshlyPressed"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#009344",
+          "color_footer_text": "#ffffff",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "header-gb": {
+        "type": "header-gb",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo_max_width": 580,
+          "logo_mobile": "shopify:\/\/shop_images\/desktop_fa32ac93-8fd4-4096-8bea-49fb5acd6c5d.png",
+          "main_linklist": "header-main-menu",
+          "second_linklist": "header-sub-menu",
+          "text_menu": "Born of Africa. Made in New York™",
+          "message": true,
+          "home_page_only": false,
+          "message_text": "Shipping 🚚 💨 Flat Rate $15.99 per order",
+          "message_link": "",
+          "color_bg": "#3a3a3a",
+          "color_text": "#ffffff"
+        }
+      },
+      "1646030521dc95567a": {
+        "type": "grid-cta",
+        "settings": {
+          "hero_size": "h-40vh xl:h-50vh min-h-104",
+          "image": "shopify:\/\/shop_images\/login-1.png",
+          "text_size": "text-4xl md:text-6xl xl:text-7xl",
+          "text_align": "left",
+          "text_vertical_align": "justify-center",
+          "text": "<p>Bringing African Flavors<br\/>to the World.<\/p>",
+          "subtitle_size": "text-4xl md:text-6xl xl:text-7xl",
+          "sub_text": "",
+          "button_label": "how it all began >",
+          "button_link": "shopify:\/\/pages\/our-story",
+          "color_text": "#ffffff",
+          "color_subtitle": "#ffffff",
+          "image_right": "shopify:\/\/shop_images\/brothers.png",
+          "text_size_right": "text-xl md:text-2xl xl:text-4xl",
+          "text_align_right": "left",
+          "text_vertical_align_right": "justify-end",
+          "text_right": "<p><strong>Meet the Ginjan Bros<\/strong><\/p>",
+          "subtitle_size_right": "text-lg md:text-xl xl:text-2xl",
+          "sub_text_right": "",
+          "button_label_right": "Mohammed & Rahim",
+          "button_link_right": "shopify:\/\/pages\/meet-the-brothers",
+          "button_align_right": "justify-start",
+          "color_text_right": "#ffffff"
+        }
+      },
+      "16460307937b79b953": {
+        "type": "grid-cta",
+        "settings": {
+          "hero_size": "h-30vh xl:h-40vh min-h-104",
+          "image": "shopify:\/\/shop_images\/cafe-1_55c2fa74-5f72-4749-84f0-2f99c35c56bb.png",
+          "text_size": "text-5xl md:text-7xl xl:text-8xl",
+          "text_align": "left",
+          "text_vertical_align": "justify-start",
+          "text": "<p>Ginjan Café<\/p>",
+          "subtitle_size": "text-4xl md:text-6xl xl:text-7xl",
+          "sub_text": "<p>Harlem + <\/p><p>Brooklyn<\/p>",
+          "button_label": "",
+          "button_link": "",
+          "color_text": "#faa440",
+          "color_subtitle": "#ffffff",
+          "image_right": "shopify:\/\/shop_images\/Enmascarar_grupo_5.png",
+          "text_size_right": "medium",
+          "text_align_right": "right",
+          "text_vertical_align_right": "justify-center",
+          "text_right": "",
+          "subtitle_size_right": "text-lg md:text-xl xl:text-2xl",
+          "sub_text_right": "",
+          "button_label_right": "",
+          "button_link_right": "shopify:\/\/pages\/ginjan-cafe",
+          "button_align_right": "justify-end mt-8 xl:mt-14",
+          "color_text_right": "#ffffff"
+        }
+      },
+      "16460309937b2fbc59": {
+        "type": "message",
+        "settings": {
+          "message": "<p><strong>We came to the United States<\/strong> <em>as teenagers.  We struggled for many years, but the dream of starting our own business persisted — inspired by missing a taste of home. Today we’re proud in bringing African flavors to the world.  <\/em><\/p><p><\/p><p><em>We source the highest quality ingredients for our juices, infusions and food — toiling at the <\/em><a href=\"https:\/\/ginjanbros.com\/blogs\/recipes\" target=\"_blank\" title=\"https:\/\/ginjanbros.com\/blogs\/recipes\"><em>recipes <\/em><\/a><em>— until it puts a smile on our faces, and yours.  We are humbled by the support we’ve received and are excited about the future.<\/em><\/p>",
+          "text": "Ginjan Bros — Mohammed & Rahim Diallo",
+          "textsmall": "Brothers & Founders",
+          "button_label": "read the story",
+          "button_link": "shopify:\/\/pages\/our-story",
+          "color_text": "#458334"
+        }
+      },
+      "footer-gb": {
+        "type": "footer-gb",
+        "settings": {
+          "color_footer_bg": "#458334",
+          "color_footer_text": "#ffffff",
+          "main_linklist": "footer-menu",
+          "text": "85 E 125th Street",
+          "text_1": "New York, NY 10027",
+          "copyright": "Born of Africa. Made in New York.™",
+          "newsletter_signup_title": "Sign up for our newsletter",
+          "newsletter_signup_subtitle": "and get 10% off your first order"
+        }
+      },
+      "16461723729de5cd67": {
+        "type": "collection-gb",
+        "settings": {
+          "title": "",
+          "collection": "the-shop",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "list-collections-template-bg": {
+        "type": "list-collections-template-bg",
+        "settings": {
+          "title": "<p><strong>Shipping <br\/>across the US <br\/>& Canada.<\/strong><\/p>",
+          "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "grid-cta": {
+        "type": "grid-cta",
+        "settings": {
+          "hero_size": "h-40vh xl:h-50vh min-h-192",
+          "image": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_40.png",
+          "text_size": "text-2xl md:text-4xl xl:text-5xl",
+          "text_align": "left",
+          "text_vertical_align": "justify-end",
+          "text": "<p>The Ginjan Juice Subscription.<\/p>",
+          "subtitle_size": "text-lg md:text-xl xl:text-2xl",
+          "sub_text": "<p>Organic goodness straight outta New York City to your door — weekly or monthly.   <br\/>Free Shipping with every order.<\/p>",
+          "button_label": "learn more >",
+          "button_link": "",
+          "color_text": "#ffffff",
+          "color_subtitle": "#ffffff",
+          "image_right": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_41.png",
+          "text_size_right": "text-lg md:text-xl xl:text-2xl font-recoleta",
+          "text_align_right": "left",
+          "text_vertical_align_right": "justify-end",
+          "text_right": "<p>COCKTAIL HOUR<\/p>",
+          "subtitle_size_right": "text-2xl md:text-4xl xl:text-5xl",
+          "sub_text_right": "<p><strong>Recipes to the People.<\/strong><\/p>",
+          "button_label_right": "",
+          "button_link_right": "",
+          "button_align_right": "justify-end mt-8 xl:mt-14",
+          "color_text_right": "#ffffff"
+        }
+      },
+      "collection-template-gb": {
+        "type": "collection-template-gb",
+        "settings": {
+          "title": "<p><strong>Shipping <br\/>across the US <br\/>& Canada.<\/strong><\/p>",
+          "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
+          "layout": "grid",
+          "grid": 4,
+          "rows": 1,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": true,
+          "show_paginate": false
+        }
+      },
+      "product-template-gb": {
+        "type": "product-template-gb",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "show_gallery": false,
+          "show_subscription_section": false,
+          "title": "Get the Ginjan Juice Subscription",
+          "subtitle": "weekly or monthly delivery of ginger, bissap or the-half-and-half with free shipping on every order.",
+          "subcription_link": "shopify:\/\/products\/subscribe",
+          "media_type": true,
+          "media_size": "large",
+          "enable_image_zoom": false,
+          "enable_video_looping": false,
+          "btn_policy_show": true,
+          "btn_policy_text": "FAQ  & Policies",
+          "btn_policy_link": "shopify:\/\/pages\/faq"
+        }
+      },
+      "text-full-background": {
+        "type": "text-full-background",
+        "settings": {
+          "show": true,
+          "image": "shopify:\/\/shop_images\/desktop_fa32ac93-8fd4-4096-8bea-49fb5acd6c5d.png",
+          "top_title": "NATURAL OR SUPER-NATURAL",
+          "title": "Ginjan Gives Good Drink",
+          "content": "<p>In case you haven’t gone the full monty on <br\/>the best juice elixirs in all the land — whether<br\/>straight out the bottle, steamed, as a latte —<br\/>did you know you can also include it as <br\/>a party favor?<br\/><br\/>Shake it up with these recipes.<\/p>",
+          "button_label": "Mix it up",
+          "button_link": "shopify:\/\/blogs\/recipes",
+          "theme": "container"
+        }
+      },
+      "product-recommendations-gb": {
+        "type": "product-recommendations-gb",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "",
+          "show_vendor": false
+        }
+      },
+      "product-subscription-template-gb": {
+        "type": "product-subscription-template-gb",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": false,
+          "show_gallery": false,
+          "show_subscription_section": false,
+          "title": "",
+          "subtitle": "",
+          "subcription_link": "",
+          "media_size": "large",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": false
+        }
+      }
+    },
+    "content_for_index": [
+      "1646030521dc95567a",
+      "16461723729de5cd67",
+      "16460307937b79b953",
+      "16460309937b2fbc59"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+          }
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {
+              }
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {
+              }
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {
+              }
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {
+              }
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+              }
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {
+          }
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {
+          }
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

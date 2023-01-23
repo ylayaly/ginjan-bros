@@ -1,0 +1,111 @@
+<section class="4xl:container">
+        <div class="flex lg:hidden w-24 md:w-48 xl:w-64 h-full flex items-center my-auto  pl-6 sm:pl-12 md:pl-24 pt-10">
+            <span class="font-aeonik font-bold text-4xl md:text-6xl xl:text-68 opacity-70" style="color: {{ block.settings.color }}">{{ block.settings.year }}</span>
+        </div>
+        <div class="flex">
+            <div class="w-full py-12 md:pt-20 lg:pt-30 pl-6 sm:pl-12 md:pl-24 xl:pl-48 3xl:pl-77 sm:pb-12 xl:pb-18">
+                <h1 class="text-5xl md:text-7xl xl:text-20 mb-4 leading-none font-bold" style="color: {{ block.settings.color }}">{{ block.settings.title }}</h1>
+                <h4 class="text-xl md:text-2xl lg:text-3xl xl:text-32 font-bold" style="color: {{ block.settings.color }}">{{ block.settings.subtitle }}</h4>
+            </div>
+            <div class="w-24 md:w-48 xl:w-64 h-full hidden lg:flex items-center my-auto">
+                <span class="font-aeonik font-bold text-2xl sm:text-4xl md:text-5xl xl:text-68 opacity-70" style="color: {{ block.settings.color }}">{{ block.settings.year }}</span>
+            </div>
+        </div>
+        <div class="w-full">
+            <div class="w-full relative pt-10 h-full">
+                <div class="absolute inset-0 bottom-40 sm:bottom-80 xl:bottom-160 lg:flex" >
+                    <div class="w-full h-full opacity-bg-gb" style="background-color: {{ block.settings.color }}"></div>
+                    <div class="w-24 md:w-48 xl:w-64 h-full flex items-center justify-center my-auto"></div>
+                </div>
+                <div class="relative lg:flex">
+                    <div class="xl:flex justify-between w-full h-auto">
+                        <div class="text-white font-aeonik text-base md:text-lg xl:text-22 mt-10 xl:mt-20 xl:w-200 3xl:w-300 px-6 sm:pl-12 md:pl-24 xl:pl-48 3xl:pl-77">
+                            {{ block.settings.content }}
+                        </div>
+                        <div class="hidden lg:block font-aeonic text-white text-right mt-10 xl:mt-20 text-xl xl:text-3xl">
+                            <div class="grid gb-story-grid relative left-12 xs:left-16 sm:left-20  md:left-24 lg:left-28 2xl:left-24 font-medium">
+                                {% if block.settings.content1 != blank %}
+                                    {% assign text = block.settings.content1 | split : "-" | first %}
+                                    {% assign year = block.settings.content1 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content2 != blank %}
+                                    {% assign text = block.settings.content2 | split : "-" | first %}
+                                    {% assign year = block.settings.content2 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content3 != blank %}
+                                    {% assign text = block.settings.content3 | split : "-" | first %}
+                                    {% assign year = block.settings.content3 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content4 != blank %}
+                                    {% assign text = block.settings.content4 | split : "-" | first %}
+                                    {% assign year = block.settings.content4 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content5 != blank %}
+                                    {% assign text = block.settings.content5 | split : "-" | first %}
+                                    {% assign year = block.settings.content5 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content6 != blank %}
+                                    {% assign text = block.settings.content6 | split : "-" | first %}
+                                    {% assign year = block.settings.content6 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8" style="color:{{ block.settings.color }}">{{ year }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="block lg:hidden font-aeonic text-white text-right mt-10 xl:mt-20 text-xl xl:text-3xl">
+                            <div class="grid gb-story-grid relative font-medium px-4">
+                                {% if block.settings.content1 != blank %}
+                                    {% assign text = block.settings.content1 | split : "-" | first %}
+                                    {% assign year = block.settings.content1 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content2 != blank %}
+                                    {% assign text = block.settings.content2 | split : "-" | first %}
+                                    {% assign year = block.settings.content2 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content3 != blank %}
+                                    {% assign text = block.settings.content3 | split : "-" | first %}
+                                    {% assign year = block.settings.content3 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content4 != blank %}
+                                    {% assign text = block.settings.content4 | split : "-" | first %}
+                                    {% assign year = block.settings.content4 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content5 != blank %}
+                                    {% assign text = block.settings.content5 | split : "-" | first %}
+                                    {% assign year = block.settings.content5 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                                {% if block.settings.content6 != blank %}
+                                    {% assign text = block.settings.content6 | split : "-" | first %}
+                                    {% assign year = block.settings.content6 | split : "-" | last %}
+                                    <p class="mb-4">{{ text }} </p><span class="font-bold text-xl md:text-8 text-white text-center">{{ year }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-24 md:w-48 xl:w-64 h-full flex items-center my-auto">
+                    </div>
+                </div>
+                <div class="grid grid-cols-5 h-48 sm:h-96  xl:h-192 mt-20">
+                    <div class="">
+                        <div class="bg-cover bg-no-repeat bg-center h-full" style="background-image: url({{ block.settings.image1 | image_url: width: auto }});"></div>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="bg-cover bg-no-repeat bg-center h-full" style="background-image: url({{ block.settings.image2 | image_url: width: auto }});"></div>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="bg-cover bg-no-repeat bg-center h-full" style="background-image: url({{ block.settings.image3 | image_url: width: auto }});"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

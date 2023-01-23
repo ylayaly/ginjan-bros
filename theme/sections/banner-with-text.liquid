@@ -1,0 +1,194 @@
+    <section>
+        {% if section.settings.top_text != blank %}
+        <div class="4xl:container px-10 md:px-20 pb-4 xl:pb-8 pt-2 xl:pt-4">
+            <a href="{{ section.settings.top_link }}" class="flex justify-end">
+                <span class="text-yellow font-bold text-2xl xl:text-4xl">{{ section.settings.top_text }}</span>
+            </a>
+        </div>
+        {% endif %}
+        <div class="relative mb-3 4xl:container">
+            <div class="h-128 xl:h-196 bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <div class="absolute inset-0">
+                <div class="px-10 md:px-20 flex flex-col justify-center h-full">
+                    <h1 class="text-yellow font-bold text-6xl md:text-8xl xl:text-9xl mb-3 lg:mb-5">{{ page.title }}</h1>
+                    <h3 class="text-white text-xl md:text-2xl xl:text-6xl mb-6 lg:mb-9">{{ section.settings.subtitle }}</h3>
+                    <div class="text-white">
+                       {{ section.settings.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% schema %}
+{
+  "name": {
+    "da": "Banner with text",
+    "de": "Banner with text",
+    "en": "Banner with text",
+    "es": "Imagen con texto",
+    "fi": "Banner with text",
+    "fr": "Banner with text",
+    "hi": "Banner with text",
+    "it": "Banner with text",
+    "ja": "Banner with text",
+    "ko": "Banner with text",
+    "nb": "Banner with text",
+    "nl": "Banner with text",
+    "pt-BR": "Banner with text",
+    "pt-PT": "Banner with text",
+    "sv": "Banner with text",
+    "th": "Banner with text",
+    "zh-CN": "Banner with text",
+    "zh-TW": "Banner with text"
+  },
+  "class": "page-section",
+  "settings" : [
+    {
+      "type": "text",
+      "id": "top_text",
+      "label": {
+        "da": "Top text",
+        "de": "Top text",
+        "en": "Top text",
+        "es": "Top texto",
+        "fi": "Top text",
+        "fr": "Top text",
+        "hi": "Top text",
+        "it": "Top text",
+        "ja": "Top text",
+        "ko": "Top text",
+        "nb": "Top text",
+        "nl": "Top text",
+        "pt-BR": "Top text",
+        "pt-PT": "Top text",
+        "sv": "Top text",
+        "th": "Top text",
+        "zh-CN": "Top text",
+        "zh-TW": "Top text"
+      }
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Top link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Banner",
+        "es": "Imagen",
+        "fi": "Kuva",
+        "fr": "Image",
+        "hi": "इमेज",
+        "it": "Immagine",
+        "ja": "画像",
+        "ko": "이미지",
+        "nb": "Bilde",
+        "nl": "Afbeelding",
+        "pt-BR": "Imagem",
+        "pt-PT": "Imagem",
+        "sv": "Bild",
+        "th": "รูปภาพ",
+        "zh-CN": "图片",
+        "zh-TW": "圖片"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": {
+        "da": "Subtitle",
+        "de": "Subtitle",
+        "en": "Subtitle",
+        "es": "Subtítulo",
+        "fi": "Subtitle",
+        "fr": "Subtitle",
+        "hi": "Subtitle",
+        "it": "Subtitle",
+        "ja": "Subtitle",
+        "ko": "Subtitle",
+        "nb": "Subtitle",
+        "nl": "Subtitle",
+        "pt-BR": "Subtitle",
+        "pt-PT": "Subtitle",
+        "sv": "Subtitle",
+        "th": "Subtitle",
+        "zh-CN": "Subtitle",
+        "zh-TW": "Subtitle"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": {
+        "da": "Description",
+        "de": "Description",
+        "en": "Description",
+        "es": "Descripción",
+        "fi": "Description",
+        "fr": "Description",
+        "hi": "Description",
+        "it": "Description",
+        "ja": "Description",
+        "ko": "Description",
+        "nb": "Description",
+        "nl": "Description",
+        "pt-BR": "Description",
+        "pt-PT": "Description",
+        "sv": "Description",
+        "th": "Description",
+        "zh-CN": "Description",
+        "zh-TW": "Description"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Banner with text",
+        "de": "Banner with text",
+        "en": "Banner with text",
+        "es": "Imagen con texto",
+        "fi": "Banner with text",
+        "fr": "Banner with text",
+        "hi": "Banner with text",
+        "it": "Banner with text",
+        "ja": "Banner with text",
+        "ko": "Banner with text",
+        "nb": "Banner with text",
+        "nl": "Banner with text",
+        "pt-BR": "Banner with text",
+        "pt-PT": "Banner with text",
+        "sv": "Banner with text",
+        "th": "Banner with text",
+        "zh-CN": "Banner with text",
+        "zh-TW": "Banner with text"
+      },
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

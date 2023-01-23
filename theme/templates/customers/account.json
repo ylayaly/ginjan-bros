@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "template": {
+      "type": "account",
+      "settings": {
+        "support_text": "Support",
+        "support_mail": "organic@ginjanbros.com"
+      }
+    }
+  },
+  "order": [
+    "template"
+  ]
+}

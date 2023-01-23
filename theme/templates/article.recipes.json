@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "Template": {
+      "type": "article-recipe-template",
+      "settings": {
+      }
+    },
+    "RecommendationsTitle": {
+      "type": "recommendations-title",
+      "settings": {
+        "title": "Start a new Cocktail Regime",
+        "subtitle": "SHOP GINJAN JUICES"
+      }
+    },
+    "Recommendations": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "",
+        "collection": "the-shop",
+        "grid": 2,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "Template",
+    "RecommendationsTitle",
+    "Recommendations"
+  ]
+}

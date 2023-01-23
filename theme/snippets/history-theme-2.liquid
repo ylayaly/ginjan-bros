@@ -1,0 +1,30 @@
+<section class="4xl:container">
+    <div class="w-full h-full block lg:hidden items-center my-auto pl-6 sm:pl-12 md:pl-24 pt-10">
+        <span class="font-aeonik font-bold text-4xl md:text-6xl xl:text-68 opacity-70" style="color:  {{ block.settings.color }}">{{ block.settings.year }}</span>
+    </div>
+    <div class="lg:flex">
+        <div class="w-full py-12 md:pt-20 lg:pt-30 pl-6 sm:pl-12 md:pl-24 xl:pl-48 3xl:pl-77 sm:pb-12 xl:pb-18">
+            <h1 class="text-5xl md:text-7xl xl:text-20 mb-4 leading-none font-bold" style="color:  {{ block.settings.color }}">{{ block.settings.title }}</h1>
+            <h4 class="text-xl md:text-2xl lg:text-3xl xl:text-32 font-bold" style="color:  {{ block.settings.color }}">{{ block.settings.subtitle }}</h4>
+        </div>
+        <div class="w-24 md:w-48 xl:w-64 h-full hidden lg:flex items-center my-auto">
+            <span class="font-aeonik font-bold text-2xl sm:text-4xl md:text-5xl xl:text-68 opacity-70" style="color:  {{ block.settings.color }}">{{ block.settings.year }}</span>
+        </div>
+    </div>
+    <div class="w-full min-h-240 xs:min-h-200 xl:min-h-245 h-50vh lg:h-60vh">
+        <div class="w-full relative pt-10 h-full">
+            <div class="bg-cover bg-no-repeat bg-center h-full" style="background-image: url({{ block.settings.image | image_url: width: auto }});"></div>
+            <div class="absolute inset-0 h-full lg:h-1/76 lg:flex" >
+                <div class="w-full h-full opacity-bg-gb" style="background-color:  {{ block.settings.color }}"></div>
+                <div class="w-8 xs:w-24 md:w-48 xl:w-64 h-full flex items-center justify-center my-auto">
+                    
+                </div>
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center h-auto xxs:h-1/76 px-6 sm:px-12 md:px-24 xl:pr-0 xl:pl-48 3xl:pl-77 w-full lg:w-4/6">
+                <div class="text-white font-aeonik text-base md:text-lg xl:text-22 mt-10">
+                    {{ block.settings.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

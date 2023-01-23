@@ -1,0 +1,278 @@
+{% if section.settings.show %}
+<style>
+    .text-full-background{
+        background-image: url({{ section.settings.image | image_url: width: auto }});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
+
+  {%- if section.settings.theme == 'screen' -%}
+  <div class="4xl:container text-full-background mt-8 md:mt-20 xl:mt-28 min-h-96 lg:min-h-192 3xl:min-h-290 flex items-end">
+    <div class="px-4 py-10 sm:p-10 lg:p-20 xl:p-36 w-full lg:w-2/3 2xl:w-1/55 3xl:w-1/2 lg:pr-0 xl:pr-0 text-blue ">
+        <span class="text-xs font-recoleta text-xl xl:text-2xl">{{ section.settings.top_title }}</span>
+        <h1 class="text-5xl xl:text-8.1xl font-bold mt-12 xl:mt-14">{{ section.settings.title }}</h1>
+        <div class="font-recoleta text-xl md:text-2xl xl:text-4xl mt-6 xl:mt-10">{{ section.settings.content }}</div>
+        <a class="block mt-16 xl:mt-20 font-bold text-2xl xl:text-4xl" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label }}
+            {%- include 'icon-arrow-black' -%}
+        </a>
+    </div>
+  </div>
+  {%- else -%}
+  <div class="4xl:container px-10 lg:px-20 min-h-96 flex items-end">
+    <div class="relative text-full-background w-full rounded-[38px] xs:aspect-square lg:aspect-auto">
+      <div class="absolute inset-0 bg-black/20 rounded-[38px]"></div>
+      <div class="h-full flex flex-col items-center justify-center lg:block relative px-4 py-10 sm:p-10 lg:p-20 xl:p-36 w-full lg:w-2/3 2xl:w-1/55 3xl:w-1/2 lg:pr-0 xl:pr-0 text-white">
+          <span class="font-recoleta text-centered text-xl md:text-4xl lg:text-xl lg:text-left">{{ section.settings.top_title }}</span>
+          <h1 class="font-loto text-4xl md:text-7xl lg:text-5xl font-bold mt-8 lg:mt-4 text-centered lg:text-left">{{ section.settings.title }}</h1>
+          <div class="font-recoleta hidden lg:block lg:text-lg mt-6 xl:mt-10">{{ section.settings.content }}</div>
+          <a class="block mt-12 lg:mt-11 font-bold text-sm lg:text-xs underline uppercase" href="{{ section.settings.button_link }}">
+              {{ section.settings.button_label }}
+          </a>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Text Full Backgorund",
+    "de": "Text Full Backgorund",
+    "en": "Text Full Backgorund",
+    "es": "Texto con full imagen",
+    "fi": "Text Full Backgorund",
+    "fr": "Text Full Backgorund",
+    "hi": "Text Full Backgorund",
+    "it": "Text Full Backgorund",
+    "ja": "Text Full Backgorund",
+    "ko": "Text Full Backgorund",
+    "nb": "Text Full Backgorund",
+    "nl": "Text Full Backgorund",
+    "pt-BR": "Text Full Backgorund",
+    "pt-PT": "Text Full Backgorund",
+    "sv": "Text Full Backgorund",
+    "th": "Text Full Backgorund",
+    "zh-CN": "Text Full Backgorund",
+    "zh-TW": "Text Full Backgorund"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show",
+      "label": "Show this section"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image",
+        "es": "Imagen",
+        "fi": "Kuva",
+        "fr": "Image",
+        "hi": "इमेज",
+        "it": "Immagine",
+        "ja": "画像",
+        "ko": "이미지",
+        "nb": "Bilde",
+        "nl": "Afbeelding",
+        "pt-BR": "Imagem",
+        "pt-PT": "Imagem",
+        "sv": "Bild",
+        "th": "รูปภาพ",
+        "zh-CN": "图片",
+        "zh-TW": "圖片"
+      }
+    },
+    {
+      "type": "text",
+      "id": "top_title",
+      "label": {
+        "da": "Top Title",
+        "de": "Top Title",
+        "en": "Top Title",
+        "es": "Título top",
+        "fi": "Top Title",
+        "fr": "Top Title",
+        "hi": "Top Title",
+        "it": "Top Title",
+        "ja": "Top Title",
+        "ko": "Top Title",
+        "nb": "Top Title",
+        "nl": "Top Title",
+        "pt-BR": "Top Title",
+        "pt-PT": "Top Title",
+        "sv": "Top Title",
+        "th": "Top Title",
+        "zh-CN": "Top Title",
+        "zh-TW": "Top Title"
+      }
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Title",
+        "de": "Title",
+        "en": "Title",
+        "es": "Título",
+        "fi": "Title",
+        "fr": "Title",
+        "hi": "Title",
+        "it": "Title",
+        "ja": "Title",
+        "ko": "Title",
+        "nb": "Title",
+        "nl": "Title",
+        "pt-BR": "Title",
+        "pt-PT": "Title",
+        "sv": "Title",
+        "th": "Title",
+        "zh-CN": "Title",
+        "zh-TW": "Title"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": {
+        "da": "Text",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Text",
+        "fr": "Text",
+        "hi": "Text",
+        "it": "Text",
+        "ja": "Text",
+        "ko": "Text",
+        "nb": "Text",
+        "nl": "Text",
+        "pt-BR": "Text",
+        "pt-PT": "Text",
+        "sv": "Text",
+        "th": "Text",
+        "zh-CN": "Text",
+        "zh-TW": "Text"
+      }
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "da": "Knaptekst",
+        "de": "Button-Etikett",
+        "en": "Button label",
+        "es": "Etiqueta de botón",
+        "fi": "Tekstipainike",
+        "fr": "Texte du bouton",
+        "hi": "बटन लेबल",
+        "it": "Etichetta pulsante",
+        "ja": "ボタンのラベル",
+        "ko": "버튼 레이블",
+        "nb": "Knappetikett",
+        "nl": "Knoplabel",
+        "pt-BR": "Etiqueta de botão",
+        "pt-PT": "Etiqueta do botão",
+        "sv": "Knappetikett",
+        "th": "ป้ายกำกับปุ่ม",
+        "zh-CN": "按钮标签",
+        "zh-TW": "按鈕標籤"
+      }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "da": "Knaplink",
+        "de": "Button-Etikett",
+        "en": "Button link",
+        "es": "Enlace de botón",
+        "fi": "Painikelinkki",
+        "fr": "Lien du bouton",
+        "hi": "बटन लिंक",
+        "it": "Link pulsante",
+        "ja": "ボタンのリンク",
+        "ko": "버튼 링크",
+        "nb": "Kobling for knapp",
+        "nl": "Knoplink",
+        "pt-BR": "Link de botão",
+        "pt-PT": "Ligação do botão",
+        "sv": "Knapplänk",
+        "th": "ลิงก์ปุ่ม",
+        "zh-CN": "按钮链接",
+        "zh-TW": "按鈕連結"
+      }
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Theme",
+      "default": "screen",
+      "options": [
+        {
+          "label": "Full screen",
+          "value": "screen"
+        },
+        {
+          "label": "Full container",
+          "value": "container"
+        }
+      ]
+    }
+
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Text Full Backgorund",
+        "de": "Text Full Backgorund",
+        "en": "Text Full Backgorund",
+        "es": "Texto con full imagen",
+        "fi": "Text Full Backgorund",
+        "fr": "Text Full Backgorund",
+        "hi": "Text Full Backgorund",
+        "it": "Text Full Backgorund",
+        "ja": "Text Full Backgorund",
+        "ko": "Text Full Backgorund",
+        "nb": "Text Full Backgorund",
+        "nl": "Text Full Backgorund",
+        "pt-BR": "Text Full Backgorund",
+        "pt-PT": "Text Full Backgorund",
+        "sv": "Text Full Backgorund",
+        "th": "Text Full Backgorund",
+        "zh-CN": "Text Full Backgorund",
+        "zh-TW": "Text Full Backgorund"
+      },
+      "category": {
+        "da": "Kollektion",
+        "de": "Kategorie",
+        "en": "Collection",
+        "es": "Colección",
+        "fi": "Kokoelma",
+        "fr": "Collection",
+        "hi": "कलेक्शन",
+        "it": "Collezione",
+        "ja": "コレクション",
+        "ko": "컬렉션",
+        "nb": "Samling",
+        "nl": "Collectie",
+        "pt-BR": "Coleção",
+        "pt-PT": "Coleção",
+        "sv": "Produktserie",
+        "th": "คอลเลกชัน",
+        "zh-CN": "收藏",
+        "zh-TW": "商品系列"
+      }
+    }
+  ]
+}
+{% endschema %}

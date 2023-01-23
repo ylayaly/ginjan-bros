@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "Header": {
+      "type": "simple-header-bg",
+      "settings": {
+        "title": "<p>Where to buy Ginjan<\/p><p>in your Area.<\/p>",
+        "subtitle": "<p>Use the map below to find a store.<\/p>"
+      }
+    },
+    "Template": {
+      "type": "page_full_content",
+      "settings": {
+      }
+    },
+    "CTA": {
+      "type": "banner_link",
+      "settings": {
+        "title": "<p>Not in your <\/p><p>area?<\/p>",
+        "text": "<p>Shop everything Ginjan for doorstep home <br\/>delivery anywhere in the US + Canada<\/p>",
+        "link": "shopify:\/\/collections\/the-shop",
+        "image": "shopify:\/\/shop_images\/where-to-buy.png"
+      }
+    }
+  },
+  "order": [
+    "Header",
+    "Template",
+    "CTA"
+  ]
+}

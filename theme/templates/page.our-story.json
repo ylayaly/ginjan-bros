@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "Content": {
+      "type": "history",
+      "blocks": {
+        "593157b8-b8e9-4c3a-b2b9-2e3d50ee421c": {
+          "type": "theme-1",
+          "settings": {
+            "title": "Born of Africa.",
+            "subtitle": "Spirited Roots. Millenia of Culture.",
+            "content": "<p>In Conakry, Guinea, when the kids had a break from classes to buy lunch from nearby street vendors, the food varied, but the drink was always the same. The ginjan, or ginger juice, came in a long, thin, plastic bag. You’d bite off one corner and suck the liquid through the ripped hole.<\/p>",
+            "year": "1980s",
+            "image": "shopify:\/\/shop_images\/our-story-1.png",
+            "color": "#faa440"
+          }
+        },
+        "b0ede5f5-3f07-4f9a-b930-f5282eb8e3e1": {
+          "type": "theme-2",
+          "settings": {
+            "title": "Coming to America.",
+            "subtitle": "Facing Challenge.  Finding Opportunity.",
+            "content": "<p><strong>From bustling African markets to hurried North American crosswalks, the teenage arrival of brothers Mohammed and Rahim Diallo was rife with challenge, but filled with opportunity.  <br\/>Despite being apart from each other in the United States and with a few run-ins with immigration — leading up to bouts of detention — the brothers nonetheless persevered.   Graduating with an Engineering Degree from Michigan State and later finished a post-graduate program in Germany.  Moving back to the US, he started working in hospitality in New York.<br\/><br\/>Their perseverance and a thirst for achievement resulted in a classic pursuit of happiness immigrant story — shifting continents, putting on a new face , trying to make it and then finding a way to.  After separation during their intial time in America, the brothers reunited in New York City, and started work on something new—<\/strong><a href=\"\/collections\/the-shop\" target=\"_blank\" title=\"The Shop\"><strong>Africian juices and ginger drinks<\/strong><\/a><strong>.<\/strong><\/p>",
+            "year": "2000s",
+            "image": "shopify:\/\/shop_images\/our-story-2.png",
+            "color": "#cb5027"
+          }
+        },
+        "dbce3c43-aa2b-43ee-9cc8-e2b062529d10": {
+          "type": "theme-3",
+          "settings": {
+            "title": "Bright Lights, Big City.",
+            "subtitle": "If you don’t see it, create it.",
+            "year": "2010s",
+            "color": "#458334",
+            "content": "<p><strong>Missing a taste of home, and seeing an opportunity in the African Diaspora market, the brothers began development of a <\/strong><a href=\"\/products\/ginjan\" target=\"_blank\" title=\"Ginger\"><strong>ginger drink <\/strong><\/a><strong>in late 2014.  With just $200 — enough to buy ginger, pineapple and lemons — Ginjan was born.   <br\/><br\/>After some testing with friends and acquaintances, no time was wasted and in 2015 the brothers debuted their version of the classic West African juice at a street fair in Harlem.  Soon after, Ginjan launched online and in 2016 the brand launched in Whole Foods Markets in New York City, after securing a distribution partnership with RainForest.  And then FreshDirect, Amazon as well as premium organic grocers in the Big Apple including Union Market.<br\/><br\/>The same year Ginjan won out over more than 30,000 entries from across the United States, taking the Grand Prize in the well publicized FedEx Small Business Grant Contest.  Their partnership with FedEx persists to this day.<\/strong><\/p>",
+            "content1": "Ginjan launches online store - 2015",
+            "content2": "Joins Whole Foods Market - 2016",
+            "content3": "Showcases at James Beard Awards in Chicago - 2018",
+            "content4": "Ginjan Café opens in Harlem - 2019",
+            "content5": "",
+            "content6": "",
+            "image1": "shopify:\/\/shop_images\/our-story-3.png",
+            "image2": "shopify:\/\/shop_images\/our-story-4.png",
+            "image3": "shopify:\/\/shop_images\/our-story-5.png"
+          }
+        },
+        "56a034ae-4a03-43f4-9f33-fdc36d556603": {
+          "type": "theme-4",
+          "settings": {
+            "title": "Made in New York.",
+            "subtitle": "A Home for an African Experience.",
+            "content": "<p><strong>What started as a humble undertaking of targeting African Diaspora appetites, soon curried favor with a much wider audience.  Ginjan has been featured in <\/strong><a href=\"https:\/\/www.bonappetit.com\/story\/ginjan-west-african-ginger-drink\" target=\"_blank\" title=\"https:\/\/www.bonappetit.com\/story\/ginjan-west-african-ginger-drink\"><strong>Bon Appetit, Food <br\/>& Wine<\/strong><\/a><strong>, The New York Times as well as the NPR How I Built This podcast with Guy Raz and the Wendy Williams Show — who also became an initial investor.<br\/><br\/>In 2018, the brothers started work on a lifelong dream of a retail location for Ginjan, and in 2019 they opened <\/strong><a href=\"https:\/\/ginjanbros.com\/pages\/ginjan-cafe\" title=\"https:\/\/ginjanbros.com\/pages\/ginjan-cafe\"><strong>The Ginjan Café<\/strong><\/a><strong> in the historic Corn Exchange Building in Harlem.<\/strong><\/p>",
+            "content_right": "<p><strong>In 2020, Covid-19 hit most business hard, and New York City experienced the largest spike in cases, infection rates and, deaths.  Business ground to a halt — but Ginjan survived and experienced a surge in online sales during this period. <br\/><br\/>After weathering the storm, and as café sales have started rebounding, the brothers are breaking ground on the second Ginjan Café in Bedstuy, Brooklyn — opening November 2021.<\/strong><\/p>",
+            "year": "2020s",
+            "text": "…and beyond.",
+            "color": "#081346",
+            "image": "shopify:\/\/shop_images\/our-story-6.png"
+          }
+        },
+        "50a5363b-1d6c-4749-b91d-0f1400834fc1": {
+          "type": "theme-5",
+          "settings": {
+            "title": "World, meet Africa. Again.",
+            "subtitle": "Ginjan is on a mission to bring African Flavors to Everyone, Starting With African Juice.",
+            "label": "Take your First  Sip >",
+            "link": "shopify:\/\/collections\/the-shop",
+            "image1": "shopify:\/\/shop_images\/our-story-7.png",
+            "image2": "shopify:\/\/shop_images\/our-story-8.png"
+          }
+        }
+      },
+      "block_order": [
+        "593157b8-b8e9-4c3a-b2b9-2e3d50ee421c",
+        "b0ede5f5-3f07-4f9a-b930-f5282eb8e3e1",
+        "dbce3c43-aa2b-43ee-9cc8-e2b062529d10",
+        "56a034ae-4a03-43f4-9f33-fdc36d556603",
+        "50a5363b-1d6c-4749-b91d-0f1400834fc1"
+      ],
+      "settings": {
+      }
+    },
+    "Template": {
+      "type": "page_content",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "Content",
+    "Template"
+  ]
+}

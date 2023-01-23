@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "template": {
+      "type": "list-collections-template-bg",
+      "settings": {
+        "title": "<p><strong>Shipping<br\/>across the US <br\/>& Canada.<\/strong><\/p>",
+        "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
+        "display_type": "all",
+        "sort": "alphabetical",
+        "grid": 3
+      }
+    },
+    "cta": {
+      "type": "grid-cta",
+      "settings": {
+        "hero_size": "h-40vh xl:h-50vh min-h-192",
+        "image": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_40.png",
+        "text_size": "text-2xl md:text-4xl xl:text-5xl",
+        "text_align": "left",
+        "text_vertical_align": "justify-end",
+        "text": "<p>The Ginjan Juice Subscription.<\/p>",
+        "subtitle_size": "text-lg md:text-xl xl:text-2xl",
+        "sub_text": "<p>Organic goodness straight outta New York City to your door — weekly or monthly.   <br\/>Free Shipping with every order.<\/p>",
+        "button_label": "learn more >",
+        "button_link": "",
+        "color_text": "#ffffff",
+        "color_subtitle": "#ffffff",
+        "image_right": "shopify:\/\/shop_images\/Captura_de_pantalla_2022-03-11_a_las_10.55.39_a._m..png",
+        "text_size_right": "text-lg md:text-xl xl:text-2xl font-recoleta",
+        "text_align_right": "left",
+        "text_vertical_align_right": "justify-end",
+        "text_right": "<p>COCKTAIL HOUR<\/p>",
+        "subtitle_size_right": "text-2xl md:text-4xl xl:text-5xl",
+        "sub_text_right": "<p><strong>Recipes to the People.<\/strong><\/p>",
+        "button_label_right": "",
+        "button_link_right": "",
+        "button_align_right": "justify-end mt-8 xl:mt-14",
+        "color_text_right": "#ffffff"
+      }
+    },
+    "collection": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "",
+        "collection": "frontpage",
+        "grid": 3,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "template",
+    "cta",
+    "collection"
+  ]
+}

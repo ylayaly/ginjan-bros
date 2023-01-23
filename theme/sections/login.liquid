@@ -1,0 +1,256 @@
+<section>
+    <div class="4xl:container">
+            <div class="bg-blue">
+                <div id="CustomerLoginForm" class="py-16 md:pt-32 lg:pt-48 lg:pb-20 px-10 md:px-16 lg:px-24 grid lg:grid-cols-5 gap-5">
+                    <div class="md:col-span-3">
+                        <h1 id="LoginHeading" class="text-white text-4xl xl:text-65 mb-4 xl:mb-8">{{ section.settings.title }}</h1>
+                        <div class="mb-4 xl:mb-8 text-xl xl:text-2xl text-white font-light">
+                            {{ section.settings.subtitle }}
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        {% form 'customer_login', novalidate: 'novalidate' %}
+
+                            {%- if form.errors -%}
+                                <div class="form-message form-message--error">
+                                    <h2 class="h3 form-message__title " tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h2>
+                                    {{ form.errors | default_errors }}
+                                </div>
+                            {%- endif -%}
+
+                            <div class="bg-transparent border-0 font-extralight form-input mb-2 p-0">
+                                <input class="bg-transparent rounded-lg border-white border-2 py-3 px-6 text-white w-full xl:w-3/4 font-aeonik {%- if form.errors contains 'form' -%} input--error {%- endif -%}" placeholder="Username or email address"
+                                    type="email"
+                                    name="customer[email]"
+                                    id="CustomerEmail"
+                                    autocomplete="email"
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    {%- if form.errors contains 'form' -%}
+                                        aria-invalid="true"
+                                    {%- endif -%}
+                                >
+                            </div>
+                            {% if form.password_needed %}
+                                <div class="bg-transparent border-0 font-extralight form-input mb-4 p-0">
+                                    <input class="bg-transparent rounded-lg border-white border-2 py-3 px-6 text-white w-full xl:w-3/4 font-aeonik {%- if form.errors contains 'form' -%} input--error {%- endif -%}" placeholder="Password"
+                                        type="password"
+                                        value=""
+                                        name="customer[password]"
+                                        id="CustomerPassword"
+                                        {%- if form.errors contains 'form' -%}
+                                            aria-invalid="true"
+                                        {%- endif -%}
+                                    >
+                                </div>
+
+                                
+                            {% endif %}
+
+                            <div class="form-input">
+                                <button type="submit" class="bg-transparent w-12 log-in-btn">
+                                    {% include 'icon-arrow' %} 
+                                </button>
+                            </div>
+
+                            {% if form.password_needed %}
+                                <div class="mt-4"><a href="#recover" id="RecoverPassword"><span class="font-medium text-xs font-aeonik text-white">{{ section.settings.text_lost_password }}</span></a></div>
+                            {% endif %}
+
+                        {% endform %}
+                            <div class="form-message form-message--success hide bg-transparent text-white mt-8" id="ResetSuccess" tabindex="-1">
+                                {{ 'customer.recover_password.success' | t }}
+                            </div>
+
+                            <a href="/account/register" class="font-loto block mt-5">
+                                <h3 class="font-medium text-xs text-white inline">{{ section.settings.title_register }}</h3>
+                                <span class="font-medium text-xs text-white inline">{{ section.settings.register_btn_label }}</span>
+                            </a>
+                    </div>
+                    
+                    
+                </div>
+                <div id="RecoverPasswordForm" class="col-span-4 lg:col-span-3 py-16 md:py-24 lg:py-32 px-10 md:px-16 lg:px-24 hide">
+                        <h1 id="RecoverHeading" class="text-white text-4xl xl:text-65 mb-4 xl:mb-8">{{ 'customer.recover_password.title' | t }}</h1>
+                        <div class="mb-4 xl:mb-8 text-xl xl:text-2xl text-white font-light">
+                            <p>{{ 'customer.recover_password.subtext' | t }}</p>
+                        </div>
+                            {% form 'recover_customer_password' %}
+                            {% if form.posted_successfully? %}
+                                <span class="hide reset-password-success text-white"></span>
+                            {% endif %}
+                            <div class="bg-transparent border-0 font-extralight form-input mb-5 p-0">
+                                <input placeholder="Username or email address" 
+                                type="email"
+                                value=""
+                                name="email"
+                                id="RecoverEmail"
+                                class="bg-transparent rounded-lg border-white border-2 py-3 px-6 text-white w-full xl:w-3/4 font-aeonik input-full{% if form.errors %} input--error{% endif %}"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                {% if form.errors %}
+                                    aria-invalid="true"
+                                    aria-describedby="RecoverEmail-email-error"
+                                {%- endif -%}
+                                >
+                            </div>
+                            {%- if form.errors -%}
+                            <span id="RecoverEmail-email-error" class="input-error-message">
+                                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                                {% include 'icon-error' %}
+                                <span>{{ form.errors.messages['form'] }}</span>
+                            </span>
+                            {%- endif -%}
+                            <div class="form-input mb-5">
+                                <button type="submit" class="bg-white py-3 px-6 text-orange-1 font-bold font-aeonik">{{ 'customer.recover_password.submit' | t }}</button>
+                            </div>
+                            <div class="font-medium text-xs font-aeonik text-white">
+                                <a href="#LoginHeading" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+                            </div>
+                        {% endform %}
+        
+                </div>
+            </div>
+    </div>
+</section>
+{% comment %} <div class="page-width">
+  <div class="grid">
+
+    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+      <div class="form-message form-message--success hide" id="ResetSuccess" tabindex="-1">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+
+      <div id="CustomerLoginForm" class="form-vertical">
+
+        <h1 id="LoginHeading" class="text-center">{{ 'customer.login.title' | t }}</h1>
+
+        {% form 'customer_login', novalidate: 'novalidate' %}
+
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">
+              <h2 class="h3 form-message__title " tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h2>
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            {%- if form.errors contains 'form' -%}
+              class="input--error"
+              aria-invalid="true"
+            {%- endif -%}
+            >
+
+          {% if form.password_needed %}
+            <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+            <input
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              {%- if form.errors contains 'form' -%}
+                class="input--error"
+                aria-invalid="true"
+              {%- endif -%}
+            >
+          {% endif %}
+
+          <div class="text-center">
+            {% if form.password_needed %}
+              <p><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+            {% endif %}
+
+            <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+
+            <p>
+              {{ 'layout.customer.create_account' | t | customer_register_link }}
+            </p>
+          </div>
+
+        {% endform %}
+      </div>
+
+      
+
+
+        If accounts are set as optional, the following will be shown as an option
+        during checkout, not on the default /login page.
+
+      {% if shop.checkout.guest_login %}
+        <div class="text-center">
+          <hr class="hr--invisible">
+          <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+          {% form 'guest_login' %}
+            <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+          {% endform %}
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div> {% endcomment %}
+
+{% schema %}
+  {
+    "name": "Login",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Background image"
+        },
+        {
+            "type": "header",
+            "content": "Login section"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Sub Title"
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Bottom text"
+        },
+        {
+            "type": "text",
+            "id": "text_lost_password",
+            "label": "Text lost password"
+        },
+        {
+            "type": "header",
+            "content": "Sign up section"
+        },
+        {
+            "type": "text",
+            "id": "title_register",
+            "label": "Title Sign up"
+        },
+        {
+            "type": "text",
+            "id": "register_btn_label",
+            "label": "Sign up button label"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
