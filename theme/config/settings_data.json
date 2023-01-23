@@ -6,6 +6,7 @@
     "social_facebook_link": "https:\/\/www.facebook.com\/ginjanbros",
     "social_instagram_link": "http:\/\/www.instagram.com\/ginjanbros",
     "favicon": "shopify:\/\/shop_images\/ico.jpg",
+    "label_code_discount": "Take 15% off with Code *",
     "checkout_logo_image": "shopify:\/\/shop_images\/wordmark-black-trans.png",
     "sections": {
       "header": {

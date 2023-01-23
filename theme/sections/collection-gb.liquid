@@ -1,5 +1,6 @@
   {%- assign collection = collections[section.settings.collection] -%}
-<div class="4xl:container px-10 md:px-20 relative">
+
+<div class="3xl:container px-10 md:px-20 relative">
   {%- if section.settings.show_view_all -%}
     <div class="hidden md:flex absolute right-0 h-full items-center pr-10">
         <a href="{{ collection.url }}" class="icon-full w-12" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">

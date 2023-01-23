@@ -231,22 +231,3 @@ $(document).ready(function(){
     })
 
 })
-
-$(() => {
-    $("#share-twitter").click(function(){
-        window.open("https://twitter.com/share?url="+window.location.href, "_blank", "width=600,height=600")
-        return false
-    })
-    $("#share-facebook").click(function(){
-        window.open("https://www.facebook.com/sharer/sharer.php?u="+window.location.href, "", "width=600,height=600")
-        return false
-    })
-    $("#share-link").click(function(){
-        var input = document.createElement("input");
-        input.setAttribute('value', window.location.href.split('?')[0].split('#')[0]);
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("copy");
-        document.body.removeChild(input);
-    })
-})

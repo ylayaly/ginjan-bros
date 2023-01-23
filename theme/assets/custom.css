@@ -150,10 +150,6 @@ h6,
     font-family: Loto;
 }
 
-body, #shopify-section-footer-gb, footer {
-    background-color: #458234;
-}
-
 .page-container {
     position: inherit;
 }
@@ -1123,7 +1119,7 @@ label.rc-radio__label {
     rotate: 180deg;
 }
 
-#product-recommendations__list .add-to-cart, .product-card-list  .add-to-cart, .blog_drink .add-to-cart{
+#product-recommendations__list .add-to-cart, .product-card-list  .add-to-cart{
     color: transparent !important;
     width: 4.5rem;
     height: 4.5rem;
@@ -1314,68 +1310,7 @@ div#rc_login {
     color: white;
 }
 
-.blog_drink img, .blog_drink p{
-    width: 100%;
-}
 
-.blog_drink h2{
-    font-size: 35px;
-    text-transform: none;
-    letter-spacing: normal;
-}
-
-.blog_drink p{
-    margin: 48px 0px;
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.blog_drink .aspect-square{
-    background-color: #FAFAFA;
-}
-
-.blog_drink--recommendation p{
-    font-size: 14px;
-}
-
-.blog_drink img{
-    margin-top: 2rem;
-}
-
-.image_credits{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #EBEBEB;
-    padding: 1rem 1.5rem;
-    color: #0A1343;
-    font-family: Loto;
-    font-size: 25px;
-    font-weight: 400;
-    gap: 1rem;
-}
-.image_credits span:last-child{
-    font-size: 10px;
-    font-weight: 300;
-}
-
-.shared_btn{
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.bg_facebook_blog{
-    background-image: url(./facebook-blog.svg);
-}
-
-.bg_twitter_blog{
-    background-image: url(./twitter-blog.svg);
-}
-
-.bg_link_blog{
-    background-image: url(./link-blog.svg);
-}
 
 @keyframes fadeIn {
     0% {
@@ -1672,9 +1607,6 @@ div#rc_login {
     .compare-price .per-bottle{
         font-size: 0.75rem;
     }
-    .blog_drink h2, .blog_drink--recommendation h2{
-        font-size: 30px;
-    }
 }
 
 @media only screen and (max-width: 749px){
@@ -1752,12 +1684,6 @@ div#rc_login {
     .logo_desktop {
         display: none;
     }
-    .image_credits{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-        line-height: 1.5rem;
-    }
 }
 
 @media (max-width: 468px) {
@@ -1827,9 +1753,6 @@ div#rc_login {
     label.rc-radio__label .rc-option__text, label.rc-radio__label.compare-price .rc-option__text, [data-with-subscription] span.text-base {
         font-size: 0.85rem;
     }
-    .blog_drink--recommendation p{
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 374px) {
@@ -1880,9 +1803,6 @@ div#rc_login {
     }
     label.rc-radio__label span.per-bottle, label.rc-radio__label.compare-price span.per-bottle, .compare-price .per-bottle {
         font-size: 0.5rem;
-    }
-    .blog_drink--recommendation p{
-        font-size: 9px;
     }
 }
 

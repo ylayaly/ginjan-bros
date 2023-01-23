@@ -14,8 +14,8 @@
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
 
 <header>
-        <div class="relative 4xl:container">
-            <div class="bg-white">
+        <div class="relative 3xl:container">
+            <div class="">
                 <div class="relative">
                 {% if section.settings.message %}
                     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
@@ -142,7 +142,7 @@
                 <div class="absolute inset-0">
                     <div class="lg:bg-left-bottom bg-menu-mark ml-auto bg-no-repeat"></div>
                 </div>
-                <div class="4xl:container text-white font-bold p-5 xs:p-10 md:p-20 relative z-20 transition-opacity duration-1000 ease-out opacity-0 pt-16 xs:pt-10 md:pt-20">
+                <div class="3xl:container text-white font-bold p-5 xs:p-10 md:p-20 relative z-20 transition-opacity duration-1000 ease-out opacity-0 pt-16 xs:pt-10 md:pt-20">
                     <ul class="text-2xl xs:text-3xl SM:text-4xl md:text-5xl xl:text-7xl pl-6 xs:pl-12 md:pl-24 xl:pl-48">
                         {% for link in linklists[section.settings.main_linklist].links %}
                             {%- assign outerLoopIndex = forloop.index -%}

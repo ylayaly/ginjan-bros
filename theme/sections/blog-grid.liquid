@@ -17,7 +17,7 @@
         background-color:{{ section.settings.bg_color_even }};
     }
 </style>
-<section class="4xl:container blog blog__grid grid gap-6">
+<section class="3xl:container blog blog__grid grid gap-6">
     {% for block in section.blocks %}
         
         {% assign id = block.settings.article.id | split: "," %}
@@ -36,7 +36,7 @@
         </div>
     {% endfor %}
 </section>
-<section class="4xl:container blog blog__repeat">
+<section class="3xl:container blog blog__repeat">
     {% for article in blog.articles %}
         {% assign id = article.id | append: "" %}
         {% unless articles_id contains id  %}
