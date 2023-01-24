@@ -5,7 +5,7 @@
             <span class="text-orange font-bold">{{ article.metafields.post.top_tag }}</span>
         </div>
         <div>
-            <h1 class="font-bold text-[2.5rem] md:text-6xl">{{ page_title }}</h1>
+            <h1 class="font-bold text-[2.5rem] md:text-6xl lg:max-w-[100ch]">{{ page_title }}</h1>
         </div>
         <div class="mt-10 flex gap-5">
             <button type="button" id="share-facebook" class="shared_btn w-8 h-8 bg_facebook_blog"></button>
@@ -24,8 +24,11 @@
 </section>
 <section class="4xl:container blog blog_drink">
     <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
-        <div id="" class="border-blue border-t-2 py-10">
-            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal"> {{ article.metafields.custom.products_title | newline_to_br }} </h2>
+        <div id="" class="border-blue border-t-2 pb-10">
+            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal"> 
+                <span class="font-bold block">{{ article.metafields.custom.products_title | newline_to_br }} </span>
+                <span>{{ article.metafields.custom.products_subtitle | newline_to_br }} </span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                 {%- for product in article.metafields.recommendation.products.value -%}
                 <div class="">
@@ -40,7 +43,10 @@
 <section class="4xl:container blog blog_drink--recommendation mb-24">
     <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
         <div id="" class="border-blue border-t-2 py-10">
-            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal "> {{ article.metafields.post.recommendation_title | newline_to_br }} </h2>
+            <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal "> 
+                <span class="font-bold block">{{ article.metafields.post.recommendation_title | newline_to_br }} </span>
+                <span>{{ article.metafields.custom.recommendation_subtitle | newline_to_br }} </span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                 {% if article.metafields.recommendation_i.title %}
                     <div class="w-full h-full text-white relative">
