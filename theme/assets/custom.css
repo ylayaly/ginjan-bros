@@ -1311,6 +1311,81 @@ div#rc_login {
 }
 
 
+.blog_drink h2{
+    font-size: 35px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.blog_drink p{
+    margin: 28px 0px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.blog_drink > div p:last-child{
+    margin-bottom: 48px;
+}
+
+.blog_drink h1, .blog_drink h2{
+    margin: 48px 0px;
+}
+
+.blog_drink .aspect-square{
+    background-color: #FAFAFA;
+}
+
+.blog_drink--recommendation p{
+    font-size: 14px;
+}
+
+.blog_drink img{
+    margin-top: 2rem;
+}
+
+.image_credits{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EBEBEB;
+    padding: 1rem 1.5rem;
+    color: #0A1343;
+    font-family: Loto;
+    font-size: 25px;
+    font-weight: 400;
+    gap: 1rem;
+}
+.image_credits span:last-child{
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.shared_btn{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg_facebook_blog{
+    background-image: url(./facebook-blog.svg);
+}
+
+.bg_twitter_blog{
+    background-image: url(./twitter-blog.svg);
+}
+
+.bg_link_blog{
+    background-image: url(./link-blog.svg);
+}
+
+.title-blog::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6ch;
+    background-color: #081346;
+
+}
 
 @keyframes fadeIn {
     0% {

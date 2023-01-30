@@ -51,12 +51,15 @@ module.exports = {
         green: '#458334',
         'green-1': '#009344',
         'green-2': '#558E54',
+        'green-3': '#40914D',
         orange: "#EFA24C",
         'dark-orange': "#E38D30",
         'orange-1': '#FC9B2A',
         'orange-2': "#FAA440",
+        'orange-3' : "#FAA94E",
         blue: "#081346",
         'blue-1': "#081833",
+        'blue-2': "#0A1343",
         yellow: "#C7A945",
         grey: "#6F6F6F",
         "grey-2": "#F8F8F9",
@@ -66,10 +69,11 @@ module.exports = {
       backgroundSize: {
         'full': '100% 100%',
       },
-      maxWidth: {
+      maxWidth: (theme) => ({
+        ...theme('spacing'),
         '33': '33%',
         '30': '30rem'
-      },
+      }),
       minHeight: (theme) => ({
         ...theme('spacing'),
         '1/4': '25%',
@@ -105,14 +109,16 @@ module.exports = {
         '9xl': '9rem',
         '14': '3.5rem',
         '8.1xl': '6.75rem',
-        '32': '32px'
+        '32': '32px',
+        'h2' : '2.5rem',
       },
       gridTemplateColumns: {
         'cta': '1.78fr 1.22fr',
         'footer': '1.78fr 1.22fr',
         '2-gb-1': '1.4fr 1.6fr',
         '2-gb-2': '1.6fr 1.4fr',
-        'product' : '0.4fr 0.3fr 0.3fr'
+        'product' : '0.4fr 0.3fr 0.3fr',
+        'featured-post' : '0.28fr 0.22fr 0.5fr'
       },
       height: (theme) => ({
         ...theme('spacing'),
