@@ -1,0 +1,332 @@
+<style>
+    .pop-up-form{
+        z-index: 999999999; 
+    }
+
+    .pop-up-form__bg{
+        background-image: url("{{ section.settings.bg_image | image_url: width: auto }}");
+        clip-path: url(#popup);
+    }
+
+    .hilight-text em{
+        color: #40914D;
+        font-style: normal;
+    }
+
+    .hilight-text strong{
+        background: white;
+        padding: 0 0.75rem;
+    }
+
+    .hilight-text em strong{
+        padding-right: 0;
+    }
+
+    .pop-up-form .richtext a{
+        text-decoration: underline;
+    }
+
+    .pop-up-form__diclaimer {
+        margin-left: initial;
+    
+    }
+
+    @media screen and (max-width: 1023px) {
+        .hilight-text strong{
+            padding: 0 0.5rem;
+        }
+    }
+
+    @media screen and (min-width: 641px) and (max-width: 1023px) {
+        .pop-up-form__content{
+            width: 60%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .pop-up-form__content{
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 467px) {
+        .pop-up-form__content, .pop-up-form__diclaimer{
+            width: 100%;
+            margin: auto;
+        }
+        .pop-up-form__bg{
+            background-image: url("{{ section.settings.bg_image_mobile | image_url: width: auto }}");
+            clip-path: none;
+        }
+    }
+
+    @media screen and (max-width: 1023px) and (orientation: landscape) {
+        .pop-up-form__diclaimer {
+            position: relative;
+            margin-top: 24px;
+            padding-bottom: 3rem
+        }
+        .pop-up-form__content{
+            width: 60%;
+        }
+
+        .pop-up-form__content{
+            padding-top: 3rem
+        }
+        
+        .pop-up-form__bg{
+            background-image: url("{{ section.settings.bg_image | image_url: width: auto }}");
+            clip-path: url(#popup);
+            height: 100%;
+        }   
+        .pop-up-form__diclaimer {
+            background-image: none;
+            color: rgba(255, 255, 255, 1);
+        } 
+        #pop-up-form__content{
+            margin-top: 60px
+        }
+    }
+
+
+</style>
+<section id="pop-up-form" class="{% if section.settings.show_popup %} block {% else %} hidden opacity-0 {% endif %}">
+   <div class="pop-up-form fixed inset-0 w-full h-full bg-orange-4">
+    <svg width="1" height="1">
+        <clipPath id="popup" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2543" data-name="Trazado 2543" d="M-21.49,2.418h1v.859c-.024.019-.058.049-.107.1a.466.466,0,0,1-.056.045h-.307c-.035-.013-.073-.026-.117-.038a.911.911,0,0,0-.2-.03.755.755,0,0,0-.169.018l-.046.013Z" transform="translate(21.49 -2.418)" opacity="0.507"/>
+        </clipPath>
+    </svg>
+    <svg width="1" height="1">
+        <clipPath id="popup_m" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2453" data-name="Trazado 2453" d="M600.987,0h1V1c-.266.011-.516-.072-1-.1Z" transform="translate(-600.987)" opacity="0.507"/>
+        </clipPath>
+    </svg>
+    <svg width="1" height="1">
+        <clipPath id="popup_d" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2453" data-name="Trazado 2453" d="M601.3,1521.73v-.482c-.266.055-.516-.376-1-.518v1Z" transform="translate(-600.304 -1520.73)" opacity="0.507"/>
+        </clipPath>
+    </svg>
+
+    
+
+    
+      
+    <div class="pop-up-form__bg absolute inset-0 w-full bg-no-repeat bg-top bg-cover h-full">
+        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
+    </div>
+    <div class="relative w-full h-full grid place-items-center overflow-auto">
+        <div id="pop-up-form__content" class="pop-up-form__content {% if section.settings.show_success %} hidden {% else %} block lg:grid {% endif %} lg:grid-cols-2 mx-auto px-8 pb-8 pt-6 md:p-8 min-h-124 opacity-100">
+            <div>
+                <h3 class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10" onClick="showSuccessMessage()">{{ section.settings.title }}</h3>
+                <div class="font-loto font-bold text-lg xs:text-xl md:text-2xl xl:text-4xl hilight-text text-blue richtext mt-2 md:mt-3">{{ section.settings.hilight_title }}</div>
+                {% unless section.settings.description == blank %}
+                    <div class="font-loto mt-8 text-base xl:text-lg text-white font-text richtext hidden lg:block">
+                        {{ section.settings.description }}
+                    </div>                    
+                {% endunless %}
+
+            </div>
+            <div class="text-xl lg:text-2xl mt-8 ms:mt-20 lg:mt-0">
+                <div class="lg:w-3/4 ml-auto ">
+                    <div style="margin:0 auto;" class="pxFormGenerator" id="aRwqoZ11SZ9Ln7Ut5sormA"></div>
+                    <div>
+                        <button onClick="closePop()" class="text-white font-loto font-semibold pb-1 border-b border-white no-underline text-xs">{{ section.settings.link_text }}</button>
+                    </div>
+                    <div class="pop-up-form__diclaimer bottom-0 right-0 left-0 place-items-center text-xs text-blue/50 xs:text-white mt-12 richtext hidden xs:grid w-full">
+                        {{ section.settings.disclaimer }}   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pop-up-form__message" class="pop-up-form__message mx-auto px-8 pb-8 md:p-8 min-h-124 {% if section.settings.show_success %} block {% else %} hidden opacity-0 {% endif %} ">
+            <h3 onClick="showForm()" class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10">{{ section.settings.title_success }}</h3>
+            <div class="font-loto font-bold text-lg xs:text-xl md:text-2xl xl:text-4xl hilight-text text-blue richtext mt-2 md:mt-3">{{ section.settings.hilight_title_success }}</div>
+            <div class="mt-12 text-white text-base lg:text-22 xl:text-28 with-code"> {{ section.settings.code_text }} </div>
+            <div class="mt-14">
+                <a class="block btn-start" href="{{ section.settings.link_url_success }}">
+                    <span>{{ section.settings.text_url_success }}</span>
+                </a>
+                  
+            </div>
+        </div>
+        <div class="pop-up-form__diclaimer bottom-0 right-0 left-0 grid place-items-center text-[8px] text-blue/50 xs:text-white/50 mt-16 richtext xs:hidden px-8 pb-8 pt-24">
+            {{ section.settings.disclaimer }}   
+        </div>
+        <button onClick="closePop()" class="absolute top-12 right-8 xl:top-16 xl:right-16 2xl:top-24 2xl:right-24 pop-up-form__btn-close w-6 h-6 lg:w-10 lg:h-10 cursor-pointer"></button>
+    </div>
+    
+
+   </div>
+
+   <script>
+
+    function getC(t) {
+        var name = t+"=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+    }
+    
+    function setC(t, v){
+      var d = new Date();
+      d.setHours(d.getHours() + 24);
+      var expires = "expires="+d.toUTCString();
+      document.cookie = t+"="+v+";" + expires + ";path=/";
+    }
+    
+
+    function showSuccessMessage(){
+        //setC("ready-show-contact-form", true)
+        var content = document.getElementById("pop-up-form__content");
+        content.classList.add("hide-content");
+        setTimeout(function(){ 
+            content.classList.remove("grid");
+            content.classList.remove("lg:grid");
+            content.classList.add("hidden");
+            var message = document.getElementById("pop-up-form__message");
+            message.classList.add("show-message");
+        }, 1000);
+    }
+
+    function closePop(){
+        //setC("ready-show-contact-form", true)
+        var content = document.getElementById("pop-up-form");
+        content.classList.remove("show-content");
+        content.classList.add("hide-content");
+        setTimeout(function(){ 
+            content.classList.add("hidden");
+        }, 1000);
+    }
+
+    function openPop(){
+        var content = document.getElementById("pop-up-form");
+        content.classList.remove("hidden");
+        content.classList.add("show-content");
+        
+    }
+
+    function showForm(){
+        var content = document.getElementById("pop-up-form__content");
+        content.classList.remove("hide-content");
+        content.classList.add("grid");
+        content.classList.remove("hidden");
+        var message = document.getElementById("pop-up-form__message");
+            message.classList.remove("show-message");
+    }
+
+    window.addEventListener('message', handleMessage, false);
+
+    function handleMessage(event) {
+        if (event.origin !== "https://formbuilder.hulkapps.com") { return; }  
+        switch(event.data) {   
+             case "HELLO_PARENT":  
+             showSuccessMessage();
+                break;  
+        } 
+    }
+
+    setTimeout(() => {
+        getC("ready-show-contact-form") == "" && openPop()
+    }, 1000)
+
+   </script>
+</section>
+
+
+{% schema %}
+{
+  "name": "PopUp Form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Form"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_popup",
+        "label": "Show PopUp Form"
+    },
+    {
+        "type" : "image_picker",
+        "id" : "bg_image",
+        "label" : "Background Image"
+    },
+    {
+        "type" : "image_picker",
+        "id" : "bg_image_mobile",
+        "label" : "Background Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "hilight_title",
+      "label": "Hilight Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Continue Button Text"
+    },
+    {
+        "type": "header",
+        "content": "Success Message"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_success",
+        "label": "Show Success Message"
+      },
+    {
+        "type": "text",
+        "id": "title_success",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "hilight_title_success",
+        "label": "Hilight Title"
+      },
+      {
+        "type": "richtext",
+        "id": "code_text",
+        "label": "Code Text"
+      },
+      {
+        "type": "text",
+        "id": "text_url_success",
+        "label": "Start Button Text"
+      },
+      {
+        "type": "url",
+        "id": "link_url_success",
+        "label": "Start Button Link"
+      }
+    
+  ]
+}
+{% endschema %}

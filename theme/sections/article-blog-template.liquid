@@ -1,11 +1,11 @@
 <span class="hidden data-detail-blog bg-blue opacity-60 rounded-full border-8 border-white drink-detail p-10 xl:p-20 flex-col justify-center items-center"></span>
 <section class="4xl:container blog blog__title px-10 lg:px-20">
-    <div class="text-blue mt-20 lg:mt-30 mb-14 lg:mb-24 w-full lg:w-3/4 2xl:w-4/6 mx-auto">
+    <div class="text-blue mt-20 lg:mt-30 mb-14 lg:mb-24 w-full lg:w-3/4 2xl:w-4/6 mx-auto max-w-290">
         <div class="mb-6">
             <span class="text-orange font-bold">{{ article.metafields.post.top_tag }}</span>
         </div>
         <div>
-            <h1 class="font-bold text-[2.5rem] md:text-6xl lg:max-w-[100ch]">{{ page_title }}</h1>
+            <h1 class="font-bold text-[2.5rem] md:text-6xl lg:max-w-[25ch]">{{ page_title }}</h1>
         </div>
         <div class="mt-10 flex gap-5">
             <button type="button" id="share-facebook" class="shared_btn w-8 h-8 bg_facebook_blog"></button>
@@ -18,12 +18,12 @@
     <img src="{{ article.image.src | image_url }}" loading="lazy" width="auto" height="auto" class="w-full h-60 md:h-160 object-cover object-center"/>
 </section>
 <section class="4xl:container blog blog_drink">
-    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue max-w-290">
         {{ article.content }}
     </div>
 </section>
 <section class="4xl:container blog blog_drink">
-    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue max-w-290">
         <div id="" class="border-blue border-t-2 pb-10">
             <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal"> 
                 <span class="font-bold block">{{ article.metafields.custom.products_title | newline_to_br }} </span>
@@ -41,7 +41,7 @@
 </section>
 
 <section class="4xl:container blog blog_drink--recommendation mb-24">
-    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue">
+    <div class="relative w-full lg:w-3/4 2xl:w-4/6 mx-auto px-10 xl:px-20 text-blue max-w-290">
         <div id="" class="border-blue border-t-2 py-10">
             <h2 class="text-4xl lg:leading-[3rem] normal-case mb-16 tracking-normal "> 
                 <span class="font-bold block">{{ article.metafields.post.recommendation_title | newline_to_br }} </span>

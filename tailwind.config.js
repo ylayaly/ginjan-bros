@@ -57,12 +57,14 @@ module.exports = {
         'orange-1': '#FC9B2A',
         'orange-2': "#FAA440",
         'orange-3' : "#FAA94E",
+        'orange-4' : "#EAAB42",
         blue: "#081346",
         'blue-1': "#081833",
         'blue-2': "#0A1343",
         yellow: "#C7A945",
         grey: "#6F6F6F",
         "grey-2": "#F8F8F9",
+        "grey-3": "#707070",
         "dark-grey": "#676767",
         "light-grey": "#FAFAFA"
       },
@@ -98,6 +100,7 @@ module.exports = {
       },
       fontSize: {
         '8': '2rem',
+        '10': '2.62rem',
         '45': '45px',
         '20': '5rem',
         '22': '1.375rem',

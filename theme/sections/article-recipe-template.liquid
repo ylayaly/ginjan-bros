@@ -1,12 +1,12 @@
 <span class="hidden data-detail-blog bg-blue opacity-60 rounded-full border-8 border-white recipe-detail p-10 xl:p-20 flex-col justify-center items-center"></span>
-<section class="3xl:container blog blog__title px-10 lg:px-20">
+<section class="4xl:container blog blog__title px-10 lg:px-20">
     <div class="text-blue mt-20 lg:mt-36 mb-14 lg:mb-24">
         <div>
             <h1 class="font-bold text-4xl lg:text-6xl xl:text-87">{{ page_title }}</h1>
         </div>
     </div>
 </section>
-<section class="3xl:container blog blog_recipe">
+<section class="4xl:container blog blog_recipe">
     <div class="relative">
         <div class="bg-cover bg-no-repeat bg-center w-full h-screen" style="background-image: url({{ article.image.src | image_url }})"></div>
         <div class="absolute inset-0 flex justify-center items-center">
@@ -20,7 +20,7 @@
         </div>
     </div>
 </section>
-<section class="3xl:container blog blog_recommendation px-10 lg:px-0">
+<section class="4xl:container blog blog_recommendation px-10 lg:px-0">
     <h4 class="font-recoleta text-black text-2xl lg:text-4xl text-center mt-16 xl:mt-28 mb-12 xl:mb-24">you may also like</h4>
     <div class="grid lg:grid-cols-3 gap-4 md:px-24 xl:px-44">
         {% for item in blog.articles %}

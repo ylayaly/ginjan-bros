@@ -116,20 +116,21 @@
   <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
 
+  <link rel="stylesheet" href="https://use.typekit.net/dvw0wrv.css"/>
+
   {{ content_for_header }}
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
-
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
-    {% include 'cart-popup' %}
+      {% include 'cart-popup' %}
   {%- endif -%}
 
   {% section 'header-gb' %}
 
-  <div class="page-container drawer-page-content" id="PageContainer">
+  <div class="page-container drawer-page-content 4xl:container bg-white" id="PageContainer">
 
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
@@ -143,6 +144,8 @@
 
   </div>
 
+  {% section 'pop-up-form' %}
+  
   <ul hidden>
     <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>

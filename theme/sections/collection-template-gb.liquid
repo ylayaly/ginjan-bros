@@ -17,7 +17,7 @@
 
 {% paginate collection.products by limit %}
 
-<div data-section-id="{{ section.id }}" data-section-type="collection-template" class="3xl:container px-10 md:px-20">
+<div data-section-id="{{ section.id }}" data-section-type="collection-template" class="4xl:container px-10 md:px-20">
   <header class="collection-header">
     {%- assign is_filter_by_available = false -%}
     {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}

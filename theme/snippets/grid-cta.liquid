@@ -28,7 +28,7 @@
     {% else %}
       {% assign text_align_right = 'items-start' %} 
   {% endcase %}
-  <section data-section-id="{{ section.id }}" data-section-type="grid-cta-section" class="grid-cta-section-{{ section.id }} 3xl:container">
+  <section data-section-id="{{ section.id }}" data-section-type="grid-cta-section" class="grid-cta-section-{{ section.id }} 4xl:container bg-white">
       <div class="grid lg:grid-cols-cta">
           <div class="{{ section.settings.hero_size }} relative">
               <div class="bg-cover bg-no-repeat w-full h-full absolute inset-0" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>

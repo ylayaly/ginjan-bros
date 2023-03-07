@@ -1,0 +1,179 @@
+<section>
+    {% if section.settings.top_text != blank %}
+    <div class="4xl:container px-10 md:px-20 pb-4 xl:pb-8 pt-2 xl:pt-4">
+        <a href="{{ section.settings.top_link }}" class="flex justify-end">
+            <span class="text-yellow font-bold text-2xl xl:text-4xl">{{ section.settings.top_text }}</span>
+        </a>
+    </div>
+    {% endif %}
+    <div class="4xl:container banner-text-slide">
+        {% for banner in section.blocks %}
+      <div class="relative mb-3 ">
+        <div class="min-h-96 lg:h-128 xl:h-192 2xl:h-200 3xl:h-252 bg-cover bg-no-repeat" style="background-image: url({{ banner.settings.image | image_url: width: auto }});"></div>
+        <div class="absolute right-0 left-0 bottom-0 h-1/3 bg-black opacity-50"></div>
+        <div class="absolute top-0 right-0 py-6 lg:py-8 2xl:py-11 px-6 lg:px-12 2xl:px-16">
+            <span class="text-orange-4 font-bold text-lg sm:text-2xl lg:text-4xl 2xl:text-6xl">{{ banner.settings.tag }}</span>
+        </div>
+        <div class="absolute inset-0">
+            <div class="px-10 md:px-20 flex flex-col justify-end h-full pb-16 lg:pb-24 2xl:pb-32">
+                <h1 class="text-white font-bold text-6xl md:text-8xl xl:text-9xl mb-3 lg:mb-5">{{ banner.settings.title }}</h1>
+                <h3 class="text-white text-xl md:text-2xl xl:text-[3.3rem] xl:leading-16">{{ banner.settings.subtitle }}</h3>
+                
+                {% unless banner.settings.description == blank %}
+                  <div class="text-white mb-6 lg:mb-9">
+                    {{ banner.settings.description }}
+                 </div>
+                {% endunless %}
+            </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+</section>
+{% schema %}
+{
+"name": "Banner with slide",
+"class": "page-section",
+"settings" : [
+{
+  "type": "text",
+  "id": "top_text",
+  "label": {
+    "da": "Top text",
+    "de": "Top text",
+    "en": "Top text",
+    "es": "Top texto",
+    "fi": "Top text",
+    "fr": "Top text",
+    "hi": "Top text",
+    "it": "Top text",
+    "ja": "Top text",
+    "ko": "Top text",
+    "nb": "Top text",
+    "nl": "Top text",
+    "pt-BR": "Top text",
+    "pt-PT": "Top text",
+    "sv": "Top text",
+    "th": "Top text",
+    "zh-CN": "Top text",
+    "zh-TW": "Top text"
+  }
+}
+],
+"blocks": [
+  {
+      "type": "items",
+      "name": "Banner",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+              "da": "Billede",
+              "de": "Foto",
+              "en": "Banner",
+              "es": "Imagen",
+              "fi": "Kuva",
+              "fr": "Image",
+              "hi": "इमेज",
+              "it": "Immagine",
+              "ja": "画像",
+              "ko": "이미지",
+              "nb": "Bilde",
+              "nl": "Afbeelding",
+              "pt-BR": "Imagem",
+              "pt-PT": "Imagem",
+              "sv": "Bild",
+              "th": "รูปภาพ",
+              "zh-CN": "图片",
+              "zh-TW": "圖片"
+            }
+          },
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": {
+              "da": "Subtitle",
+              "de": "Subtitle",
+              "en": "Subtitle",
+              "es": "Subtítulo",
+              "fi": "Subtitle",
+              "fr": "Subtitle",
+              "hi": "Subtitle",
+              "it": "Subtitle",
+              "ja": "Subtitle",
+              "ko": "Subtitle",
+              "nb": "Subtitle",
+              "nl": "Subtitle",
+              "pt-BR": "Subtitle",
+              "pt-PT": "Subtitle",
+              "sv": "Subtitle",
+              "th": "Subtitle",
+              "zh-CN": "Subtitle",
+              "zh-TW": "Subtitle"
+            }
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": {
+              "da": "Description",
+              "de": "Description",
+              "en": "Description",
+              "es": "Descripción",
+              "fi": "Description",
+              "fr": "Description",
+              "hi": "Description",
+              "it": "Description",
+              "ja": "Description",
+              "ko": "Description",
+              "nb": "Description",
+              "nl": "Description",
+              "pt-BR": "Description",
+              "pt-PT": "Description",
+              "sv": "Description",
+              "th": "Description",
+              "zh-CN": "Description",
+              "zh-TW": "Description"
+            }
+          }
+      ]
+  }
+],
+"presets": [
+{
+  "name": "Banner with slide",
+  "category": {
+    "da": "Tekst",
+    "de": "Text",
+    "en": "Text",
+    "es": "Texto",
+    "fi": "Teksti",
+    "fr": "Texte",
+    "hi": "टेक्स्ट",
+    "it": "Testo",
+    "ja": "テキスト",
+    "ko": "텍스트",
+    "nb": "Tekst",
+    "nl": "Tekst",
+    "pt-BR": "Texto",
+    "pt-PT": "Texto",
+    "sv": "Text",
+    "th": "ข้อความ",
+    "zh-CN": "文本",
+    "zh-TW": "文字"
+  }
+}
+]
+}
+{% endschema %}

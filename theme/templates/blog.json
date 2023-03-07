@@ -1,12 +1,20 @@
 {
-    "sections": {
-      "Template": {
-        "type": "blog-template",
-        "settings": {
-        }
+  "sections": {
+    "Template": {
+      "type": "blog-template",
+      "settings": {
+        "blog": "recipes",
+        "title": "Natural or Super-Natural \/",
+        "subtitle": "Ginjan Cocktail Recipes",
+        "text_link": "ALL COCKTAILS",
+        "newsletter_title": "Join our Newsletter",
+        "newsletter_image": "shopify:\/\/shop_images\/newslatter_bg.png",
+        "shop_title": "Order for home delivery anywhere in the US",
+        "shop_collection": "the-shop"
       }
-    },
-    "order": [
-      "Template"
-    ]
-  }
+    }
+  },
+  "order": [
+    "Template"
+  ]
+}

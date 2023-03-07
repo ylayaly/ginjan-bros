@@ -294,7 +294,7 @@
         "type": "collection-gb",
         "settings": {
           "title": "",
-          "collection": "the-shop",
+          "collection": "frontpage",
           "grid": 3,
           "rows": 1,
           "show_vendor": false,
