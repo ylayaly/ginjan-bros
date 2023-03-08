@@ -66,11 +66,11 @@
                             {% endif %}
                             style="background-color: {{ section.settings.color_footer_bg}}; color: {{ section.settings.color_footer_text}}"
                             >
-                        <span class="input-group__btn w-20">
+                        <div class="input-group__btn w-20">
                             <button type="submit" class="newsletter__submit h-full w-full cursor-pointer" name="commit" id="Subscribe">
                             <span class="newsletter__submit-text--large"></span>
                             </button>
-                        </span>
+                        </div>
                         </div>
                         {% if form.errors contains 'email' %}
                         <span id="{{ formId }}-email-error" class="input-error-message">

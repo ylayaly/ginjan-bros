@@ -1,13 +1,62 @@
 {
   "sections": {
-    "Header": {
-      "type": "banner-with-text",
+    "TopLinks": {
+      "type": "top-links",
+      "blocks": {
+        "29282fbd-407a-4198-9b5a-cbd51d88d0f5": {
+          "type": "items",
+          "settings": {
+            "title": "Menu >",
+            "url": "#menu",
+            "bg_color": "#081346"
+          }
+        },
+        "a07ccaa0-50da-4ad6-8efe-2fd28462a896": {
+          "type": "items",
+          "settings": {
+            "title": "Directions >",
+            "url": "#directions",
+            "bg_color": "#eaab42"
+          }
+        }
+      },
+      "block_order": [
+        "29282fbd-407a-4198-9b5a-cbd51d88d0f5",
+        "a07ccaa0-50da-4ad6-8efe-2fd28462a896"
+      ],
       "settings": {
-        "top_text": "",
-        "link": "",
-        "image": "shopify:\/\/shop_images\/cafe.png",
-        "subtitle": "<p>The Home of African<\/p><p>Flavors in New York City<\/p>",
-        "description": "<p>Join us at Ginjan Café; the flagship of Ginjan organic ginger juice, made in the heart of Harlem. Great<\/p><p>local flavors and tastes abound — from premium African coffee by La Colombe to freshly pressed juices<\/p><p>and independent, healthy Harlem-made eats — good things are here.<\/p>"
+      }
+    },
+    "cb558a47-5a95-4595-8931-83bcc62fb5ac": {
+      "type": "banner-slide",
+      "blocks": {
+        "f62b78d8-9fcb-49f0-b746-9e46504f22b2": {
+          "type": "items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ginjan_Cafe_Harlem_4000px.jpg",
+            "tag": "Harlem",
+            "title": "Ginjan Café",
+            "subtitle": "<p>The Home of African Flavors<br\/>in New York City — in Harlem + Brooklyn<\/p>",
+            "description": ""
+          }
+        },
+        "a659bf75-145a-4fee-921b-baa03571328d": {
+          "type": "items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Brooklyn.png",
+            "tag": "Brooklyn",
+            "title": "Ginjan Café",
+            "subtitle": "<p>The Home of African Flavors<br\/>in New York City — in Harlem + Brooklyn<\/p>",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "f62b78d8-9fcb-49f0-b746-9e46504f22b2",
+        "a659bf75-145a-4fee-921b-baa03571328d"
+      ],
+      "settings": {
+        "top_text": ""
       }
     },
     "GridPage": {
@@ -17,17 +66,42 @@
         "content": "<p>Join us at Ginjan Café; the new flagship of Ginjan organic ginger juice, made in the heart of Harlem. Great local flavors and tastes abound — from premium African coffee by La Colombe to freshly pressed juices and independent, healthy Harlem-made eats — good things are here.<\/p>",
         "button_label": "SEE MENU >",
         "button_link": "",
-        "image_1": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_25.png",
-        "image_3": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_26.png",
-        "image_4": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_29.png",
-        "image_5": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_28.png",
+        "image_1": "shopify:\/\/shop_images\/Screenshot_2023-02-04_at_7.22.13_AM.png",
+        "image_3": "shopify:\/\/shop_images\/Screenshot_2023-02-04_at_7.22.19_AM.png",
+        "image_4": "shopify:\/\/shop_images\/Screenshot_2023-02-04_at_7.22.26_AM.png",
+        "image_5": "shopify:\/\/shop_images\/Screenshot_2023-02-04_at_7.22.33_AM.png",
         "image_6": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_10.png",
         "image_7": "shopify:\/\/shop_images\/Grupo_de_desplazamiento_27.png"
       }
     },
     "Template": {
       "type": "page_content",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "3658ff9e-20f3-4112-9e84-06d5b7b6277b": {
+      "type": "menu-images",
+      "blocks": {
+        "405bcfae-1610-4ee7-9ee3-637f33e1abf0": {
+          "type": "items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-03-01_at_7.08.23_AM.png"
+          }
+        },
+        "a3b0d64b-b514-4de1-9564-b871222b3c56": {
+          "type": "items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-03-01_at_7.08.19_AM.png"
+          }
+        }
+      },
+      "block_order": [
+        "405bcfae-1610-4ee7-9ee3-637f33e1abf0",
+        "a3b0d64b-b514-4de1-9564-b871222b3c56"
+      ],
+      "settings": {
+        "uid": "menu"
       }
     },
     "Map": {
@@ -37,14 +111,28 @@
           "type": "slide",
           "settings": {
             "name": "Harlem",
-            "google_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3020.027955111713!2d-73.94140828426771!3d40.80537947932181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f769c6835e7f%3A0x8acc0bad2ab8d93!2sGinjan%20Cafe!5e0!3m2!1sen!2sec!4v1649119124355!5m2!1sen!2sec"
+            "google_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3020.027955111713!2d-73.94140828426771!3d40.80537947932181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f769c6835e7f%3A0x8acc0bad2ab8d93!2sGinjan%20Cafe!5e0!3m2!1sen!2sec!4v1649119124355!5m2!1sen!2sec",
+            "weekdays": "7am - 5pm",
+            "saturday": "9am - 5pm",
+            "icon": "shopify:\/\/shop_images\/harlem-icon-address.png",
+            "address": "<p>125th Street<\/p>",
+            "free-fast-wifi": true,
+            "accessible": true,
+            "service-animals": true
           }
         },
         "097df7b1-966b-4783-ab37-f5c2d046b806": {
           "type": "slide",
           "settings": {
             "name": "Brooklyn",
-            "google_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3025.4156789549866!2d-73.95276868427071!3d40.68684197933461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1sen!2sec!4v1649119024605!5m2!1sen!2sec"
+            "google_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3025.4156789549866!2d-73.95276868427071!3d40.68684197933461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1sen!2sec!4v1649119024605!5m2!1sen!2sec",
+            "weekdays": "7am - 5pm",
+            "saturday": "9am - 5pm",
+            "icon": "shopify:\/\/shop_images\/brooklyn-address-icon_d296abed-aa43-41ad-97bd-dbc7024f6c70.png",
+            "address": "<p>Nostrand Av<\/p><p>Bedford-Nostrand Av<\/p>",
+            "free-fast-wifi": true,
+            "accessible": true,
+            "service-animals": true
           }
         }
       },
@@ -53,13 +141,16 @@
         "097df7b1-966b-4783-ab37-f5c2d046b806"
       ],
       "settings": {
+        "uid": "directions"
       }
     }
   },
   "order": [
-    "Header",
+    "TopLinks",
+    "cb558a47-5a95-4595-8931-83bcc62fb5ac",
     "GridPage",
     "Template",
+    "3658ff9e-20f3-4112-9e84-06d5b7b6277b",
     "Map"
   ]
 }

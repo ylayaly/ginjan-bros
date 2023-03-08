@@ -1,4 +1,4 @@
-<div class="page-width">
+<div id="{{ section.settings.uid }}" class="page-width">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h4 class="h2">{{ section.settings.title | escape }}</h4>
@@ -394,6 +394,11 @@
         "zh-CN": "自定义内容",
         "zh-TW": "自訂內容"
       }
+    },
+    {
+      "type": "text",
+      "id" : "uid",
+      "label" : "Unique ID (Anchor link)"
     }
   ],
   "blocks": [

@@ -1,0 +1,196 @@
+<style>
+    .pop-up-form{
+        z-index: 999999999; 
+    }
+
+    .pop-up-form__bg{
+        background-image: url("{{ section.settings.bg_image | image_url: width: auto }}");
+        clip-path: url(#popup);
+    }
+
+    .hilight-text em{
+        color: #40914D;
+        font-style: normal;
+    }
+
+    .hilight-text strong{
+        background: white;
+        padding: 0 0.75rem;
+    }
+
+    .hilight-text em strong{
+        padding-right: 0;
+    }
+
+    .pop-up-form .richtext a{
+        text-decoration: underline;
+    }
+
+    .pop-up-form__diclaimer {
+        margin-left: initial;
+    }
+
+    @media screen and (max-width: 1023px) {
+        .pop-up-form__bg{
+            background-image: url("{{ section.settings.bg_image_mobile | image_url: width: auto }}");
+            clip-path: url(#popup_m);
+        }
+        .hilight-text strong{
+            padding: 0 0.5rem;
+        }
+    }
+
+    @media screen and (min-width: 641px) and (max-width: 1023px) {
+        .pop-up-form__content, .pop-up-form__diclaimer{
+            width: 60%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .pop-up-form__content, .pop-up-form__diclaimer{
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 467px) {
+        .pop-up-form__content, .pop-up-form__diclaimer{
+            width: 100%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (max-width: 1023px) and (orientation: landscape) {
+        .pop-up-form__diclaimer {
+            position: relative;
+            margin-top: 24px;
+            padding-bottom: 3rem
+        }
+        .pop-up-form__content, .pop-up-form__diclaimer{
+            width: 60%;
+        }
+
+        .pop-up-form__content{
+            padding-top: 3rem
+        }
+        
+        .pop-up-form__bg{
+            background-image: url("{{ section.settings.bg_image | image_url: width: auto }}");
+            clip-path: url(#popup);
+            height: 100%;
+        }    
+    }
+
+</style>
+<section style="display : none">
+   <div class="pop-up-form fixed inset-0 w-full h-full bg-orange-4">
+    <svg width="1" height="1">
+        <clipPath id="popup" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2543" data-name="Trazado 2543" d="M-21.49,2.418h1v.859c-.024.019-.058.049-.107.1a.466.466,0,0,1-.056.045h-.307c-.035-.013-.073-.026-.117-.038a.911.911,0,0,0-.2-.03.755.755,0,0,0-.169.018l-.046.013Z" transform="translate(21.49 -2.418)" opacity="0.507"/>
+        </clipPath>
+    </svg>
+    <svg width="1" height="1">
+        <clipPath id="popup_m" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2453" data-name="Trazado 2453" d="M600.987,0h1V1c-.266.011-.516-.072-1-.1Z" transform="translate(-600.987)" opacity="0.507"/>
+        </clipPath>
+    </svg>
+
+    
+      
+    <div class="pop-up-form__bg absolute inset-0 w-full bg-no-repeat bg-top bg-cover h-[90%] lg:h-full">
+        <div class="absolute inset-0 w-full h-full bg-black/50"></div>
+    </div>
+    
+    <button class="absolute top-12 right-8 xl:top-16 xl:right-16 2xl:top-24 2xl:right-24 pop-up-form__btn-close w-6 h-6 lg:w-10 lg:h-10"></button>
+    <div class="relative w-full h-full grid place-items-center overflow-auto">
+        <div class="pop-up-form__content grid lg:grid-cols-2 mx-auto px-8 pb-8 md:p-8 min-h-124">
+            <div>
+                <h3 class="font-loto text-white font-black text-2xl md:text-3xl xl:text-10">{{ section.settings.title }}</h3>
+                <div class="font-loto font-bold text-xl md:text-2xl xl:text-4xl hilight-text text-blue richtext mt-2 md:mt-3">{{ section.settings.hilight_title }}</div>
+                <div class="font-loto mt-8 text-base xl:text-lg text-white font-text richtext hidden lg:block">
+                    {{ section.settings.description }}
+                </div>
+                <div class="text-xs text-white/50 mt-16 richtext hidden lg:block">
+                    {{ section.settings.disclaimer }}   
+                </div>
+            </div>
+            <div class="text-white text-xl lg:text-2xl mt-8 ms:mt-20 lg:mt-0">
+                <div class="lg:w-3/4 ml-auto ">
+                    <div class="tracking-wider">
+                        <div class="pb-1 xs:pb-2 lg:pb-3 border-b border-grey-3 mb-4 lg:mb-7">email address *</div>
+                        <div class="pb-1 xs:pb-2 lg:pb-3 border-b border-grey-3 mb-4 lg:mb-7">mobile number</div>
+                        <div class="pb-1 xs:pb-2 lg:pb-3 border-b border-grey-3 mb-4 lg:mb-7 w-1/2">zip code</div>    
+                    </div>
+                    <div style="margin:0 auto;" class="pxFormGenerator" id="aRwqoZ11SZ9Ln7Ut5sormA"></div>
+                    <div>
+                        <button class="pop-up-form__btn-submit mt-2 md:mt-4"></button>
+                    </div>
+                    <div>
+                        <a href="{{ section.settings.link_url }}" class="text-white font-loto font-semibold pb-1 border-b border-white no-underline text-xs">{{ section.settings.link_text }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pop-up-form__diclaimer absolute bottom-0 right-0 left-0 grid place-items-center text-[8px] text-white/50 mt-16 richtext lg:hidden px-8 py-6">
+            {{ section.settings.disclaimer }}   
+        </div>
+    </div>
+
+   </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "PopUp Form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Form"
+    },
+    {
+        "type" : "image_picker",
+        "id" : "bg_image",
+        "label" : "Background Image"
+    },
+    {
+        "type" : "image_picker",
+        "id" : "bg_image_mobile",
+        "label" : "Background Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "hilight_title",
+      "label": "Hilight Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Hilight Title"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Continue Button Text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Continue Button Link"
+    }
+
+    
+  ]
+}
+{% endschema %}

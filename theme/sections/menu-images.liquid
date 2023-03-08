@@ -1,0 +1,82 @@
+<section id="{{ section.settings.uid }}">
+  {% if section.blocks.size > 0 %}
+    <div class="relative 4xl:container flex flex-col lg:flex-row items-center gap-4 mb-8 sm:mb-12 lg:mb-14 2xl:mb-16 p-4 xl:p-8">
+      {% for block in section.blocks %}
+        <div class=" text-white font-black text-base md:text-xl lg:text-3xl 2xl:text-[2.6rem] h-full">
+            <img src="{{ block.settings.image | img_url: "master" }}" alt="{{ block.settings.image.alt }}" class="w-full h-full object-contain"/>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "Menu images",
+  "class": "page-section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "uid",
+        "label" : "UID"
+    }
+  ],
+  "max_blocks" : 2,
+  "blocks": [
+    {
+      "type": "items",
+      "name": "Menu images",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+              "da": "Billede",
+              "de": "Foto",
+              "en": "Banner",
+              "es": "Imagen",
+              "fi": "Kuva",
+              "fr": "Image",
+              "hi": "इमेज",
+              "it": "Immagine",
+              "ja": "画像",
+              "ko": "이미지",
+              "nb": "Bilde",
+              "nl": "Afbeelding",
+              "pt-BR": "Imagem",
+              "pt-PT": "Imagem",
+              "sv": "Bild",
+              "th": "รูปภาพ",
+              "zh-CN": "图片",
+              "zh-TW": "圖片"
+            }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Menu images",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}

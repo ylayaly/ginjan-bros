@@ -249,4 +249,34 @@ $(() => {
         document.execCommand("copy");
         document.body.removeChild(input);
     })
+
+    $(".top-link").click(function(){
+        const tag = $(this).attr("href");
+        if(tag.startsWith("#")){
+            const y = $(tag).offset().top - 50;
+            window.scroll({
+              top: y,
+              behavior: 'smooth'
+            });
+            return false
+        }
+    });
+
+    function setHeroSlide(){
+        $('.banner-text-slide').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+            // fade: true,
+            // cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false,
+        });
+    }
+
+    setHeroSlide()
+    setTimeout(setHeroSlide, 400)
+          
 })

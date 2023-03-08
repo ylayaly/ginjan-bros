@@ -1415,5 +1415,16 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "Abandoned Checkout Email",
+    "settings": [
+      {
+        "type": "text",
+        "id": "label_code_discount",
+        "label": "Label Code Discount",
+        "default": "Take 15% off with Code *"
+      }
+    ]
   }
 ]

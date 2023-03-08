@@ -1,65 +1,186 @@
-<div class="4xl:container mb-2 xl:mb-4">
-    <div class="tabs">
-        <div class="map-tab-header bg-blue text-white font-bold text-2xl xl:text-4xl py-3 lg:py-5">
-            {% for block in section.blocks %}
-                {% assign key = block.settings.name | split : " " | join : "-" %}
-                <button onclick="setTab(this)" type="button" class="btn-tab py-2 ml-10 lg:ml-20 {% if forloop.first == true %} active {% endif %}" data-active="#tab-{{ key }}">{{ block.settings.name }}</button>
-            {% endfor %}
-        </div>
-        <div class="w-full">
-            {% for block in section.blocks %}
-                {% assign key = block.settings.name | split : " " | join : "-" %}
-                <div id="tab-{{ key }}" class="tab-body h-128 md:h-172 {% if forloop.first == true %} active {% endif %}">
-                    <iframe src="{{ block.settings.google_link }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            {% endfor %}
-        </div>
+<div id="{{ section.settings.uid }}" class="4xl:container mb-2 xl:mb-4">
+  <div class="tabs">
+    <div class="map-tab-header bg-blue text-white font-bold text-2xl xl:text-4xl py-10 lg:py-14">
+      {% for block in section.blocks %}
+        {% assign key = block.settings.name | split: ' ' | join: '-' %}
+        <button
+          onclick="setTab(this)"
+          type="button"
+          class="btn-tab py-2 ml-10 lg:ml-20 {% if forloop.first == true %} active {% endif %}"
+          data-active="#tab-{{ key }}"
+        >
+          {{ block.settings.name }}
+        </button>
+      {% endfor %}
     </div>
+    <div class="w-full bg-blue">
+      {% for block in section.blocks %}
+        {% assign key = block.settings.name | split: ' ' | join: '-' %}
+        <div id="tab-{{ key }}" class="tab-body h-128 md:h-172 {% if forloop.first == true %} active {% endif %}">
+          <div class="pb-14 md:pb-20 xl:pb-24 px-10 lg:px-20 text-base leading-8 sm:text-lg xl:text-26 text-white w-full">
+            <div class="grid xl:grid-cols-3 3xl:grid-cols-2 gap-8">
+              <div class="grid sm:grid-cols-2 gap-8 w-full col-span-1 xl:col-span-2 3xl:col-span-1">
+                <div>
+                  {% if block.settings.weekdays != '' %}
+                    <div class="grid grid-cols-2 gap-6 xl:gap-8 2xl:gap-10">
+                      <span class="font-black">Mon-Friday</span>
+                      <span class="font-semibold">{{ block.settings.weekdays }}</span>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.saturday != '' %}
+                    <div class="grid grid-cols-2 gap-6 xl:gap-8 2xl:gap-10 xl:mt-3">
+                      <span class="font-black">Saturday</span>
+                      <span class="font-semibold">{{ block.settings.saturday }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+                <div>
+                  {% if block.settings.address != '' %}
+                    <div class="flex items-center gap-3 xl:gap-5">
+                      <img src="{{ block.settings.icon | img_url: 'master' }}" class="object-contain object-left max-w-[5rem] xl:max-w-[7rem] max-h-[3rem] xl:max-h-[5rem]" />
+                      <div class="font-semibold leading-6 xl:leading-10">{{ block.settings.address }}</div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div>
+                {% if block.settings.free-fast-wifi %}
+                  <div class="flex items-center gap-5">
+                    <div class="w-6 h-6 icon-wifi">                    
+                    </div>
+                    <span class="font-semibold">Free, Fast Wi-Fi</span>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.accessible %}
+                  <div class="flex items-center gap-5 mt-1 xl:mt-3">
+                    <div class="w-6 h-6 icon-accessible">                    
+                    </div>
+                    <span class="font-semibold">Accessible</span>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.service-animals %}
+                  <div class="flex items-center gap-5 mt-1 xl:mt-3">
+                    <div class="w-6 h-6 icon-animals">                    
+                    </div>
+                    <span class="font-semibold">Service Animals</span>
+                  </div>
+                {% endif %}
+              
+              </div>
+            </div>
+          </div>
+          <iframe
+            src="{{ block.settings.google_link }}"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% schema %}
-  {
-    "name": "Map with tabs",
-    "settings": [],
-    "blocks": [
-     {
-       "name": "Locations",
-       "type": "slide",
-       "settings": [
-         {
-           "type": "text",
-           "id": "name",
-           "label": "Name location"
-         },
-         {
-            "type": "text",
-            "id": "google_link",
-            "label": "Google location",
-            "info": {
-                "da": "Google Maps finder den nøjagtige lokation. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "de": "Google Maps findet die richtige Adresse. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "en": "Google Maps will find the exact location. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "es": "Google Maps encontrará la ubicación exacta. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "fi": "Google Maps hakee tarkan sijainnin. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "fr": "Google Maps trouvera l'adresse exacte. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "hi": "Google मैप को सटीक स्थान मिलेगा. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "it": "Google Maps troverà l'esatta posizione. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "ja": "Googleマップが正確な位置を見つけます。. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "ko": "Google 지도에서 정확한 위치를 찾습니다.. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "nb": "Google Maps vil finne nøyaktig plassering. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "nl": "Google Maps zoekt de exacte locatie. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "pt-BR": "O Google Maps encontrará a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "pt-PT": "O Google Maps vai encontrar a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "sv": "Google Maps kommer hitta den exakta platsen. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "th": "Google Maps จะค้นหาตำแหน่งที่ตั้งที่แน่นอน. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "zh-CN": "Google 地图会显示确切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
-                "zh-TW": "Google 地圖會找出確切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec"
-            }
-         }
-       ]
-     }
-   ]
-  }
+{
+  "name": "Map with tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "uid",
+      "label": "Unique ID (Anchor link)"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Locations",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name location"
+        },
+        {
+          "type": "text",
+          "id": "google_link",
+          "label": "Google location",
+          "info": {
+            "da": "Google Maps finder den nøjagtige lokation. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "de": "Google Maps findet die richtige Adresse. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "en": "Google Maps will find the exact location. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "es": "Google Maps encontrará la ubicación exacta. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "fi": "Google Maps hakee tarkan sijainnin. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "fr": "Google Maps trouvera l'adresse exacte. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "hi": "Google मैप को सटीक स्थान मिलेगा. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "it": "Google Maps troverà l'esatta posizione. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "ja": "Googleマップが正確な位置を見つけます。. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "ko": "Google 지도에서 정확한 위치를 찾습니다.. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "nb": "Google Maps vil finne nøyaktig plassering. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "nl": "Google Maps zoekt de exacte locatie. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "pt-BR": "O Google Maps encontrará a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "pt-PT": "O Google Maps vai encontrar a localização exata. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "sv": "Google Maps kommer hitta den exakta platsen. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "th": "Google Maps จะค้นหาตำแหน่งที่ตั้งที่แน่นอน. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "zh-CN": "Google 地图会显示确切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec",
+            "zh-TW": "Google 地圖會找出確切位置. Ex: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19660.46648754362!2d-73.95031519506233!3d40.68257183544864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b1cafa06173%3A0xdd3662efbbd2337e!2sGinjan%20Cafe!5e0!3m2!1ses!2sec!4v1647631667284!5m2!1ses!2sec"
+          }
+        },
+        {
+          "type": "header",
+          "content": "Schedule"
+        },
+        {
+          "type": "text",
+          "id": "weekdays",
+          "label": "Mon-Friday"
+        },
+        {
+          "type": "text",
+          "id": "saturday",
+          "label": "Saturday"
+        },
+        {
+          "type": "header",
+          "content": "Address"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "address",
+          "label": "Address"
+        },
+        {
+          "type": "header",
+          "content": "Information"
+        },
+        {
+          "type": "checkbox",
+          "id": "free-fast-wifi",
+          "label": "Free, Fast Wi-Fi"
+        },
+        {
+          "type": "checkbox",
+          "id": "accessible",
+          "label": "Accessible"
+        },
+        {
+          "type": "checkbox",
+          "id": "service-animals",
+          "label": "Service Animals"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}

@@ -1,0 +1,70 @@
+<section>
+  {% if section.blocks.size > 0 %}
+    <div class="relative 4xl:container grid grid-cols-2 items-center gap-1 mb-1">
+      {% for block in section.blocks %}
+        <div class=" text-white font-black text-base md:text-xl lg:text-3xl 2xl:text-[2.6rem]" style="background-color: {{ block.settings.bg_color }}">
+          <a href="{{ block.settings.url }}" class="flex justify-center p-4 sm:p-6 xl:p-8 top-link">
+            <span class="text-white">
+              {{ block.settings.title }}
+            </span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "Top Links",
+  "class": "page-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "items",
+      "name": "Top Links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Bg Color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Links",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    }
+  ]
+}
+{% endschema %}
