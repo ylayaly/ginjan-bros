@@ -214,7 +214,7 @@
         "type": "grid-cta",
         "settings": {
           "hero_size": "h-40vh xl:h-50vh min-h-104",
-          "image": "shopify:\/\/shop_images\/login-1.png",
+          "image": "shopify:\/\/shop_images\/Spare_skuall.png",
           "text_size": "text-4xl md:text-6xl xl:text-7xl",
           "text_align": "left",
           "text_vertical_align": "justify-center",
@@ -420,6 +420,17 @@
         "settings": {
           "cart_ajax_enable": true,
           "cart_notes_enable": false
+        }
+      },
+      "pop-up-form": {
+        "type": "pop-up-form",
+        "settings": {
+          "title": "",
+          "hilight_title": "",
+          "description": "",
+          "disclaimer": "",
+          "link_text": "",
+          "link_url": ""
         }
       }
     },

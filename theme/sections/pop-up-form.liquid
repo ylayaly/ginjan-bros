@@ -120,7 +120,7 @@
     <div class="relative w-full h-full grid place-items-center overflow-auto">
         <div id="pop-up-form__content" class="pop-up-form__content {% if section.settings.show_success %} hidden {% else %} block lg:grid {% endif %} lg:grid-cols-2 mx-auto px-8 pb-8 pt-6 md:p-8 min-h-124 opacity-100">
             <div>
-                <h3 class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10" onClick="showSuccessMessage()">{{ section.settings.title }}</h3>
+                <h3 class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10">{{ section.settings.title }}</h3>
                 <div class="font-loto font-bold text-lg xs:text-xl md:text-2xl xl:text-4xl hilight-text text-blue richtext mt-2 md:mt-3">{{ section.settings.hilight_title }}</div>
                 {% unless section.settings.description == blank %}
                     <div class="font-loto mt-8 text-base xl:text-lg text-white font-text richtext hidden lg:block">
@@ -142,9 +142,11 @@
             </div>
         </div>
         <div id="pop-up-form__message" class="pop-up-form__message mx-auto px-8 pb-8 md:p-8 min-h-124 {% if section.settings.show_success %} block {% else %} hidden opacity-0 {% endif %} ">
-            <h3 onClick="showForm()" class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10">{{ section.settings.title_success }}</h3>
+            <h3 class="font-loto text-white font-black text-22 xs:text-2xl md:text-3xl xl:text-10">{{ section.settings.title_success }}</h3>
+            {% unless section.settings.hilight_title_success == blank %}
             <div class="font-loto font-bold text-lg xs:text-xl md:text-2xl xl:text-4xl hilight-text text-blue richtext mt-2 md:mt-3">{{ section.settings.hilight_title_success }}</div>
-            <div class="mt-12 text-white text-base lg:text-22 xl:text-28 with-code"> {{ section.settings.code_text }} </div>
+            {% endunless %}
+            <div class="mt-6 text-white text-base lg:text-22 xl:text-28 with-code"> {{ section.settings.code_text }} </div>
             <div class="mt-14">
                 <a class="block btn-start" href="{{ section.settings.link_url_success }}">
                     <span>{{ section.settings.text_url_success }}</span>
@@ -187,7 +189,7 @@
     
 
     function showSuccessMessage(){
-        //setC("ready-show-contact-form", true)
+        setC("ready-show-contact-form", true)
         var content = document.getElementById("pop-up-form__content");
         content.classList.add("hide-content");
         setTimeout(function(){ 
@@ -200,7 +202,7 @@
     }
 
     function closePop(){
-        //setC("ready-show-contact-form", true)
+        setC("ready-show-contact-form", true)
         var content = document.getElementById("pop-up-form");
         content.classList.remove("show-content");
         content.classList.add("hide-content");
@@ -214,15 +216,6 @@
         content.classList.remove("hidden");
         content.classList.add("show-content");
         
-    }
-
-    function showForm(){
-        var content = document.getElementById("pop-up-form__content");
-        content.classList.remove("hide-content");
-        content.classList.add("grid");
-        content.classList.remove("hidden");
-        var message = document.getElementById("pop-up-form__message");
-            message.classList.remove("show-message");
     }
 
     window.addEventListener('message', handleMessage, false);

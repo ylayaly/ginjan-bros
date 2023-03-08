@@ -1510,7 +1510,14 @@ div#rc_login {
     transform: rotate(-3deg);
     display: block;
     padding-left: 2rem;
+}
 
+form div button.btn.button{
+    display: none;
+}
+
+.history .richtext a{
+    text-decoration: underline;
 }
 
 #pop-up-form__content{
