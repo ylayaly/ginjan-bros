@@ -1520,9 +1520,9 @@ form div button.btn.button{
     text-decoration: underline;
 }
 
-#pop-up-form__content{
-    min-height: 700px;
-}
+/* #pop-up-form__content{
+    min-height: 100%;
+} */
 
 form div button.btn.button{
     display: none;
@@ -1531,7 +1531,6 @@ form div button.btn.button{
 .history .richtext a{
     text-decoration: underline;
 }
-
 
 @keyframes fadeIn {
     0% {
@@ -1608,6 +1607,10 @@ form div button.btn.button{
 
     .pop-up-form__content iframe {
         max-height: 305px;
+    }
+
+    .min-h-bg_close_popup{
+        min-height: calc(820px + 6rem);
     }
     
 }
@@ -1751,6 +1754,29 @@ form div button.btn.button{
     }
 }
 
+@media (max-width: 1023px) and (orientation: landscape) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media (max-height: 768px) and (orientation: portrait) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .hilight-text strong{
+        padding: 0 0.5rem;
+    }
+
+    #pop-up-form__content {
+      margin-top: 80px;
+      margin-bottom: 60px;
+    }
+}
+
 @media (max-width: 1023px) {
     .blog__grid {
         grid-template-columns: 1fr;
@@ -1888,8 +1914,18 @@ form div button.btn.button{
         font-size: 30px;
     }
     .btn-start {
-        width: 18rem;
-        height: 6rem;
+        height: 3rem;
+        padding-top: 0rem;
+        width: 70%;
+        padding: 1rem 2rem 1.2rem 0rem;
+    }
+
+    .btn-start span {
+        color: #fff;
+        font-size: 0.8rem;
+        transform: rotate(-3deg);
+        display: block;
+        padding-left: 1.2rem;
     }
 
     #pop-up-form__content iframe{
@@ -2058,20 +2094,21 @@ form div button.btn.button{
     #pop-up-form__content{
         min-height: 550px;
         margin-top: 110px;
+        margin-bottom: 0px;
     }
-
 
     #pop-up-form__message{
         margin-top: 110px;
     }
     .btn-start {
-        width: 14rem;
-        height: 6rem;
-        padding: 1rem 4rem 1.2rem 2rem;
+        width: 70%;
+        height: 3rem;
+        padding: 1.1rem 3rem 1.2rem 1.2rem;
     }
 
     .btn-start span{
-        font-size: 1rem;
+        font-size: 0.7rem;
+        padding-left: 0px;
     }
 
     /* .pop-up-form__diclaimer{
@@ -2085,6 +2122,13 @@ form div button.btn.button{
         background-repeat: no-repeat;
         background-position: 0px 0px;
     }
+}
+
+@media (max-width: 375px) {
+    .pop-up-form__diclaimer {
+        margin: auto;
+    }
+
 }
 
 @media (max-width: 374px) {

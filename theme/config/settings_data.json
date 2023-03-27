@@ -425,12 +425,20 @@
       "pop-up-form": {
         "type": "pop-up-form",
         "settings": {
-          "title": "",
-          "hilight_title": "",
+          "show_popup": false,
+          "bg_image": "shopify:\/\/shop_images\/bg_desktop_form.png",
+          "bg_image_mobile": "shopify:\/\/shop_images\/bg_mobile_form_8606c2a0-a9da-4ec1-b53c-c18c4c499cb2.png",
+          "title": "Cheers! From Africa to You —",
+          "hilight_title": "<p><em><strong>Enjoy 15% off<\/strong><\/em><strong> on the finest health<br\/>juices in all the land<\/strong><\/p>",
           "description": "",
-          "disclaimer": "",
-          "link_text": "",
-          "link_url": ""
+          "disclaimer": "<p>Ginjan respects your privacy and security of your info — we DO NOT sell your <br\/>information to any third parties.   <br\/>We use your information for Ginjan promotional and communications purposes only.<br\/>Please see our <a href=\"\/policies\/privacy-policy\" target=\"_blank\" title=\"Privacy Policy\">PRIVACY POLICY<\/a> for more info.<\/p>",
+          "link_text": "CONTINUE WITHOUT 15% OFF",
+          "show_success": false,
+          "title_success": "Thank you!  —",
+          "hilight_title_success": "",
+          "code_text": "<p>Use code <strong>BROTHERS<\/strong> at checkout<\/p>",
+          "text_url_success": "START SHOPPING",
+          "link_url_success": "shopify:\/\/collections\/the-shop"
         }
       }
     },
@@ -439,7 +447,15 @@
       "16461723729de5cd67",
       "16460307937b79b953",
       "16460309937b2fbc59"
-    ]
+    ],
+    "blocks": {
+      "319724205969189013": {
+        "type": "shopify:\/\/apps\/hulk-form-builder\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
@@ -787,9 +803,6 @@
         "blog-template": {
           "type": "blog-template",
           "settings": {
-            "layout": "grid",
-            "blog_show_author": true,
-            "blog_show_date": false
           }
         },
         "article-template": {

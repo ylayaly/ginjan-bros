@@ -154,13 +154,11 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
-
 <!-- PF EDT START -->
 <script type='text/javascript'>
 {%- if content_for_header contains 'shopify-product-customizer' -%}
     {%- if product -%}
         {%- if product.first_available_variant -%}
-            var pfSyncProductIdentity = {{ product.id | json}};
             var pfProductId = {{ product.metafields.printful.is_synced | json }};
             var pfEdt = {{ shop.metafields.printful.is_edt_enabled | json }};
             var pfEdtTextColor = {{ shop.metafields.printful.edt_text_color | json }};
