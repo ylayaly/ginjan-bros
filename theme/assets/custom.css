@@ -151,7 +151,7 @@ h6,
 }
 
 body, #shopify-section-footer-gb, footer {
-    background-color: #458234;
+    /* background-color: #458234; */
 }
 
 .page-container {
@@ -194,7 +194,7 @@ body, #shopify-section-footer-gb, footer {
     content: '';
     position: absolute;
     transition: top 0.3s 0.6s ease-in-out, transform 0.3s ease-in-out;
-    background-image: url(./menu-bottom.svg);
+    background-image: url(./menu-bottom-white.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -213,7 +213,7 @@ body, #shopify-section-footer-gb, footer {
     content: '';
     position: absolute;
     transition: bottom 0.3s 0.6s ease-in-out, transform 0.3s ease-in-out;
-    background-image: url(./menu-top.svg);
+    background-image: url(./menu-top-white.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -843,7 +843,9 @@ div.shopify-policy__container p {
 
 body:not(.locked) #shopify-section-header-gb {
     z-index: 99999999;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    top: 0px;
 }
 
 .pb-1.border-b-4.border-white.block.w-max span {
@@ -1520,9 +1522,9 @@ form div button.btn.button{
     text-decoration: underline;
 }
 
-#pop-up-form__content{
-    min-height: 700px;
-}
+/* #pop-up-form__content{
+    min-height: 100%;
+} */
 
 form div button.btn.button{
     display: none;
@@ -1530,6 +1532,10 @@ form div button.btn.button{
 
 .history .richtext a{
     text-decoration: underline;
+}
+
+.footer__bg{
+    clip-path: url(#footer_bg);
 }
 
 
@@ -1608,6 +1614,10 @@ form div button.btn.button{
 
     .pop-up-form__content iframe {
         max-height: 305px;
+    }
+
+    .min-h-bg_close_popup{
+        min-height: calc(820px + 6rem);
     }
     
 }
@@ -1748,6 +1758,29 @@ form div button.btn.button{
     }
     #customer_logout_link{
         padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media (max-height: 768px) and (orientation: portrait) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .hilight-text strong{
+        padding: 0 0.5rem;
+    }
+
+    #pop-up-form__content {
+      margin-top: 80px;
+      margin-bottom: 60px;
     }
 }
 
@@ -1930,6 +1963,10 @@ form div button.btn.button{
     .site-header__logo {
         padding-left: 0px;
     }
+
+    .footer__bg{
+        clip-path: url(#footer_mobile_bg);
+    }
 }
 
 @media only screen and (min-width: 750px) {
@@ -1988,6 +2025,7 @@ form div button.btn.button{
         gap: 0.25rem;
         line-height: 1.5rem;
     }
+
 }
 
 @media (max-width: 468px) {
@@ -2068,8 +2106,8 @@ form div button.btn.button{
     #pop-up-form__content{
         min-height: 550px;
         margin-top: 110px;
+        margin-bottom: 0px;
     }
-
 
     #pop-up-form__message{
         margin-top: 110px;
@@ -2096,6 +2134,13 @@ form div button.btn.button{
         background-repeat: no-repeat;
         background-position: 0px 0px;
     }
+}
+
+@media (max-width: 375px) {
+    .pop-up-form__diclaimer {
+        margin: auto;
+    }
+
 }
 
 @media (max-width: 374px) {
