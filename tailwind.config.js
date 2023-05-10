@@ -58,6 +58,7 @@ module.exports = {
         'orange-2': "#FAA440",
         'orange-3' : "#FAA94E",
         'orange-4' : "#EAAB42",
+        'orange-5' : "#FF9F00",
         blue: "#081346",
         'blue-1': "#081833",
         'blue-2': "#0A1343",
@@ -65,6 +66,8 @@ module.exports = {
         grey: "#6F6F6F",
         "grey-2": "#F8F8F9",
         "grey-3": "#707070",
+        "grey-4": "#F4F4F4",
+        "grey-5": "#D0D0D0",
         "dark-grey": "#676767",
         "light-grey": "#FAFAFA"
       },

@@ -6,13 +6,82 @@
         "title": "<p><strong>Shipping <br\/>across the US.<\/strong><\/p>",
         "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
         "layout": "grid",
-        "grid": 4,
+        "grid": 5,
         "rows": 1,
         "show_collection_image": true,
         "show_vendor": false,
         "sort_enable": false,
         "tags_enable": false,
         "show_paginate": false
+      }
+    },
+    "d48475a2-a611-41b9-bd85-2283d30b0ccd": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "section_title": "Best Sellers",
+        "text": "",
+        "text_size": "large"
+      }
+    },
+    "c1c4cadc-1468-4ad8-83a9-894eff64b7e4": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screenshot_2023-05-10_at_1.32.46_PM.png",
+        "alignment": "top",
+        "hero_layout": "full_width",
+        "hero_size": "adapt",
+        "text_size": "medium",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "164727700365f2b7dc": {
+      "type": "collection-gb",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "collection": "the-shop",
+        "grid": 5,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    },
+    "5e75eb09-daff-4eb6-948a-32569098153a": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "section_title": "GinjanGoods™",
+        "text": "",
+        "text_size": "large"
+      }
+    },
+    "08e4beed-9207-405c-ac55-57141742a7cb": {
+      "type": "collection-gb",
+      "settings": {
+        "title": "",
+        "collection": "the-shop-second-row",
+        "grid": 5,
+        "rows": 3,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    },
+    "95b530b4-93df-4571-aa47-17626b66b52d": {
+      "type": "collection-gb",
+      "disabled": true,
+      "settings": {
+        "title": "Featured collection",
+        "collection": "shop-third-row",
+        "grid": 4,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": false
       }
     },
     "cta": {
@@ -43,102 +112,16 @@
         "button_align_right": "justify-end mt-8 xl:mt-14",
         "color_text_right": "#ffffff"
       }
-    },
-    "164727700365f2b7dc": {
-      "type": "collection-gb",
-      "settings": {
-        "title": "",
-        "collection": "the-shop-second-row",
-        "grid": 4,
-        "rows": 1,
-        "show_vendor": false,
-        "show_view_all": false
-      }
-    },
-    "479edc45-6fb7-44d3-940b-eedbacbaade0": {
-      "type": "collection-list",
-      "disabled": true,
-      "blocks": {
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-0",
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-1",
-        "template--14731574444091__479edc45-6fb7-44d3-940b-eedbacbaade0-1675438824b32f4602-2"
-      ],
-      "settings": {
-        "title": "Collection list",
-        "grid": 3
-      }
-    },
-    "59aeba3e-1ab8-444a-b1d3-abb3753f7dc1": {
-      "type": "collection-list",
-      "disabled": true,
-      "blocks": {
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-0",
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-1",
-        "template--14731574444091__59aeba3e-1ab8-444a-b1d3-abb3753f7dc1-16680073769ba383fa-2"
-      ],
-      "settings": {
-        "title": "Collection list",
-        "grid": 3
-      }
-    },
-    "95b530b4-93df-4571-aa47-17626b66b52d": {
-      "type": "collection-gb",
-      "settings": {
-        "title": "Featured collection",
-        "collection": "shop-third-row",
-        "grid": 4,
-        "rows": 2,
-        "show_vendor": false,
-        "show_view_all": false
-      }
     }
   },
   "order": [
     "template",
-    "cta",
+    "d48475a2-a611-41b9-bd85-2283d30b0ccd",
+    "c1c4cadc-1468-4ad8-83a9-894eff64b7e4",
     "164727700365f2b7dc",
-    "479edc45-6fb7-44d3-940b-eedbacbaade0",
-    "59aeba3e-1ab8-444a-b1d3-abb3753f7dc1",
-    "95b530b4-93df-4571-aa47-17626b66b52d"
+    "5e75eb09-daff-4eb6-948a-32569098153a",
+    "08e4beed-9207-405c-ac55-57141742a7cb",
+    "95b530b4-93df-4571-aa47-17626b66b52d",
+    "cta"
   ]
 }

@@ -4,20 +4,8 @@
     font-weight: bold;
 }
 </style>
-<footer class="relative">
-    <svg width="1" height="1">
-      <clipPath id="footer_bg" clipPathUnits="objectBoundingBox" >
-        <path id="Trazado_2749" data-name="Trazado 2749" d="M-754.979-1504.894v-.9a1.258,1.258,0,0,0-.535-.088,1.7,1.7,0,0,1-.465-.013v1Z" transform="translate(755.979 1505.894)" fill="#081346"/>
-      </clipPath>
-    </svg>
-    <svg width="1" height="1">
-      <clipPath id="footer_mobile_bg" clipPathUnits="objectBoundingBox" >
-        <path id="Trazado_2749" data-name="Trazado 2749" d="M-755.187-1506.05c-.22,0-.369.03-.546.02-.1,0-.207-.018-.247-.02v1h1v-.966A.6.6,0,0,0-755.187-1506.05Z" transform="translate(755.979 1506.051)" fill="#081346"/>
-      </clipPath>
-    </svg>
-
-    <div class="absolute inset-0 w-full h-full footer__bg" style="background-color: {{ section.settings.color_footer_bg}};"></div>
-    <div class="4xl:container mx-auto grid grid-cols-1 xl:grid-cols-footer relative overflow-hidden">
+<footer>
+    <div class="4xl:container mx-auto grid grid-cols-1 xl:grid-cols-footer relative overflow-hidden" style="background-color: {{ section.settings.color_footer_bg}}">
         <div class="flex flex-col justify-between font-bold p-10 md:p-20 pr-10 md:pr-0" style="color: {{ section.settings.color_footer_text}}">
             <div>
                 <ul class="flex text-xl xl:text-26 flex-wrap gap-y-3 justify-center md:justify-start">
@@ -29,6 +17,18 @@
                         </li>
                     {% endfor %}
                 </ul>
+                <div class="flex mt-10 justify-center md:justify-start">
+                    <a href="{{ settings['social_instagram_link'] | escape }}" class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-instagram bg-contain"></a>
+                    <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-facebook bg-contain"></a>
+                </div>
+                <div class="mt-8 flex flex-col items-center md:items-start">
+                    <p class="font-bold text-26" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text }}</p>
+                    <p class="text-base" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text_1 }}</p>
+        
+                </div>
+            </div>
+            <div class="text-2xl xl:text-4xl mt-28 flex flex-col items-center md:items-start">
+                <span>{{ section.settings.copyright }}</span>
             </div>
         </div>
         <div class="py-0 px-10 md:px-20 xl:px-0 xl:py-20 pb-10 md:pb-20 xl:pb-0 xl:relative overflow-hidden" style="color: {{ section.settings.color_footer_text}}">
@@ -83,27 +83,10 @@
                     </div>
                 </div>
             </div>
+            <div class="absolute bg-contain bg-footer-mark -bottom-1/4 w-8/12 hidden md:block"></div>
         </div>
-        <div class="px-10 md:px-20 xl:mt-12">
-          <div class="flex justify-center md:justify-start gap-7">
-              <a href="{{ settings['social_instagram_link'] | escape }}" class="w-6 h-6 xl:w-9 xl:h-9 bg-instagram bg-contain"></a>
-              <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-6 h-6 xl:w-9 xl:h-9 bg-facebook bg-contain"></a>
-          </div>
-        </div>
-        <div class="mt-6 xl:mt-9"> 
-          <div class="flex flex-col items-center md:items-start">
-              <p class="font-bold text-26" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text }}</p>
-              <p class="text-base" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text_1 }}</p>
-          </div>
-        </div>
-
-        <div class="xl:col-span-2 px-10 md:px-20 pb-10 md:pb-20 text-white mt-24">
-          <div class="text-2xl xl:text-4xl flex flex-col items-center md:items-start">
-              <span>{{ section.settings.copyright }}</span>
-          </div>
-        </div>
-
     </div>
+    
 </footer>
 
 

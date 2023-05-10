@@ -5,19 +5,17 @@
         max-width: {{ section.settings.logo_max_width | escape }}px;
       }
     {% endif %}
-    #PageContainer{
-      margin-top: 44px;
-    }
+
   </style>
 {% endif %}
 
 {% include 'search-drawer' %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section w-full" data-header-section>
+<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
 
 <header>
         <div class="relative 4xl:container">
-            <div class="bg-transparent">
+            <div class="bg-white">
                 <div class="relative">
                 {% if section.settings.message %}
                     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
@@ -60,9 +58,9 @@
                     </div>
                     {% endif %}
                 {% endif %}
-                    <div class="flex items-start justify-between w-full px-10 md:px-20 pt-4 pb-6 md:pt-8 md:pb-10">
-                        <div class="flex items-center gap-4 lg:gap-6 shrink-0 w-24 md:w-56 pt-6">
-                          <span class="bg-menu-header bg-menu w-6 xs:w-8 xl:w-16 relative z-30 xs:h-4 xl:h-6 cursor-pointer" aria-controls="MobileNavMenu"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"><span></span></span>
+                    <div class="flex items-center justify-between w-full px-10 md:px-20 pt-4 pb-6 md:pt-8 md:pb-10">
+                        <div class="flex items-center gap-4 lg:gap-6 shrink-0 w-24 md:w-56">
+                          <span class="bg-menu-header bg-menu w-6 xs:w-8 relative z-30 xs:h-4 cursor-pointer" aria-controls="MobileNavMenu"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"><span></span></span>
                           <button type="button" class="site-header__icon site-header__icon-search site-header__search-toggle js-drawer-open-top w-4 h-4 xs:w-6 xs:h-6 p-0 justify-center items-center hidden sm:flex text-green-2 mb-1">
                               {% include 'icon-search' %}
                               <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
@@ -72,16 +70,16 @@
 
                         {%- comment -%} Section logo {%- endcomment -%}
                         {% if request.page_type == 'index' %}
-                        <h1 class="h2 site-header__logo m-0 w-52">
+                        <h1 class="h2 site-header__logo m-0 w-2/3 xs:w-1/2 md:full xl:max-w-33">
                         {% else %}
-                        <div class="h2 site-header__logo m-0 w-52">
+                        <div class="h2 site-header__logo m-0 w-2/3 xs:w-1/2 md:full xl:max-w-33">
                         {% endif %}
                         {% if section.settings.logo %}
-                            {%- assign img_url = section.settings.logo | img_url: width: '210' -%}
+                            {%- assign img_url = section.settings.logo | ima_url: width: 'master' -%}
                             <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
                             {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
-                            <img src="{{ img_url }}" 
-                                data-src="{{ img_url }}" 
+                            <img src="{{ 'logo_gb.png' | asset_img_url: 'master' }}" 
+                                data-src="{{ 'logo_gb.png' | asset_img_url: 'master' }}" 
                                 data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
                                 class="object-contain logo_desktop"
                                 alt="{{ logo_alt | escape }}"
@@ -113,20 +111,18 @@
                         </div>
                         {% endif %}
                         {%- comment -%} End section logo {%- endcomment -%}
-                        <div class="flex items-center shrink-0 w-24 md:w-56 justify-end gap-2 sm:gap-4 lg:gap-6 pt-6">
+                        <div class="flex items-center shrink-0 w-24 md:w-56 justify-end gap-2 sm:gap-4 lg:gap-6">
                             
                             {% if shop.customer_accounts_enabled %}
-                                {%- assign account_url = routes.account_login_url -%}
                                 {% if customer %}
-                                  {%- assign account_url = routes.account_url -%}
-                                {% endif %}
-
-                                <a href="{{ account_url }}" class="cursor-pointer site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center">
-                                    {% include 'icon-account-gb' %}
-                                    <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+                                <a href="{{ routes.account_url }}" class="btn bg-blue text-white site-header__account h-4 xs:h-6 font-loto text-[9px] font-bold px-[6px] py-[10px] md:h-8 flex gap-1 justify-center items-center">
+                                    <span class="hidden md:inline">Your</span> <span class="">{{ 'layout.customer.account' | t }}</span>
                                 </a>
-                                
-                                
+                                {% else %}
+                                <a href="{{ routes.account_login_url }}" class="btn bg-blue text-white site-header__account h-4 xs:h-6 font-loto text-[9px] font-bold px-[6px] py-[10px] md:h-8 flex gap-1 justify-center items-center">
+                                    <span class="hidden md:inline">Your</span> <span class="">{{ 'layout.customer.account' | t }}</span>
+                                </a>
+                                {% endif %}
                             {% endif %}
                             <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center">
                                 {% include 'icon-cart-gb' %}
@@ -223,24 +219,24 @@
 {% schema %}
 {
   "name": {
-    "da": "Overskrift GB",
-    "de": "Titel GB",
-    "en": "Header GB",
-    "es": "Encabezado GB",
-    "fi": "Ylätunniste GB",
-    "fr": "En-tête GB",
-    "hi": "हैडर GB",
-    "it": "Header GB",
-    "ja": "ヘッダー GB",
-    "ko": "머리글 GB",
-    "nb": "Header GB",
-    "nl": "Koptekst GB",
-    "pt-BR": "Cabeçalho GB",
-    "pt-PT": "Cabeçalho GB",
-    "sv": "Rubrik GB",
-    "th": "ส่วนหัว GB",
-    "zh-CN": "标头 GB",
-    "zh-TW": "標頭 GB"
+    "da": "Overskrift bg",
+    "de": "Titel bg",
+    "en": "Header bg",
+    "es": "Encabezado bg",
+    "fi": "Ylätunniste bg",
+    "fr": "En-tête bg",
+    "hi": "हैडर bg",
+    "it": "Header bg",
+    "ja": "ヘッダー bg",
+    "ko": "머리글 bg",
+    "nb": "Header bg",
+    "nl": "Koptekst bg",
+    "pt-BR": "Cabeçalho bg",
+    "pt-PT": "Cabeçalho bg",
+    "sv": "Rubrik bg",
+    "th": "ส่วนหัว bg",
+    "zh-CN": "标头 bg",
+    "zh-TW": "標頭 bg"
   },
   "settings": [
     {
