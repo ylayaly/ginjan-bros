@@ -1520,9 +1520,9 @@ form div button.btn.button{
     text-decoration: underline;
 }
 
-#pop-up-form__content{
-    min-height: 700px;
-}
+/* #pop-up-form__content{
+    min-height: 100%;
+} */
 
 form div button.btn.button{
     display: none;
@@ -1531,7 +1531,6 @@ form div button.btn.button{
 .history .richtext a{
     text-decoration: underline;
 }
-
 
 @keyframes fadeIn {
     0% {
@@ -1608,6 +1607,10 @@ form div button.btn.button{
 
     .pop-up-form__content iframe {
         max-height: 305px;
+    }
+
+    .min-h-bg_close_popup{
+        min-height: calc(820px + 6rem);
     }
     
 }
@@ -1748,6 +1751,29 @@ form div button.btn.button{
     }
     #customer_logout_link{
         padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media (max-height: 768px) and (orientation: portrait) {
+    .pop-up-form__container{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .hilight-text strong{
+        padding: 0 0.5rem;
+    }
+
+    #pop-up-form__content {
+      margin-top: 80px;
+      margin-bottom: 60px;
     }
 }
 
@@ -2068,8 +2094,8 @@ form div button.btn.button{
     #pop-up-form__content{
         min-height: 550px;
         margin-top: 110px;
+        margin-bottom: 0px;
     }
-
 
     #pop-up-form__message{
         margin-top: 110px;
@@ -2096,6 +2122,13 @@ form div button.btn.button{
         background-repeat: no-repeat;
         background-position: 0px 0px;
     }
+}
+
+@media (max-width: 375px) {
+    .pop-up-form__diclaimer {
+        margin: auto;
+    }
+
 }
 
 @media (max-width: 374px) {
