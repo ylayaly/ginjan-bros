@@ -196,18 +196,19 @@
       "header-gb": {
         "type": "header-gb",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo": "shopify:\/\/shop_images\/logo_short.svg",
           "logo_max_width": 580,
-          "logo_mobile": "shopify:\/\/shop_images\/desktop_fa32ac93-8fd4-4096-8bea-49fb5acd6c5d.png",
+          "logo_mobile": "shopify:\/\/shop_images\/logo_mobile.png",
+          "right_linklist": "right-menu",
           "main_linklist": "header-main-menu",
           "second_linklist": "header-sub-menu",
           "text_menu": "Born of Africa. Made in New York™",
           "message": true,
           "home_page_only": false,
-          "message_text": "Shipping 🚚 💨 Flat Rate $15.99 per order",
+          "message_text": "SHIPPING ACROSS THE UNITED STATES  —  FREE SHIPPING ON ORDERS $100 +",
           "message_link": "",
-          "color_bg": "#3a3a3a",
-          "color_text": "#ffffff"
+          "color_bg": "#ffa400",
+          "color_text": "#081346"
         }
       },
       "1646030521dc95567a": {
@@ -434,11 +435,11 @@
           "disclaimer": "<p>Ginjan respects your privacy and security of your info — we DO NOT sell your <br\/>information to any third parties.   <br\/>We use your information for Ginjan promotional and communications purposes only.<br\/>Please see our <a href=\"\/policies\/privacy-policy\" target=\"_blank\" title=\"Privacy Policy\">PRIVACY POLICY<\/a> for more info.<\/p>",
           "link_text": "CONTINUE WITHOUT 15% OFF",
           "show_success": false,
-          "title_success": "Thank you!  —",
+          "title_success": "",
           "hilight_title_success": "",
-          "code_text": "<p>Use code <strong>BROTHERS<\/strong> at checkout<\/p>",
-          "text_url_success": "START SHOPPING",
-          "link_url_success": "shopify:\/\/collections\/the-shop"
+          "code_text": "",
+          "text_url_success": "",
+          "link_url_success": ""
         }
       }
     },

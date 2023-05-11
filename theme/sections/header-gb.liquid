@@ -11,163 +11,254 @@
 
 {% include 'search-drawer' %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+<svg width="1" height="1">
+  <clipPath id="navbar-open" clipPathUnits="objectBoundingBox">
+      <path id="Trazado_2605" data-name="Trazado 2605" d="M1575-2903v.826s.044,0,.276,0,.428.187.569.173.155-.066.155-.066V-2903Z" transform="translate(-1575 2903)" fill="#fff7e5"/>
+  </clipPath>
+</svg>
+<svg width="1" height="1">
+  <clipPath id="navbar-open-tablet" clipPathUnits="objectBoundingBox">
+      <path id="Trazado_2750" data-name="Trazado 2750" d="M2209.572-2902.124c.312.017.579.136.773.123s.227-.066.227-.066V-2903h-1Z" transform="translate(-2209.572 2903)" fill="#fff7e5"/>
+  </clipPath>
+</svg>
 
-<header>
-        <div class="relative 4xl:container">
-            <div class="bg-white">
-                <div class="relative">
-                {% if section.settings.message %}
-                    {% if section.settings.home_page_only == false or request.page_type == 'index' %}
-                    <style>
-                        .notice-bar {
-                        background-color: {{ section.settings.color_bg }};
-                        }
 
-                        .notice-bar--link:hover {
-                        {% assign brightness = section.settings.color_bg | color_brightness %}
 
-                        {% if brightness <= 192 %}
-                            {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
-                            background-color: {{ section.settings.color_bg | color_lighten: lightenAmount }};
-                        {% else %}
-                            {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
-                            background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
-                        {% endif %}
-                        }
+<div class="absolute top-0 left-0 w-full" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+  <header>
+      <div class="relative 4xl:container">
+          <div class="">
+              <div class="relative">
+              {% if section.settings.message %}
+                  {% if section.settings.home_page_only == false or request.page_type == 'index' %}
+                  <style>
+                      .notice-bar {
+                      background-color: {{ section.settings.color_bg }};
+                      }
 
-                        .notice-bar__message {
-                            color: {{ section.settings.color_text }};
-                        }
-                    </style>
+                      .notice-bar--link:hover {
+                      {% assign brightness = section.settings.color_bg | color_brightness %}
 
-                    <div class="text-xs announcement-text ">                    
-                        {% if section.settings.message_link == blank %}
-                            <div class="bg-full bg-right-top bg-header-msg bg-no-repeat ml-auto text-right px-4 pt-2 pb-4 text-sm text-white font-bold max-w-30">
-                        {% else %}
-                            <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-header-msg bg-no-repeat ml-auto text-right px-4 pt-2 pb-4 text-sm text-white font-bold max-w-30 notice-bar notice-bar--link">
-                        {% endif %}
+                      {% if brightness <= 192 %}
+                          {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
+                          background-color: {{ section.settings.color_bg | color_lighten: lightenAmount }};
+                      {% else %}
+                          {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
+                          background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
+                      {% endif %}
+                      }
 
-                            <span class="notice-bar__message">{{ section.settings.message_text | escape }}</span>
+                      .notice-bar__message {
+                          color: {{ section.settings.color_text }};
+                      }
+                  </style>
 
-                        {% if section.settings.message_link == blank %}
-                            </div>
-                        {% else %}
-                            </a>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-                {% endif %}
-                    <div class="flex items-center justify-between w-full px-10 md:px-20 pt-4 pb-6 md:pt-8 md:pb-10">
-                        <div class="flex items-center gap-4 lg:gap-6 shrink-0 w-24 md:w-56">
-                          <span class="bg-menu-header bg-menu w-6 xs:w-8 relative z-30 xs:h-4 cursor-pointer" aria-controls="MobileNavMenu"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"><span></span></span>
-                          <button type="button" class="site-header__icon site-header__icon-search site-header__search-toggle js-drawer-open-top w-4 h-4 xs:w-6 xs:h-6 p-0 justify-center items-center hidden sm:flex text-green-2 mb-1">
-                              {% include 'icon-search' %}
-                              <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-                          </button>
-                        </div>
-                        
+                  <div class="text-xs announcement-text ">                    
+                      {% if section.settings.message_link == blank %}
+                          <div class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center px-4 pt-2 pb-4 text-sm text-blue tracking-[0.2em] font-bold">
+                      {% else %}
+                          <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center px-4 pt-2 pb-4 text-sm text-blue tracking-[0.2em] font-bold notice-bar notice-bar--link">
+                      {% endif %}
 
-                        {%- comment -%} Section logo {%- endcomment -%}
-                        {% if request.page_type == 'index' %}
-                        <h1 class="h2 site-header__logo m-0 w-2/3 xs:w-1/2 md:full xl:max-w-33">
-                        {% else %}
-                        <div class="h2 site-header__logo m-0 w-2/3 xs:w-1/2 md:full xl:max-w-33">
-                        {% endif %}
-                        {% if section.settings.logo %}
-                            {%- assign img_url = section.settings.logo | ima_url: width: 'master' -%}
-                            <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
-                            {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
-                            <img src="{{ 'logo_gb.png' | asset_img_url: 'master' }}" 
-                                data-src="{{ 'logo_gb.png' | asset_img_url: 'master' }}" 
-                                data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
-                                class="object-contain logo_desktop"
-                                alt="{{ logo_alt | escape }}"
-                                style="max-width: {{ section.settings.logo_max_width }}px"
-                                >
-                              {% if section.settings.logo_mobile %}
-                                <img src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
-                                  data-src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
-                                  data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
-                                  class="object-contain  logo_mobile"
-                                  alt="{{ logo_alt | escape }}"
-                                  style="max-width: 194px;"
-                                  >
+                          <span class="notice-bar__message">{{ section.settings.message_text | escape }}</span>
+
+                      {% if section.settings.message_link == blank %}
+                          </div>
+                      {% else %}
+                          </a>
+                      {% endif %}
+                  </div>
+                  {% endif %}
+              {% endif %}
+                  <div x-data="{ open : false }" x-bind:class="open ? 'bg-blue' : 'delay-1000'" class="navbar grid grid-cols-3 items-start justify-between w-full px-10 md:px-20 pt-4 pb-4 md:pt-8 md:pb-7 transition-colors duration-500">
+                      <div class="flex items-center gap-4 lg:gap-8 xl:gap-10 2xl:gap-16 font-sofiapro transition-all duration-500" x-bind:class="open ? 'pt-4.5' : 'pt-9 delay-1000'">
+                        <span class="bg-menu-header bg-menu basis-6 w-6 xs:basis-8 xs:w-8 shrink-0 relative z-30 xs:h-4 cursor-pointer" aria-controls="MobileNavMenu"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"><span></span></span>
+                        {% comment %} <button type="button" class="site-header__icon site-header__icon-search site-header__search-toggle js-drawer-open-top w-4 h-4 xs:w-6 xs:h-6 p-0 justify-center items-center hidden sm:flex text-white mb-1">
+                            {% include 'icon-search' %}
+                            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+                        </button> {% endcomment %}
+                        <ul class="lg:gap-8 xl:gap-10 2xl:gap-16 hidden lg:flex tex-lg 2xl:text-xl 3xl:text-2xl">
+                            {% for link in linklists[section.settings.right_linklist].links %}
+                              {% if link.links.size > 0 %}
+                                <li class=" ">
+                                  <button type="button" @click="open = !open" {% if link.current %} aria-current="page" {% endif %} class="flex items-center gap-2 w-max font-medium hover:font-semibold text-white"> 
+                                    <span class="uppercase"> {{ link.title | escape }} </span>
+                                    <span class="transition-all duration-300" x-bind:class="open ? 'rotate-180' : 'delay-1000'">{% render 'icon-arrow-nav' %}</span>
+                                  </button>
+                                  <div x-bind:class="`${ open ? 'max-h-screen delay-500' : 'max-h-0' }`" class="navbar-open absolute ease-out transition-spacing duration-1000 mt-10 right-0 bg-light-brown w-full pl-10 xs:pl-12 lg:pl-20 xl:pl-21 2xl:pl-24 overflow-hidden">
+                                    {% assign activeLink = "" %}
+                                    {% for chLink in link.links %}
+                                      {% if chLink.url contains '/collections/' and activeLink == "" %}
+                                        {% assign activeLink = chLink.handle %}
+                                      {% endif %}
+                                    {% endfor %}
+                                    <div x-cloak x-data="{ openItem : '{{ activeLink }}' }" class="4xl:container px-10 md:px-20 text-blue grid grid-cols-nav-tablet xl:grid-cols-nav">
+                                      <ul class="relative h-full">
+                                        {% for chLink in link.links %}
+                                          <li class="">
+                                            {% if chLink.url contains '/collections/' %}
+                                              <button {% if chLink.current %} aria-current="page" {% endif %} class="navbar-link relative p-3 2xl:p-5 -left-6 hover:bg-blue flex hover:text-white"
+                                                @click="openItem = '{{ chLink.handle }}'" x-on:mouseenter="openItem = '{{ chLink.handle }}'"
+                                                x-bind:class="openItem == '{{ chLink.handle }}' ? 'active bg-blue text-white' : ''"
+                                              > 
+                                                <span class="text-lg 2xl:text-xl font-semibold text-left"> {{ chLink.title | escape }}</span>
+                                              </button>
+                                            {% else %}
+                                              <a href="{{ chLink.url }}" {% if chLink.current %} aria-current="page"{% endif %} class="navbar-link relative inline-block p-3 2xl:p-5 -left-6 hover:bg-blue hover:text-white"> 
+                                                <span class="text-lg 2xl:text-xl font-semibold text-left"> {{ chLink.title | escape }}</span>
+                                              </a>
+                                            {% endif %}
+                                            
+                                          </li>
+                                        {% endfor %}
+                                        <li class="mb-20">
+                                            <a href="{{ link.url }}" class="navbar-link relative inline-block p-3 2xl:p-5 -left-6 hover:bg-blue hover:text-white"> 
+                                              <span class="text-lg 2xl:text-xl font-semibold text-left btn-all">{{ 'Shop All >' }} </span>
+                                            </a>                                          
+                                        </li>
+                                      </ul>
+                                      <ul class="relative">
+                                        {% for chLink in link.links %}
+                                          <li x-show="openItem == '{{ chLink.handle }}'" x-transition.duration.500ms class="h-full" x-bind:class="openItem != '{{ chLink.handle }}' ? 'h-0' : ''">
+                                            {% if chLink.url contains '/collections/' %}
+                                              {%- assign cProducts = '' | split: ',' -%}
+                                              {% for collection in collections %}
+                                                {% if collection.url == chLink.url %}
+                                                  {%- assign cProducts = collection.products -%}
+                                                {% endif %}
+                                              {% endfor %}
+
+                                              <div class="relative inset-0">
+                                                <div class="grid grid-cols-3 xl:grid-cols-4 gap-4 justify-between h-[90%] pb-16 pt-8 xl:pb-16">
+                                                  {% for p in cProducts limit: 4 %}
+                                                    {%- assign preview_image = p.featured_media.preview_image -%}
+                                                    <a href="{{ p.url }}" class="block w-full h-full last:hidden xl:last:block"> 
+                                                      <img class="mx-auto h-full object-contain transition-all duration-300 hover:scale-105" src="{{ preview_image | image_url }}" width="auto" height="auto" loading="lazy" alt="{{ preview_image.alt }}" />
+                                                    </a>
+                                                  {% endfor %}
+                                                </div>
+                                              </div>
+                                            {% endif %}
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+
+                                    </div>
+                                  </div>
+                                </li>
+                              {% else %}
+                                <li class="text-white ">
+                                  <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %} class="block w-max font-medium hover:font-semibold"> 
+                                    <span class="uppercase"> {{ link.title | escape }} </span>
+                                  </a>
+                                </li>
                               {% endif %}
-                            <noscript>
-                                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
-                                <img src="{{ section.settings.logo | img_url: image_size }}"
-                                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                                    alt="{{ section.settings.logo.alt | default: shop.name }}"
-                                    style="max-width: {{ section.settings.logo_max_width }}px;">
-                            </noscript>
-                            </a>
-                        {% else %}
-                            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
-                        {% endif %}
-                        {% if request.page_type == 'index' %}
-                        </h1>
-                        {% else %}
-                        </div>
-                        {% endif %}
-                        {%- comment -%} End section logo {%- endcomment -%}
-                        <div class="flex items-center shrink-0 w-24 md:w-56 justify-end gap-2 sm:gap-4 lg:gap-6">
-                            
-                            {% if shop.customer_accounts_enabled %}
-                                {% if customer %}
-                                <a href="{{ routes.account_url }}" class="btn bg-blue text-white site-header__account h-4 xs:h-6 font-loto text-[9px] font-bold px-[6px] py-[10px] md:h-8 flex gap-1 justify-center items-center">
-                                    <span class="hidden md:inline">Your</span> <span class="">{{ 'layout.customer.account' | t }}</span>
-                                </a>
-                                {% else %}
-                                <a href="{{ routes.account_login_url }}" class="btn bg-blue text-white site-header__account h-4 xs:h-6 font-loto text-[9px] font-bold px-[6px] py-[10px] md:h-8 flex gap-1 justify-center items-center">
-                                    <span class="hidden md:inline">Your</span> <span class="">{{ 'layout.customer.account' | t }}</span>
-                                </a>
-                                {% endif %}
-                            {% endif %}
-                            <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center">
-                                {% include 'icon-cart-gb' %}
-                                <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-                                <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
-                                <span data-cart-count>{{ cart.item_count }}</span>
-                                <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
-                                </div>
-                            </a>
-                        {% comment %} <div class="bg-bag bg-contain w-4 h-4 xs:w-6 xs:h-6 md:w-8 md:h-8"></div> {% endcomment %}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-menu bg-green absolute top-0 left-0 right-0 z-20" id="MobileNavMenu">
-                <div class="absolute inset-0">
-                    <div class="lg:bg-left-bottom bg-menu-mark ml-auto bg-no-repeat"></div>
-                </div>
-                <div class="4xl:container text-white font-bold p-5 xs:p-10 md:p-20 relative z-20 transition-opacity duration-1000 ease-out opacity-0 pt-16 xs:pt-10 md:pt-20">
-                    <ul class="text-2xl xs:text-3xl SM:text-4xl md:text-5xl xl:text-7xl pl-6 xs:pl-12 md:pl-24 xl:pl-48">
-                        {% for link in linklists[section.settings.main_linklist].links %}
-                            {%- assign outerLoopIndex = forloop.index -%}
-                            <li class=" pt-6 md:pt-10"><a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %} class="pb-4 border-b-4 border-white block w-max hover:text-white"> 
-                                <span class=""> {{ link.title | escape }} </span></a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <ul class="pl-6 xs:pl-12 md:pl-24 xl:pl-48 text-lg md:text-5xl flex flex-wrap">
-                        {% for link in linklists[section.settings.second_linklist].links %}
-                            {%- assign outerLoopIndex = forloop.index -%}
-                            <li class="mr-8 md:mr-16 mt-6 md:mt-10 "><a href="{{ link.url }}" class="pb-4 border-b-4 border-white block w-max hover:text-white"> <span
-                                    class=""> {{ link.title | escape }} </span></a></li>
-                        {% endfor %}
-                    </ul>
-                    <div class="flex mt-16 pl-6 xs:pl-12 md:pl-24 xl:pl-48">
-                        <a href="{{ settings['social_instagram_link'] | escape }}" class="w-9 h-9 mr-7 bg-instagram bg-contain"></a>
-                        <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-9 h-9 mr-7 bg-facebook bg-contain"></a>
-                    </div>
-                    <div class="font-medium text-lg md:text-3xl lg:text-4xl xl:text-45 text-right mt-10 lg:mt-20">
-                        {{ section.settings.text_menu }}
-                    </div>
-                </div>
-            </div>
-        </div>
+                            {% endfor %}
+                        </ul>
+                      </div>
+                      
+
+                      {%- comment -%} Section logo {%- endcomment -%}
+                      {% if request.page_type == 'index' %}
+                      <h1 class="h2 site-header__logo m-0 w-full relative z-10">
+                      {% else %}
+                      <div class="h2 site-header__logo m-0 w-full relative z-10">
+                      {% endif %}
+                      {% if section.settings.logo %}
+                          {%- assign img_url = section.settings.logo | image_url -%}
+                          <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %} transition-all duration-300 " x-bind:class="open ? 'w-16' : 'w-24 lg:w-36 xl:w-44 2xl:w-52 delay-1000'">
+                          {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+                          <img src="{{ img_url }}" 
+                              data-src="{{ img_url }}" 
+                              data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
+                              class="object-contain logo_desktop"
+                              alt="{{ logo_alt | escape }}"
+                              style="max-width: {{ section.settings.logo_max_width }}px"
+                              >
+                            {% if section.settings.logo_mobile %}
+                              <img src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
+                                data-src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
+                                data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
+                                class="object-contain  logo_mobile"
+                                alt="{{ logo_alt | escape }}"
+                                style="max-width: 194px;"
+                                >
+                            {% endif %}
+                          <noscript>
+                              {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+                              <img src="{{ section.settings.logo | img_url: image_size }}"
+                                  srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                                  alt="{{ section.settings.logo.alt | default: shop.name }}"
+                                  style="max-width: {{ section.settings.logo_max_width }}px;">
+                          </noscript>
+                          </a>
+                      {% else %}
+                          <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+                      {% endif %}
+                      {% if request.page_type == 'index' %}
+                      </h1>
+                      {% else %}
+                      </div>
+                      {% endif %}
+                      {%- comment -%} End section logo {%- endcomment -%}
+                      <div class="flex items-center shrink-0 w-full justify-end gap-2 sm:gap-4 lg:gap-6 transition-all duration-500" x-bind:class="open ? 'pt-4.5' : 'pt-9 delay-1000'">
+                          
+                          {% if shop.customer_accounts_enabled %}
+                              {% if customer %}
+                              <a href="{{ routes.account_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center">
+                                  {% render 'icon-account' %}
+                              </a>
+                              {% else %}
+                              <a href="{{ routes.account_login_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center">
+                                  {% render 'icon-account' %}
+                              </a>
+                              {% endif %}
+                          {% endif %}
+                          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center">
+                              {% include 'icon-cart-gb' %}
+                              <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+                              <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
+                              <span data-cart-count>{{ cart.item_count }}</span>
+                              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+                              </div>
+                          </a>
+                      {% comment %} <div class="bg-bag bg-contain w-4 h-4 xs:w-6 xs:h-6 md:w-8 md:h-8"></div> {% endcomment %}
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="mobile-menu bg-green absolute top-0 left-0 right-0 z-20" id="MobileNavMenu">
+              <div class="absolute inset-0">
+                  <div class="lg:bg-left-bottom bg-menu-mark ml-auto bg-no-repeat"></div>
+              </div>
+              <div class="4xl:container text-white font-bold p-5 xs:p-10 md:p-20 relative z-20 transition-opacity duration-1000 ease-out opacity-0 pt-16 xs:pt-10 md:pt-20">
+                  <ul class="text-2xl xs:text-3xl SM:text-4xl md:text-5xl xl:text-7xl pl-6 xs:pl-12 md:pl-24 xl:pl-48">
+                      {% for link in linklists[section.settings.main_linklist].links %}
+                          {%- assign outerLoopIndex = forloop.index -%}
+                          <li class=" pt-6 md:pt-10"><a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %} class="pb-4 border-b-4 border-white block w-max hover:text-white"> 
+                              <span class=""> {{ link.title | escape }} </span></a>
+                          </li>
+                      {% endfor %}
+                  </ul>
+                  <ul class="pl-6 xs:pl-12 md:pl-24 xl:pl-48 text-lg md:text-5xl flex flex-wrap">
+                      {% for link in linklists[section.settings.second_linklist].links %}
+                          {%- assign outerLoopIndex = forloop.index -%}
+                          <li class="mr-8 md:mr-16 mt-6 md:mt-10 "><a href="{{ link.url }}" class="pb-4 border-b-4 border-white block w-max hover:text-white"> <span
+                                  class=""> {{ link.title | escape }} </span></a></li>
+                      {% endfor %}
+                  </ul>
+                  <div class="flex mt-16 pl-6 xs:pl-12 md:pl-24 xl:pl-48">
+                      <a href="{{ settings['social_instagram_link'] | escape }}" class="w-9 h-9 mr-7 bg-instagram bg-contain"></a>
+                      <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-9 h-9 mr-7 bg-facebook bg-contain"></a>
+                  </div>
+                  <div class="font-medium text-lg md:text-3xl lg:text-4xl xl:text-45 text-right mt-10 lg:mt-20">
+                      {{ section.settings.text_menu }}
+                  </div>
+              </div>
+          </div>
+      </div>
 
 
 
@@ -296,6 +387,12 @@
       "type": "image_picker",
       "id": "logo_mobile",
       "label": "Logo image mobile"
+    },
+    {
+      "type": "link_list",
+      "id": "right_linklist",
+      "label": "Right menu",
+      "default": "main-menu"
     },
     {
       "type": "link_list",
