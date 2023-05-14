@@ -1,0 +1,132 @@
+<section class="4xl:container relative mt-32 mb-24">
+    <div class="px-10 md:px-20 ">
+        <div class="border-b border-blue pb-2 md:pb-3 xl:pb-4 w-full text-blue font-bold font-sofiapro text-22 lg:text-lg 2xl:text-22">
+            <h2>{{ section.settings.title | escape }}</h2>
+        </div>
+        <blog-grid class="grid md:grid-cols-2-gb-2 xl:grid-cols-featured-post gap-5 mt-6">
+            {% assign is_odd = section.blocks.size | modulo : 2 %}
+            {% for block in section.blocks %}
+                <article class="relative px-8 lg:px-4 2xl:px-8 py-36 rounded-2xl overflow-hidden flex items-end min-h-160 {% if is_odd != 0 %} md:last:col-span-2 xl:last:col-span-1 {% endif %}">
+                    <picture class="absolute inset-0">
+                        <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title | strip_newlines }}" loading="lazy" class="w-full h-full object-cover"/>
+                    </picture>
+                    <div class="relative font-loto">
+                        <span class="font-bold uppercase px-1 pt-2 pb-1 tracking-[0.2em]" style="background: {{ block.settings.bg_color_tag }}; color: {{ block.settings.text_color_tag }}">{{ block.settings.tag }}</span>
+                        <h3 class="text-white whitespace-break-spaces text-2xl mt-3">{{ block.settings.title }}</h3>
+                        <div class='flex text-white mt-6 gap-6 items-start'>
+                            <a class="font-semibold border-b-4 border-white pb-1 " href="{{ block.settings.article.url }}">READ MORE</a>
+                            <div class="flex items-center gap-2">
+                                {% render 'icon-time' %}
+                                <span>{{ block.settings.article.metafields.custom.time }} MIN</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </blog-grid>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "List Blog - V2",
+  "class": "list-blog-v2",
+  "max_blocks": 3,
+  "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "ON THE GINJAN BLOG /"
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "SEE ALL BLOGS"
+        },
+        {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link"
+        }
+  ],
+  "blocks" : [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "GINJAN FLAVORS"
+        },
+        {
+            "type": "color",
+            "id": "bg_color_tag",
+            "label": "BG Color Tag",
+            "default": "#0A1343"
+        },
+        {
+            "type": "color",
+            "id": "text_color_tag",
+            "label": "Text Color Tag",
+            "default": "#FAA94E"
+        },
+        {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title",
+            "default": "Ginger Juice: What Is It\nAnd What Can It Do For You"
+          },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "List Blog - V2",
+      "category": {
+        "da": "Produkt",
+        "de": "Produkte",
+        "en": "Product",
+        "es": "Producto",
+        "fi": "Tuote",
+        "fr": "Produit",
+        "hi": "उत्पाद",
+        "it": "Prodotto",
+        "ja": "商品",
+        "ko": "제품",
+        "nb": "Produkt",
+        "nl": "Product",
+        "pt-BR": "Produto",
+        "pt-PT": "Produto",
+        "sv": "Produkt",
+        "th": "สินค้า",
+        "zh-CN": "产品",
+        "zh-TW": "產品"
+      },
+      "blocks": [
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -24,7 +24,7 @@
   assign money_price = price | money_without_currency
 -%}
 
-<dl class="price price--listing mt-4 justify-center 
+<dl class="price price--listing mt-8 justify-center 
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
   {%- if product.price_varies == false and product.compare_at_price_varies %} price--compare-price-hidden {% endif -%}
@@ -53,14 +53,21 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd class="flex flex-col justify-center items-center gap-4 lg:gap-8">
-      <span class="price-item price-item--regular text-2xl flex">
-        {%- if product.price_varies -%}
-          {{ 'products.product.from_lowest_price_html' | t: lowest_price: '' }}
-          <span class="text-xs mt-1 mr-1 ml-4" >$</span> {{ money_price }}
-        {%- else -%}
-           <span class="text-xs mt-1 mr-1" >$</span> {{ money_price }}
-        {%- endif -%}
-      </span>
+      <div class="flex items-center border-blue border bg-green rounded-lg">
+        <span class="price-item price-item--regular text-2xl flex bg-white border-blue px-5 py-2 rounded-lg font-black">
+          {%- if product.price_varies -%}
+            {{ 'products.product.from_lowest_price_html' | t: lowest_price: '' }}
+            {% comment %} <span class="text-xs mt-1 mr-1 ml-4" >$</span>  {% endcomment %}
+            {{ money_price }}
+          {%- else -%}
+            {% comment %} <span class="text-xs mt-1 mr-1" >$</span> {% endcomment %}
+            {{ money_price }}
+          {%- endif -%}
+        </span>
+        <span class="text-white font-black text-xs lg:text-base p-3">
+          {{ product.metafields.detail.pack_unit }}
+        </span>
+      </div>
       <div class="">
         <form action="/cart/add" method="post" id="product-form-{{ product.id }}">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">

@@ -1,9 +1,9 @@
 {% if section.settings.message %}
   <style>
     {% if section.settings.logo != blank %}
-      .site-header__logo-image {
+      {% comment %} .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
-      }
+      } {% endcomment %}
     {% endif %}
 
   </style>
@@ -11,20 +11,8 @@
 
 {% include 'search-drawer' %}
 
-<svg width="1" height="1">
-  <clipPath id="navbar-open" clipPathUnits="objectBoundingBox">
-      <path id="Trazado_2605" data-name="Trazado 2605" d="M1575-2903v.826s.044,0,.276,0,.428.187.569.173.155-.066.155-.066V-2903Z" transform="translate(-1575 2903)" fill="#fff7e5"/>
-  </clipPath>
-</svg>
-<svg width="1" height="1">
-  <clipPath id="navbar-open-tablet" clipPathUnits="objectBoundingBox">
-      <path id="Trazado_2750" data-name="Trazado 2750" d="M2209.572-2902.124c.312.017.579.136.773.123s.227-.066.227-.066V-2903h-1Z" transform="translate(-2209.572 2903)" fill="#fff7e5"/>
-  </clipPath>
-</svg>
 
-
-
-<div class="absolute top-0 left-0 w-full" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+<div class="bg-white lg:bg-transparent lg:absolute top-0 left-0 w-full" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   <header>
       <div class="relative 4xl:container">
           <div class="">
@@ -53,14 +41,14 @@
                       }
                   </style>
 
-                  <div class="text-xs announcement-text ">                    
+                  <div class="text-xs announcement-text font-sofiapro">                    
                       {% if section.settings.message_link == blank %}
-                          <div class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center px-4 pt-2 pb-4 text-sm text-blue tracking-[0.2em] font-bold">
+                          <div class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-4 2xl:py-6 text-sm text-blue tracking-[0.2em] font-bold overflow-x-auto no-scroll-bar">
                       {% else %}
-                          <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center px-4 pt-2 pb-4 text-sm text-blue tracking-[0.2em] font-bold notice-bar notice-bar--link">
+                          <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-4 2xl:py-6 text-sm text-blue tracking-[0.2em] font-bold notice-bar notice-bar--link overflow-x-auto no-scroll-bar">
                       {% endif %}
 
-                          <span class="notice-bar__message">{{ section.settings.message_text | escape }}</span>
+                          <span class="notice-bar__message block w-max mx-auto">{{ section.settings.message_text | escape }}</span>
 
                       {% if section.settings.message_link == blank %}
                           </div>
@@ -70,8 +58,8 @@
                   </div>
                   {% endif %}
               {% endif %}
-                  <div x-data="{ open : false }" x-bind:class="open ? 'bg-blue' : 'delay-1000'" class="navbar grid grid-cols-3 items-start justify-between w-full px-10 md:px-20 pt-4 pb-4 md:pt-8 md:pb-7 transition-colors duration-500">
-                      <div class="flex items-center gap-4 lg:gap-8 xl:gap-10 2xl:gap-16 font-sofiapro transition-all duration-500" x-bind:class="open ? 'pt-4.5' : 'pt-9 delay-1000'">
+                  <div x-data="{ open : false }" x-bind:class="open ? 'bg-blue open' : 'delay-1000'" class="navbar grid grid-cols-3 items-center lg:items-start justify-between w-full px-10 md:px-20 pt-4 pb-4 md:pt-8 md:pb-7 transition-colors duration-500">
+                      <div class="flex items-center gap-4 lg:gap-8 xl:gap-10 2xl:gap-16 font-sofiapro transition-all duration-500" x-bind:class="open ? 'lg:pt-4.5' : 'lg:pt-9 delay-1000'">
                         <span class="bg-menu-header bg-menu basis-6 w-6 xs:basis-8 xs:w-8 shrink-0 relative z-30 xs:h-4 cursor-pointer" aria-controls="MobileNavMenu"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"><span></span></span>
                         {% comment %} <button type="button" class="site-header__icon site-header__icon-search site-header__search-toggle js-drawer-open-top w-4 h-4 xs:w-6 xs:h-6 p-0 justify-center items-center hidden sm:flex text-white mb-1">
                             {% include 'icon-search' %}
@@ -83,7 +71,7 @@
                                 <li class=" ">
                                   <button type="button" @click="open = !open" {% if link.current %} aria-current="page" {% endif %} class="flex items-center gap-2 w-max font-medium hover:font-semibold text-white"> 
                                     <span class="uppercase"> {{ link.title | escape }} </span>
-                                    <span class="transition-all duration-300" x-bind:class="open ? 'rotate-180' : 'delay-1000'">{% render 'icon-arrow-nav' %}</span>
+                                    <span class="navbar__icon-open" x-bind:class="open ? 'open' : ''">{% render 'icon-arrow-nav' %}</span>
                                   </button>
                                   <div x-bind:class="`${ open ? 'max-h-screen delay-500' : 'max-h-0' }`" class="navbar-open absolute ease-out transition-spacing duration-1000 mt-10 right-0 bg-light-brown w-full pl-10 xs:pl-12 lg:pl-20 xl:pl-21 2xl:pl-24 overflow-hidden">
                                     {% assign activeLink = "" %}
@@ -167,15 +155,18 @@
                       {% endif %}
                       {% if section.settings.logo %}
                           {%- assign img_url = section.settings.logo | image_url -%}
-                          <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %} transition-all duration-300 " x-bind:class="open ? 'w-16' : 'w-24 lg:w-36 xl:w-44 2xl:w-52 delay-1000'">
+                          <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered {% endif %} mx-auto transition-all duration-300 max-w-48 lg:max-w-36 xl:max-w-44 2xl:max-w-52 " x-bind:class="open ? 'w-16' : 'w-full lg:w-36 xl:w-44 2xl:w-52 delay-1000'">
                           {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
-                          <img src="{{ img_url }}" 
+                          {% comment %} <img src="{{ img_url }}" 
                               data-src="{{ img_url }}" 
                               data-aspectratio="{{ section.settings.logo.aspect_ratio }}" 
                               class="object-contain logo_desktop"
                               alt="{{ logo_alt | escape }}"
                               style="max-width: {{ section.settings.logo_max_width }}px"
-                              >
+                              > {% endcomment %}
+                              <picture data-aspectratio="{{ section.settings.logo.aspect_ratio }}" class="block logo_desktop text-white">
+                                {% render 'logo' %}
+                              </picture>
                             {% if section.settings.logo_mobile %}
                               <img src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
                                 data-src="{{ 'logo_mobile.png' | asset_img_url: 'master' }}" 
@@ -202,20 +193,20 @@
                       </div>
                       {% endif %}
                       {%- comment -%} End section logo {%- endcomment -%}
-                      <div class="flex items-center shrink-0 w-full justify-end gap-2 sm:gap-4 lg:gap-6 transition-all duration-500" x-bind:class="open ? 'pt-4.5' : 'pt-9 delay-1000'">
+                      <div class="account flex items-center shrink-0 w-full justify-end gap-2 sm:gap-4 lg:gap-6 transition-all duration-500" x-bind:class="open ? 'lg:pt-4.5' : 'lg:pt-9 delay-1000'">
                           
                           {% if shop.customer_accounts_enabled %}
                               {% if customer %}
-                              <a href="{{ routes.account_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center">
+                              <a href="{{ routes.account_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center text-white">
                                   {% render 'icon-account' %}
                               </a>
                               {% else %}
-                              <a href="{{ routes.account_login_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center">
+                              <a href="{{ routes.account_login_url }}" class="site-header__account w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 font-loto text-[9px] font-bold p-0 flex gap-1 justify-center items-center text-white">
                                   {% render 'icon-account' %}
                               </a>
                               {% endif %}
                           {% endif %}
-                          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center">
+                          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart w-5 h-5 xs:w-6 xs:h-6 md:w-8 md:h-8 p-0 flex justify-center items-center text-white">
                               {% include 'icon-cart-gb' %}
                               <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
                               <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
@@ -259,10 +250,18 @@
               </div>
           </div>
       </div>
-
-
-
     </header>
+    <svg width="1" height="1">
+      <clipPath id="navbar-open" clipPathUnits="objectBoundingBox">
+          <path id="Trazado_2605" data-name="Trazado 2605" d="M1575-2903v.826s.044,0,.276,0,.428.187.569.173.155-.066.155-.066V-2903Z" transform="translate(-1575 2903)" fill="#fff7e5"/>
+      </clipPath>
+    </svg>
+    <svg width="1" height="1">
+      <clipPath id="navbar-open-tablet" clipPathUnits="objectBoundingBox">
+          <path id="Trazado_2750" data-name="Trazado 2750" d="M2209.572-2902.124c.312.017.579.136.773.123s.227-.066.227-.066V-2903h-1Z" transform="translate(-2209.572 2903)" fill="#fff7e5"/>
+      </clipPath>
+    </svg>
+    
 </div>
 
 

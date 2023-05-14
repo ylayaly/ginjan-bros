@@ -1,0 +1,98 @@
+<section class="4xl:container relative bg-white">
+    <div class="relative 4xl:container pt-48 sm:pt-72 2xl:pt-80">
+        <div class="absolute inset-0 bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative inset-0 sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52 pb-48 2xl:pb-56">
+            <div class="relative px-10 md:px-20 flex flex-col justify-center h-full">
+                <h1 class="text-white text-4xl sm:text-5xl xl:text-6xl flex flex-col">
+                    <div class="sm:w-max relative z-20">
+                        <span class="hero-banner__text-blue relative block xs:inline">
+                            <text>{{ section.settings.title }}</text>
+                        </span>
+                    </div>
+                    
+                    <span class="relative sm:w-max pl-2 sm:mt-1 z-10">
+                        <span class="relative hero-banner__text-green block xs:inline">
+                            <text>{{ section.settings.subtitle }}</text>
+                        </span>
+                    </span>
+                </h1>
+                <div class="mt-4">
+                    <a class="block w-14 xs:w-18 xl:w-24 ml-auto text-white" href="{{ section.settings.link }}">
+                        {% render 'icon-arrow-linea' %}
+                    </a>
+                </div>
+                <div class="text-white font-bold text-2xl hidden-br">{{ section.settings.text }}</div>
+
+                <a class="block btn-shop mt-9 text-blue" href="{{ section.settings.link }}">
+                    <span>{{ section.settings.link_text }}</span>
+                    {% include 'icon-arrow-btn' %}
+                </a>
+            </div>
+        </div>
+        <div class="relative bg-blue text-center text-white fnt-sofiapro text-base lg:text-lg font-bold px-10 md:px-20 pt-20 pb-12 lg:py-9 tracking-[0.3em] hero-banner_botton-text">
+            {{ section.settings.botton_text }}
+        </div>        
+    </div>
+    <svg width="1" height="1">
+        <clipPath id="hero-botton-text" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2751" data-name="Trazado 2751" d="M-778.013-1568.048v-.584c-.094-.147-.307-.424-.545-.359-.321.088-.455-.057-.455-.057v1Z" transform="translate(779.014 1569.048)" fill="#081346"/>
+        </clipPath>
+    </svg>
+
+    <svg width="1" height="1">
+        <clipPath id="hero-botton-text-mobile" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2752" data-name="Trazado 2752" d="M0,151.3a2.008,2.008,0,0,1,1,.28v.72H0Z" transform="translate(0 -151.299)" fill="#081346"/>
+        </clipPath>
+    </svg>
+
+    
+</section>
+{% schema %}
+{
+  "name": "Hero Banner",
+  "class": "hero-banner",
+  "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subitle"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Contetnt"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+        },
+        {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text"
+        },
+        {
+            "type": "textarea",
+            "id": "botton_text",
+            "label": "Bottom Text"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+   ]
+}
+{% endschema %}

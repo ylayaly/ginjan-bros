@@ -213,6 +213,7 @@
       },
       "1646030521dc95567a": {
         "type": "grid-cta",
+        "disabled": true,
         "settings": {
           "hero_size": "h-40vh xl:h-50vh min-h-104",
           "image": "shopify:\/\/shop_images\/Spare_skuall.png",
@@ -441,11 +442,122 @@
           "text_url_success": "",
           "link_url_success": ""
         }
+      },
+      "4fe333ad-9ad0-43e5-99ec-cc778e8b92ca": {
+        "type": "banner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/home-hero_14e64dad-c6de-4ed8-86f9-a1651c4d6faa.png",
+          "title": "The Best Health Elixirs",
+          "subtitle": "in all the Land.",
+          "text": "<p>We make African-inspired health juices <br\/>based on ancient recipes, right here <br\/>in New York City.<\/p>",
+          "link": "",
+          "link_text": "SHOP NOW",
+          "botton_text": "ORGANIC  | NON-GMO | GLUTEN-FREE | VEGAN"
+        }
+      },
+      "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b": {
+        "type": "CompanyTestimonials",
+        "blocks": {
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-0": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "“This Ginger Drink Is Spicy, Sweet,\nand Perfect for Summer.”",
+              "author": "NINA FRIEND",
+              "logo": "shopify:\/\/shop_images\/bonappetit.png"
+            }
+          },
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-1": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "“I’m addicted to Ginjan’s life giving\nWest African drinks”",
+              "author": "DANIELLE ST. PIERRE",
+              "logo": "shopify:\/\/shop_images\/best.png"
+            }
+          },
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-2": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "“The Ginjan Brothers are the future\nof consumer brands”",
+              "author": "HOWARD SCHULTZ — FOUNDER OF",
+              "logo": "shopify:\/\/shop_images\/startbucks.png"
+            }
+          }
+        },
+        "block_order": [
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-0",
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-1",
+          "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "18557edf-c7f6-4824-98c2-ce6efd32aaf0": {
+        "type": "featured_product-home",
+        "settings": {
+          "title": "Ancient African Recipe.",
+          "text": "Superpowers for modern humans.",
+          "description": "The all organic, non-GMO superjuice  for gut health, immune system support provides natural energy and post-workout recovery.",
+          "btn_label": "SHOP GINGER",
+          "f_product": "ginger"
+        }
+      },
+      "8a2699bc-bd83-44a4-8d01-c0b4296243bb": {
+        "type": "list-blod-home",
+        "blocks": {
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-0": {
+            "type": "article",
+            "settings": {
+              "tag": "GINJAN FLAVORS",
+              "bg_color_tag": "#0A1343",
+              "text_color_tag": "#FAA94E",
+              "title": "Ginger Juice: What Is It\nAnd What Can It Do For You",
+              "article": "posts\/bissap-the-undiscovered-hibiscus-based-supercharged-stress-relief-wonder",
+              "image": "shopify:\/\/shop_images\/ginger-juice_06261a04-913e-4aa8-9a56-68cf46c93195.png"
+            }
+          },
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-1": {
+            "type": "article",
+            "settings": {
+              "tag": "STORIES",
+              "bg_color_tag": "#faa94e",
+              "text_color_tag": "#0a1343",
+              "title": "Why New York \n(Good for SEO)",
+              "article": "posts\/born-of-africa-made-in-new-york",
+              "image": "shopify:\/\/shop_images\/why-new-york.png"
+            }
+          },
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-2": {
+            "type": "article",
+            "settings": {
+              "tag": "FROM AFRICA WITH LOVE",
+              "bg_color_tag": "#fff",
+              "text_color_tag": "#0a1343",
+              "title": "Where is Guinea? \nWhat’s the tradition of it relating to Ginjan? \nSpeak to Education",
+              "article": "posts\/where-is-guinea",
+              "image": "shopify:\/\/shop_images\/where-is-guinea.png"
+            }
+          }
+        },
+        "block_order": [
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-0",
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-1",
+          "8a2699bc-bd83-44a4-8d01-c0b4296243bb-168408241089d2d185-2"
+        ],
+        "settings": {
+          "title": "ON THE GINJAN BLOG \/",
+          "btn_label": "SEE ALL BLOGS",
+          "btn_link": "shopify:\/\/blogs\/posts"
+        }
       }
     },
     "content_for_index": [
+      "4fe333ad-9ad0-43e5-99ec-cc778e8b92ca",
       "1646030521dc95567a",
       "16461723729de5cd67",
+      "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b",
+      "18557edf-c7f6-4824-98c2-ce6efd32aaf0",
+      "8a2699bc-bd83-44a4-8d01-c0b4296243bb",
       "16460307937b79b953",
       "16460309937b2fbc59"
     ],

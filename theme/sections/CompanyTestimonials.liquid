@@ -1,0 +1,181 @@
+<section class="" data-section-id="{{ section.id }}" data-section-type="company-testimonials">
+  <svg width="1" height="1">
+    <clipPath id="bg-testimonial" clipPathUnits="objectBoundingBox">
+        <path id="Trazado_2750" data-name="Trazado 2750" d="M-881-967.641s.073-.044.345.074a.87.87,0,0,0,.655-.114v1h-1Z" transform="translate(881 967.681)" fill="#081346"/>
+    </clipPath>
+  </svg>
+<svg width="1" height="1">
+    <clipPath id="bg-testimonial-mobil" clipPathUnits="objectBoundingBox">
+      <path id="Trazado_2752" data-name="Trazado 2752" d="M-881-968.331s.073-.03.345.05a1.2,1.2,0,0,0,.655-.079v1h-1Z" transform="translate(881 968.359)" fill="#081346"/>
+    </clipPath>
+</svg>
+    <div class="bg-blue company-testiminial">
+        <div class="relative 4xl:container px-10 md:px-20 py-28 lg:pt-52">
+            <div class="grid lg:grid-cols-3 gap-21 lg:gap-18 2xl:gap-56">
+                {% for item in section.blocks %}
+                    <div class="text-blue flex flex-col items-center font-loto ">
+                        <div class="font-black text-lg lg:text-22 text-center after-white hidden-br">
+                            <p>
+                                {% assign lines = item.settings.testimonial | json | split : "\n" %}
+                                {% for line in lines %}
+                                    {% assign words = line | split : " " %}
+                                    
+                                    {% for w in words %}
+                                        <strong><span class="{% if forloop.first %} pl-4 {% endif %}" >&#32;{{ w | replace : '"' , '' }}&#32;</span></strong>    
+                                    {% endfor %}
+                                    
+                                    <br/>    
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div class="bg-green text-xs relative -top-1 -right-4 px-4">
+                            {{ item.settings.author }}
+                        </div>
+                        <div class="bg-white py-2 px-6 w-max max-h-10 max-w-48 mt-5">
+                            <img src="{{ item.settings.logo | image_url }}" loading="lasy" class="w-full h-full object-contain" /> 
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+      
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Company Testimonials",
+  "class": "company-testimonials",
+  "max_blocks": 9,
+  "settings": [
+    {
+        "type" : "text",
+        "id" : "title",
+        "label" : "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Company Testimonials",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": {
+            "da": "Tekst",
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fi": "Teksti",
+            "fr": "Texte",
+            "hi": "टेक्स्ट",
+            "it": "Testo",
+            "ja": "テキスト",
+            "ko": "텍스트",
+            "nb": "Tekst",
+            "nl": "Tekst",
+            "pt-BR": "Texto",
+            "pt-PT": "Texto",
+            "sv": "Text",
+            "th": "ข้อความ",
+            "zh-CN": "文本",
+            "zh-TW": "文字"
+          },
+          "default": "“This Ginger Drink Is Spicy, Sweet, and Perfect for Summer.”"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": {
+            "da": "Forfatter",
+            "de": "Autor",
+            "en": "Author",
+            "es": "Autor",
+            "fi": "Kirjoittaja",
+            "fr": "Auteur",
+            "hi": "लेखक",
+            "it": "Autore",
+            "ja": "執筆者",
+            "ko": "작성자",
+            "nb": "Forfatter",
+            "nl": "Auteur",
+            "pt-BR": "Autoria",
+            "pt-PT": "Autoria",
+            "sv": "Upphovsman",
+            "th": "ผู้เขียน",
+            "zh-CN": "作者",
+            "zh-TW": "作者"
+          },
+          "default": {
+            "da": "Forfatterens navn",
+            "de": "Name des Autors",
+            "en": "Author's name",
+            "es": "Nombre del autor",
+            "fi": "Kirjoittajan nimi",
+            "fr": "Nom de l'auteur",
+            "hi": "लेखक का नाम",
+            "it": "Nome dell'autore",
+            "ja": "筆者の名前",
+            "ko": "작성자 이름",
+            "nb": "Forfatterens navn",
+            "nl": "Naam auteur",
+            "pt-BR": "Nome do autor",
+            "pt-PT": "Nome do autor",
+            "sv": "Författarens namn",
+            "th": "ชื่อผู้เขียน",
+            "zh-CN": "作者姓名",
+            "zh-TW": "作者名稱"
+          }
+        },
+        {
+            "id" : "logo",
+            "type" : "image_picker",
+            "label" : "Logo"
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Company Testimonials",
+      "category": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
