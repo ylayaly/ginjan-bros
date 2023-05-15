@@ -1,0 +1,85 @@
+<section class="4xl:container relative bg-green">
+    <div class="cta-full-bg relative 4xl:container pt-48 sm:pt-72 2xl:pt-80">
+        <div class="absolute inset-0 bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative inset-0 sm:pt-14 lg:pt-20 xl:pt-28 2xl:pt-36 pb-48 2xl:pb-56">
+            <div class="relative px-10 md:px-20  flex-col justify-center h-full">
+                <h2 class="text-white text-4xl sm:text-5xl xl:text-6xl text-center relative mb-1 xs:mb-2 lg:mb-3">
+                    <span class="relative bg-blue sm:px-12 normal-case">
+                        {{ section.settings.title }}
+                    </span>
+                </h2>
+                <h3 class="text-white text-4xl sm:text-5xl xl:text-6xl text-center">
+                    <span class=" bg-orange-4 sm:px-8">
+                        {{ section.settings.subtitle }}
+                    </span>
+                </h3>
+                <div class="text-white font-bold text-2xl hidden-br mt-12 text-center">{{ section.settings.text }}</div>
+
+                <a class="block btn-shop btn-shop-green mt-12 text-white mx-auto" href="{{ section.settings.link }}">
+                    <span>{{ section.settings.link_text }}</span>
+                    {% include 'icon-arrow-btn' %}
+                </a>
+            </div>
+        </div>      
+    </div>
+    <svg width="1" height="1">
+        <clipPath id="cta-full-bg" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2752" data-name="Trazado 2752" d="M-715.637-2721.494v1a2.716,2.716,0,0,0-.555-.044c-.247.008-.388,0-.445,0v-.956Z" transform="translate(716.637 2721.494)" fill="#081346"/>
+        </clipPath>
+    </svg>
+
+    <svg width="1" height="1">
+        <clipPath id="cta-full-bg-mobile" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2752" data-name="Trazado 2752" d="M0,151.3a2.008,2.008,0,0,1,1,.28v.72H0Z" transform="translate(0 -151.299)" fill="#081346"/>
+        </clipPath>
+    </svg>
+
+    
+</section>
+{% schema %}
+{
+  "name": "CTA with Full BG",
+  "class": "cta_with_full_bg",
+  "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "GinjanCafé"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subitle",
+            "default": "Home of African Flavors in New York City"
+        },
+        {
+            "type": "text",
+            "id": "text",
+            "label": "Contetnt",
+            "default": "HARLEM + BROOKLYN"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+        },
+        {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text"
+        }
+  ],
+  "presets": [
+    {
+      "name": "CTA with Full BG"
+    }
+   ]
+}
+{% endschema %}

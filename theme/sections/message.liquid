@@ -13,19 +13,30 @@
       right: 0;
   }
 </style>
-<section class="4xl:container p-8 md:py-11 md:px-16 lg:px-24 xl:pl-44 xl:pr-72 section-message-{{ section.id }} mb-14 xl:mb-24" >
-    <div class="pr:12 lg:pr-24 3xl:pr-64 text-2xl md:text-3xl xl:text-4xl flex message text-green">
-        <span class="pr-2">“</span>
-        <div class="font-baskerville">
-            {{ section.settings.message }}
-            <span class="inline-block rotate-180">“</span>
-            <div class="mt-6 xl:mt-9">
-                <div class="font-bold text-leg xl:text-2xl font-loto">{{ section.settings.text | escape }}</div>
-                <div class="text-xs font-loto font-light">{{ section.settings.textsmall | escape }}</div>
-            </div>
-        </div>
+<section class="4xl:container {% if section.settings.image %} px-10 md:px-20 {% else %} p-8 md:py-11 md:px-16 lg:px-24 xl:pl-44 xl:pr-72 {% endif %} section-message-{{ section.id }} mb-14 xl:mb-24" >
+    <div class="grid items-center {% if section.settings.image %} lg:grid-cols-04-06 gap-18 {% endif %}">
+      {% if section.settings.image %}
+        <picture>
+          <img class="max-h-[90%]" src="{{ section.settings.image | image_url }}" loagind="lazy" />
+        </picture>
+      {% endif %}
+      <div class="{% if section.settings.image %} pr-12 lg:pr-24 {% else %} pr-12 lg:pr-24 3xl:pr-64 {% endif %} text-2xl md:text-3xl xl:text-4xl flex message text-green">
+          <span class="pr-2">“</span>
+          <div class="font-baskerville">
+              {{ section.settings.message }}
+              <span class="inline-block rotate-180">“</span>
+              <div class="mt-6 xl:mt-9">
+                  <div class="font-bold text-leg xl:text-2xl font-loto">{{ section.settings.text | escape }}</div>
+                  <div class="text-xs font-loto font-light">{{ section.settings.textsmall | escape }}</div>
+              </div>
+          </div>
+      </div>    
     </div>
-    <div class="text-right">
+
+    <a class="block btn-shop btn-shop-blue mt-16 text-white mx-auto pr-5" href="{{ section.settings.button_link }}">
+      <span class="pr-8">{{ section.settings.button_label | escape }}</span>
+    </a>    
+    {% comment %} <div class="text-right">
         {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
         <a href="{{ section.settings.button_link }}" class="relative flex justify-end items-end h-20">
             {%- include 'icon-arrow-black' -%}
@@ -37,7 +48,7 @@
             <span class="text-xs text-black font-bold">{{ section.settings.button_label | escape }}</span>
         </div>
         {%- endif -%}
-    </div>
+    </div> {% endcomment %}
 </section>
 
 {% schema %}
@@ -48,6 +59,11 @@
   },
   "class": "index-section index-section--flush",
   "settings": [
+    {
+      "type" : "image_picker",
+      "id" : "image",
+      "label" : "Image"
+    },
     {
       "type": "richtext",
       "id": "message",

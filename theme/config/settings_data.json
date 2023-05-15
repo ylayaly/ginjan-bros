@@ -242,6 +242,7 @@
       },
       "16460307937b79b953": {
         "type": "grid-cta",
+        "disabled": true,
         "settings": {
           "hero_size": "h-30vh xl:h-40vh min-h-104",
           "image": "shopify:\/\/shop_images\/cafe-1_55c2fa74-5f72-4749-84f0-2f99c35c56bb.png",
@@ -271,6 +272,7 @@
       "16460309937b2fbc59": {
         "type": "message",
         "settings": {
+          "image": "shopify:\/\/shop_images\/brothers_598beb6f-c0d3-479a-854b-09d45d66edb0.png",
           "message": "<p><strong>We came to the United States<\/strong> <em>as teenagers.  We struggled for many years, but the dream of starting our own business persisted — inspired by missing a taste of home. Today we’re proud in bringing African flavors to the world.  <\/em><\/p><p><\/p><p><em>We source the highest quality ingredients for our juices, infusions and food — toiling at the <\/em><a href=\"https:\/\/ginjanbros.com\/blogs\/recipes\" target=\"_blank\" title=\"https:\/\/ginjanbros.com\/blogs\/recipes\"><em>recipes <\/em><\/a><em>— until it puts a smile on our faces, and yours.  We are humbled by the support we’ve received and are excited about the future.<\/em><\/p>",
           "text": "Ginjan Bros — Mohammed & Rahim Diallo",
           "textsmall": "Brothers & Founders",
@@ -509,8 +511,8 @@
             "type": "article",
             "settings": {
               "tag": "GINJAN FLAVORS",
-              "bg_color_tag": "#0A1343",
-              "text_color_tag": "#FAA94E",
+              "bg_color_tag": "#0a1343",
+              "text_color_tag": "#faa94e",
               "title": "Ginger Juice: What Is It\nAnd What Can It Do For You",
               "article": "posts\/bissap-the-undiscovered-hibiscus-based-supercharged-stress-relief-wonder",
               "image": "shopify:\/\/shop_images\/ginger-juice_06261a04-913e-4aa8-9a56-68cf46c93195.png"
@@ -531,7 +533,7 @@
             "type": "article",
             "settings": {
               "tag": "FROM AFRICA WITH LOVE",
-              "bg_color_tag": "#fff",
+              "bg_color_tag": "#ffffff",
               "text_color_tag": "#0a1343",
               "title": "Where is Guinea? \nWhat’s the tradition of it relating to Ginjan? \nSpeak to Education",
               "article": "posts\/where-is-guinea",
@@ -549,6 +551,20 @@
           "btn_label": "SEE ALL BLOGS",
           "btn_link": "shopify:\/\/blogs\/posts"
         }
+      },
+      "edebef97-1946-41ef-acf0-f5076c9dfc1a": {
+        "type": "text-full-background",
+        "settings": {
+          "show": true,
+          "image": "shopify:\/\/shop_images\/kim-daniels-RYhNPglUSFw-unsplash.png",
+          "image_mobile": "shopify:\/\/shop_images\/desktop_fa32ac93-8fd4-4096-8bea-49fb5acd6c5d.png",
+          "top_title": "Ginjan",
+          "title": "Cocktails",
+          "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br\/>sed do eiusmod tempor incididunt ut labore et dolore <br\/>magna aliqua. <\/p>",
+          "button_label": "EXPLORE THE RECIPES",
+          "button_link": "",
+          "theme": "screen-auto"
+        }
       }
     },
     "content_for_index": [
@@ -558,6 +574,7 @@
       "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b",
       "18557edf-c7f6-4824-98c2-ce6efd32aaf0",
       "8a2699bc-bd83-44a4-8d01-c0b4296243bb",
+      "edebef97-1946-41ef-acf0-f5076c9dfc1a",
       "16460307937b79b953",
       "16460309937b2fbc59"
     ],

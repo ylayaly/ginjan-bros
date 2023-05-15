@@ -133,6 +133,7 @@ module.exports = {
         'featured-post' : '0.28fr 0.22fr 0.5fr',
         'nav' : '0.25fr 0.75fr',
         'nav-tablet' : '0.35fr 0.65fr',
+        '04-06' : '0.4fr 0.6fr',
       },
       height: (theme) => ({
         ...theme('spacing'),
