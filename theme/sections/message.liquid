@@ -20,7 +20,7 @@
           <img class="max-h-[90%]" src="{{ section.settings.image | image_url }}" loagind="lazy" />
         </picture>
       {% endif %}
-      <div class="{% if section.settings.image %} pr-12 lg:pr-24 {% else %} pr-12 lg:pr-24 3xl:pr-64 {% endif %} text-2xl md:text-3xl xl:text-4xl flex message text-green">
+      <div class="{% if section.settings.image %}  {% else %} pr-12 lg:pr-24 3xl:pr-64 {% endif %} text-2xl md:text-3xl xl:text-4xl flex message text-green">
           <span class="pr-2">“</span>
           <div class="font-baskerville">
               {{ section.settings.message }}
@@ -111,50 +111,12 @@
     {
         "type": "text",
         "id": "text",
-        "label": {
-            "da": "Knaptekst",
-            "de": "Button-Etikett",
-            "en": "Text",
-            "es": "Texto",
-            "fi": "Tekstipainike",
-            "fr": "Texte du bouton",
-            "hi": "बटन लेबल",
-            "it": "Etichetta pulsante",
-            "ja": "ボタンのラベル",
-            "ko": "버튼 레이블",
-            "nb": "Knappetikett",
-            "nl": "Knoplabel",
-            "pt-BR": "Etiqueta de botão",
-            "pt-PT": "Etiqueta do botão",
-            "sv": "Knappetikett",
-            "th": "ป้ายกำกับปุ่ม",
-            "zh-CN": "按钮标签",
-            "zh-TW": "按鈕標籤"
-        }
+        "label": "Author"
     },
     {
         "type": "text",
         "id": "textsmall",
-        "label": {
-            "da": "Knaptekst",
-            "de": "Button-Etikett",
-            "en": "Text",
-            "es": "Texto",
-            "fi": "Tekstipainike",
-            "fr": "Texte du bouton",
-            "hi": "बटन लेबल",
-            "it": "Etichetta pulsante",
-            "ja": "ボタンのラベル",
-            "ko": "버튼 레이블",
-            "nb": "Knappetikett",
-            "nl": "Knoplabel",
-            "pt-BR": "Etiqueta de botão",
-            "pt-PT": "Etiqueta do botão",
-            "sv": "Knappetikett",
-            "th": "ป้ายกำกับปุ่ม",
-            "zh-CN": "按钮标签",
-            "zh-TW": "按鈕標籤"
-        }
+        "label": "Title"
     },
     {
         "type": "text",

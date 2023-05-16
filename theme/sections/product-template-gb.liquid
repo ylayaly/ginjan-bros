@@ -85,10 +85,9 @@
 
     <div class="relative flex flex-col lg:flex-row pt-8 lg:py-16">
 
-
-      <div class="min-h-40 md:min-h-56 absolute top-0 right-0 left-0 lg:h-full" style="background-color: {{ product_color }}"></div>
-    <div class="mx-auto w-full lg:w-1/55 relative">
-    <div class="w-screen lg:w-full lg:absolute max-h-[500px] mx-auto {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+      <div class="min-h-40 md:min-h-56 absolute top-0 right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84" style="background-color: {{ product_color }}"></div>
+    <div class="mx-auto w-full lg:w-1/55 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52">
+      <div class="w-screen lg:w-full lg:absolute max-h-[500px] mx-auto {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
       <div id="product-gallery">
         {%- for media in product.media -%}
@@ -176,7 +175,7 @@
     </div>
   </div>
 
-    <div class="mx-auto w-full sm:w-2/3 lg:w-1/45 px-10 lg:pl-0 lg:pr-20 mt-10 relative">
+    <div class="mx-auto w-full sm:w-2/3 lg:w-1/45 px-10 lg:pl-0 lg:pr-20 mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52">
 
       <div class="xl:w-[90%] 2xl:w-4/5 ml-auto">
         <div>

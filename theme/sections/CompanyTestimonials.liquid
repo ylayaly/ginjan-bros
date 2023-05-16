@@ -1,14 +1,14 @@
-<section class="" data-section-id="{{ section.id }}" data-section-type="company-testimonials">
-  <svg width="1" height="1">
-    <clipPath id="bg-testimonial" clipPathUnits="objectBoundingBox">
-        <path id="Trazado_2750" data-name="Trazado 2750" d="M-881-967.641s.073-.044.345.074a.87.87,0,0,0,.655-.114v1h-1Z" transform="translate(881 967.681)" fill="#081346"/>
-    </clipPath>
-  </svg>
+<svg width="1" height="1">
+  <clipPath id="bg-testimonial" clipPathUnits="objectBoundingBox">
+      <path id="Trazado_2752" data-name="Trazado 2752" d="M-881-967.509s.074-.048.346.064a.9.9,0,0,0,.654-.108v1h-1Z" transform="translate(881 967.553)" fill="#081346"/>    
+  </clipPath>
+</svg>
 <svg width="1" height="1">
     <clipPath id="bg-testimonial-mobil" clipPathUnits="objectBoundingBox">
-      <path id="Trazado_2752" data-name="Trazado 2752" d="M-881-968.331s.073-.03.345.05a1.2,1.2,0,0,0,.655-.079v1h-1Z" transform="translate(881 968.359)" fill="#081346"/>
+        <path id="Trazado_2753" data-name="Trazado 2753" d="M-881-968.336a.784.784,0,0,1,.345.041,1.448,1.448,0,0,0,.655-.064v1h-1Z" transform="translate(881 968.359)" fill="#081346"/>      
     </clipPath>
 </svg>
+<section class="" data-section-id="{{ section.id }}" data-section-type="company-testimonials">
     <div class="bg-blue company-testiminial">
         <div class="relative 4xl:container px-10 md:px-20 py-28 lg:pt-52">
             <div class="grid lg:grid-cols-3 gap-21 lg:gap-18 2xl:gap-56">
@@ -21,7 +21,7 @@
                                     {% assign words = line | split : " " %}
                                     
                                     {% for w in words %}
-                                        <strong><span class="{% if forloop.first %} pl-4 {% endif %}" >&#32;{{ w | replace : '"' , '' }}&#32;</span></strong>    
+                                        <strong><span class="{% if forloop.first %} sm:pl-4 {% endif %}" >&#32;{{ w | replace : '"' , '' }}&#32;</span></strong>    
                                     {% endfor %}
                                     
                                     <br/>    

@@ -65,7 +65,7 @@
       "type": "collection-gb",
       "settings": {
         "title": "",
-        "collection": "the-shop-second-row",
+        "collection": "ginjangoods",
         "grid": 5,
         "rows": 3,
         "show_vendor": false,

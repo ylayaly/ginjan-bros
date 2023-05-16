@@ -1,9 +1,9 @@
   {%- assign collection = collections[section.settings.collection] -%}
-<div class="4xl:container px-10 md:px-20 relative">
+<div class="4xl:container px-10 md:px-20 relative section-collection-gb">
   {% if section.settings.title != blank %}
-    <div class="section-header flex font-sofiapro gap-7 font-bold text-xs xs:text-sm md:text-lg xl:text-22">
+    <div class=" flex font-sofiapro gap-7 font-bold text-xs xs:text-sm md:text-lg xl:text-22">
       <div class="border-b border-blue pb-2 md:pb-3 xl:pb-4 w-full text-blue">
-        <h2>{{ section.settings.title | escape }}</h2>
+        <h2 class="font-size normal-case">{{ section.settings.title | escape }}</h2>
       </div>
       <a href="{{ collection.url }}" class="shrink-0 border-b-2 border-green text-green hover:text-green flex gap-3 items-center pb-2 md:pb-3 xl:pb-4">
         <span>Shop all Ginjan</span>
@@ -16,22 +16,49 @@
     {% when 2 %}
       {%- assign max_height = 530 -%}
       {%- assign grid_item_width = 'grid-cols-1 md:grid-cols-2' -%}
+      {% assign limit_lg = 2 %}
     {% when 3 %}
       {%- assign max_height = 345 -%}
       {%- assign grid_item_width = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' -%}
+      {% assign limit_lg = 3 %}
     {% when 4 %}
       {%- assign max_height = 250 -%}
       {%- assign grid_item_width = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' -%}
+      {% assign limit_lg = 3 %}
     {% when 5 %}
       {%- assign max_height = 195 -%}
       {%- assign grid_item_width = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' -%}
+      {% assign limit_lg = 3 %}
   {% endcase %}
 
   {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
   {%- assign product_limit_xl = 3 | times: section.settings.rows | plus : 1 -%}
   {%- assign product_limit_lg = 2 | times: section.settings.rows | plus : 1 -%}
-  {%- assign product_limit_md = 1 | times: section.settings.rows | plus : 1 -%}
   <style>
+  @media (min-width: 1280px){
+    .grid__item-collection-gb:nth-child(-n+{{ section.settings.grid }}), .grid__item-collection-gb.show:nth-child(-n+{{ section.settings.grid }}){
+        display: block;
+        opacity: 1;
+        animation: none;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid__item-collection-gb:nth-child(-n+{{ limit_lg }}), .grid__item-collection-gb.show:nth-child(-n+{{ limit_lg }}){
+        display: block;
+        opacity: 1;
+        animation: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .grid__item-collection-gb:nth-child(-n+{{ limit_lg }}), .grid__item-collection-gb.show:nth-child(-n+{{ limit_lg }}){
+        display: block;
+        opacity: 1;
+        animation: none;
+    }
+  }
+
   @media (min-width: 1024px) and (max-width: 1279px) {
     .grid-collection li:nth-child(1n+{{ product_limit_xl }}){
         display: none;
@@ -53,13 +80,13 @@
 
   <ul class="grid grid--uniform grid-collection {{ grid_item_width }}">
     {% for product in collection.products limit: product_limit %}
-      <li class="grid__item grid__item--{{section.id}} p-0 md:pr-4">
+      <li class="grid__item grid__item--{{section.id}} grid__item-collection-gb p-0 md:pr-4">
         {% include 'product-card-grid-gb', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
       </li>
     {% else %}
 
       {% for i in (1..product_limit) %}
-        <li class="grid__item grid__item--{{section.id}} p-0 md:pr-4">
+        <li class="grid__item grid__item--{{section.id}} grid__item-collection-gb p-0 md:pr-4">
           <div class="grid-view-item product-card">
             <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
               <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
@@ -79,13 +106,15 @@
   </ul>
 
   {%- if section.settings.show_view_all -%}
-    <div class="flex items-center gap-10 w-full">
+    <div class="flex items-center gap-4 sm:gap-10 w-full">
       <span class="h-[1px] w-full bg-blue"></span>
-      <a href="{{ collection.url }}" class="shrink-0 icon-full flex items-center gap-2 font-floodstd text-base xl:text-xl" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-        <span class="hidden md:block">SHOP ALL GINJAN</span>  
-        <span class="block md:hidden">LOAD MORE</span>  
-        <span class="w-8 hidden md:block">{%- include 'icon-arrow-black' -%}</span>
-        <span class="block md:hidden rotate-180">{% render 'icon-arrow-nav' %}</span>
+      <button type="button" class="load-more shrink-0 icon-full flex items-center gap-2 font-floodstd text-base xl:text-xl" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+        <span class="text">LOAD MORE</span>  
+        <span class="w-8 rotate-180">{% render 'icon-arrow-nav' %}</span>
+      </button>
+      <a href="{{ collection.url }}" class="collection-gb-link hidden shrink-0 icon-full items-center gap-2 font-floodstd text-base xl:text-xl" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+        <span class="text">SHOP ALL GINJAN</span>  
+        <span class="w-8">{%- include 'icon-arrow-black' -%}</span>
       </a>
       <span class="h-[1px] w-full bg-blue"></span>
     </div>

@@ -297,10 +297,10 @@
       "16461723729de5cd67": {
         "type": "collection-gb",
         "settings": {
-          "title": "",
+          "title": "BEST SELLERS \/",
           "collection": "frontpage",
           "grid": 3,
-          "rows": 1,
+          "rows": 2,
           "show_vendor": false,
           "show_view_all": true
         }
@@ -447,13 +447,35 @@
       },
       "4fe333ad-9ad0-43e5-99ec-cc778e8b92ca": {
         "type": "banner",
+        "blocks": {
+          "34a79ce4-37e1-44f7-a528-dfccb25b37de": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home-hero_14e64dad-c6de-4ed8-86f9-a1651c4d6faa.png",
+              "title": "The Best Health Elixirs\nin all the Land.",
+              "subtitle": "",
+              "text": "<p>We make African-inspired health juices based on<br\/>ancient recipes, right here in New York City.<\/p>",
+              "link": "shopify:\/\/products\/ginger",
+              "link_text": "SHOP NOW"
+            }
+          },
+          "d4a06b73-c493-48b5-9f63-e493aaed90ed": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Ginjan_Cafe_Harlem_4000px.jpg",
+              "title": "GinjanCafé",
+              "subtitle": "Home of African Flavors in New York City",
+              "text": "<p>We make African-inspired health juices based on<br\/>ancient recipes, right here in New York City.<\/p>",
+              "link": "shopify:\/\/pages\/ginjan-cafe",
+              "link_text": "Menu + Directions"
+            }
+          }
+        },
+        "block_order": [
+          "34a79ce4-37e1-44f7-a528-dfccb25b37de",
+          "d4a06b73-c493-48b5-9f63-e493aaed90ed"
+        ],
         "settings": {
-          "image": "shopify:\/\/shop_images\/home-hero_14e64dad-c6de-4ed8-86f9-a1651c4d6faa.png",
-          "title": "The Best Health Elixirs",
-          "subtitle": "in all the Land.",
-          "text": "<p>We make African-inspired health juices <br\/>based on ancient recipes, right here <br\/>in New York City.<\/p>",
-          "link": "",
-          "link_text": "SHOP NOW",
           "botton_text": "ORGANIC  | NON-GMO | GLUTEN-FREE | VEGAN"
         }
       },
@@ -562,8 +584,19 @@
           "title": "Cocktails",
           "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br\/>sed do eiusmod tempor incididunt ut labore et dolore <br\/>magna aliqua. <\/p>",
           "button_label": "EXPLORE THE RECIPES",
-          "button_link": "",
+          "button_link": "shopify:\/\/blogs\/recipes",
           "theme": "screen-auto"
+        }
+      },
+      "d842b6ad-8f0d-4aab-a2e9-2c7656bc4f3f": {
+        "type": "cta_full_image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Ginjan_Cafe_Harlem_4000px.jpg",
+          "title": "GinjanCafé",
+          "subtitle": "Home of African Flavors in New York City",
+          "text": "HARLEM + BROOKLYN",
+          "link": "shopify:\/\/pages\/ginjan-cafe",
+          "link_text": "Menu + Directions"
         }
       }
     },
@@ -576,7 +609,8 @@
       "8a2699bc-bd83-44a4-8d01-c0b4296243bb",
       "edebef97-1946-41ef-acf0-f5076c9dfc1a",
       "16460307937b79b953",
-      "16460309937b2fbc59"
+      "16460309937b2fbc59",
+      "d842b6ad-8f0d-4aab-a2e9-2c7656bc4f3f"
     ],
     "blocks": {
       "319724205969189013": {

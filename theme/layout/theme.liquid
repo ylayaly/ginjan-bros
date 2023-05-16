@@ -133,7 +133,8 @@
   {{ content_for_header }}
 </head>
 
-<body class="template-{{ request.page_type | handle }} {% if request.page_type != 'index' %} dark-mode {% endif %}">
+<body class="template-{{ request.page_type | handle }} {% if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'customers/login' and request.page_type != 'customers/register' %} dark-mode {% endif %} ">
+  
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
@@ -142,7 +143,7 @@
 
   {% section 'header-gb' %}
 
-  <div class="page-container drawer-page-content 4xl:container bg-white {% if request.page_type != 'index' %} pt-72 2xl:pt-80 {% endif %}" id="PageContainer">
+  <div class="page-container drawer-page-content 4xl:container bg-white {% if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'customers/login' and request.page_type != 'customers/register' %}lg:pt-72 2xl:pt-84 {% endif %}" id="PageContainer">
 
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}

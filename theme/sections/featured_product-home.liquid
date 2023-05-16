@@ -1,6 +1,8 @@
 <section class="4xl:container relative">
-    <div class="bg-featured-product px-10 md:px-20 bg-green grid lg:grid-cols-2 gap-4 md:gap-12 xl:gap-36 2xl:gap-52 items-center py-24 lg:py-0">
-        <div class="font-loto xs:mx-7 sm::mx-12 lg:mx-0 lg:py-24">
+    <span class="h-4 bg-green absolute top-0 left-0 w-full"></span>
+    <div class="relative px-10 md:px-20 overflow-hidden grid lg:grid-cols-2 gap-4 md:gap-12 xl:gap-36 2xl:gap-52 items-center py-24 lg:py-0">
+        <div class="absolute inset-0  bg-featured-product"></div>
+        <div class="relative font-loto xs:mx-7 sm::mx-12 lg:mx-0 lg:py-24">
             <h2 class="text-blue font-black text-3xl lg:text-4xl 2xl:text-5xl">{{ section.settings.title }}</h2>
             <h3 class="mt-1 text-white text-2xl lg:text-3xl 2xl:text-4xl normal-case pl-3 pr-4 relative -left-3 flex flex-wrap">
                 {% assign line = section.settings.text | split : " " %}
@@ -14,14 +16,14 @@
                 {% include 'icon-arrow-btn' %}
             </a>
         </div>
-        <picture>
+        <div class="relative">
             <img class="max-w-[600px] w-full h-full mx-auto lg:mr-auto lg:ml-0" src="{{ section.settings.f_product.featured_media.preview_image | image_url }}" loading="lazy" alt="{{ section.settings.f_product.name }}" />
-        </picture>
+        </div>
     </div>
 
     <svg width="1" height="1">
         <clipPath id="bg-featured-product" clipPathUnits="objectBoundingBox">
-            <path id="Trazado_2751" data-name="Trazado 2751" d="M50.443-15.571h1v.989h-.116a1.687,1.687,0,0,1-.587-.036c-.184-.045-.263-.025-.3,0Z" transform="translate(-50.442 15.571)" fill="#009344"/>              
+            <path id="Trazado_2751" data-name="Trazado 2751" d="M43.449,0h1V.989h-.1a1.708,1.708,0,0,1-.6-.036c-.194-.048-.273-.024-.306,0Z" transform="translate(-43.449)" fill="#009344"/>
         </clipPath>
     </svg>  
 

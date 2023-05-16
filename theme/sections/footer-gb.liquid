@@ -17,17 +17,13 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <div class="flex mt-10 justify-center md:justify-start">
+                <div class="flex mt-10 xl:mt-36 justify-center md:justify-start">
                     <a href="{{ settings['social_instagram_link'] | escape }}" class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-instagram bg-contain"></a>
                     <a href="{{ settings['social_facebook_link'] | escape }}"  class="w-6 h-6 xl:w-9 xl:h-9 mr-7 bg-facebook bg-contain"></a>
                 </div>
-                <div class="mt-8 flex flex-col items-center md:items-start">
-                    <p class="font-bold text-26" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text }}</p>
-                    <p class="text-base" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text_1 }}</p>
-        
-                </div>
+
             </div>
-            <div class="text-2xl xl:text-4xl mt-28 flex flex-col items-center md:items-start">
+            <div class="text-2xl xl:text-4xl mt-28 xl:mt-36 flex flex-col items-center md:items-start">
                 <span>{{ section.settings.copyright }}</span>
             </div>
         </div>
@@ -82,8 +78,12 @@
                     {% endform %}
                     </div>
                 </div>
+                <div class="mt-16 flex flex-col items-center md:items-start">
+                  <p class="font-bold text-26" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text }}</p>
+                  <p class="text-base" style="color: {{ section.settings.color_footer_text}}">{{ section.settings.text_1 }}</p>
+                </div>
             </div>
-            <div class="absolute bg-contain bg-footer-mark -bottom-1/4 w-8/12 hidden md:block"></div>
+
         </div>
     </div>
     

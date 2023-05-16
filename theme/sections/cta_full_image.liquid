@@ -2,19 +2,19 @@
     <div class="cta-full-bg relative 4xl:container pt-48 sm:pt-72 2xl:pt-80">
         <div class="absolute inset-0 bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
         <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative inset-0 sm:pt-14 lg:pt-20 xl:pt-28 2xl:pt-36 pb-48 2xl:pb-56">
+        <div class="relative inset-0 sm:pt-14 lg:pt-20 xl:pt-28 2xl:pt-36 pb-56 2xl:pb-72">
             <div class="relative px-10 md:px-20  flex-col justify-center h-full">
-                <h2 class="text-white text-4xl sm:text-5xl xl:text-6xl text-center relative mb-1 xs:mb-2 lg:mb-3">
+                <h2 class="text-white text-2xl xs:text-4xl sm:text-5xl xl:text-6xl font-bold text-center relative mb-1 xs:mb-2 lg:mb-3 tracking-normal">
                     <span class="relative bg-blue sm:px-12 normal-case">
                         {{ section.settings.title }}
                     </span>
                 </h2>
-                <h3 class="text-white text-4xl sm:text-5xl xl:text-6xl text-center">
+                <h3 class="text-white text-xl xs:text-3xl sm:text-4xl xl:text-[47px] font-bold text-center tracking-normal">
                     <span class=" bg-orange-4 sm:px-8">
                         {{ section.settings.subtitle }}
                     </span>
                 </h3>
-                <div class="text-white font-bold text-2xl hidden-br mt-12 text-center">{{ section.settings.text }}</div>
+                <div class="text-white font-bold text-2xl hidden-br mt-12 text-center font-sofiapro">{{ section.settings.text }}</div>
 
                 <a class="block btn-shop btn-shop-green mt-12 text-white mx-auto" href="{{ section.settings.link }}">
                     <span>{{ section.settings.link_text }}</span>
@@ -56,13 +56,13 @@
         {
             "type": "text",
             "id": "subtitle",
-            "label": "Subitle",
+            "label": "Subtitle",
             "default": "Home of African Flavors in New York City"
         },
         {
             "type": "text",
             "id": "text",
-            "label": "Contetnt",
+            "label": "Content",
             "default": "HARLEM + BROOKLYN"
         },
         {

@@ -1,42 +1,67 @@
 <section class="4xl:container relative bg-white">
-    <div class="relative 4xl:container pt-48 sm:pt-72 2xl:pt-80">
-        <div class="absolute inset-0 bg-cover bg-no-repeat" style="background-image: url({{ section.settings.image | image_url: width: auto }});"></div>
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative inset-0 sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52 pb-48 2xl:pb-56">
-            <div class="relative px-10 md:px-20 flex flex-col justify-center h-full">
-                <h1 class="text-white text-4xl sm:text-5xl xl:text-6xl flex flex-col font-bold">
-                    <div class="sm:w-max relative z-20">
-                        <span class="hero-banner__text-blue relative block xs:inline">
-                            <text>{{ section.settings.title }}</text>
-                        </span>
+    <div class="relative 4xl:container">
+        <div class="banner-slide">
+        {% for slide in section.blocks %}
+            <div class="relative pt-32 xs:pt-48 sm:pt-72 2xl:pt-80 h-full">
+                <div class="absolute inset-0 bg-cover bg-no-repeat" style="background-image: url({{ slide.settings.image | image_url: width: auto }});"></div>
+                <div class="absolute inset-0 bg-black opacity-60"></div>
+                <div class="relative inset-0 sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52 pb-40 xs:pb-48 2xl:pb-64">
+                    <div class="relative px-10 md:px-20 flex flex-col justify-center h-full lg:w-10/12">
+                        <h1 class="text-white text-2xl xs:text-4xl sm:text-5xl xl:text-6xl font-bold">
+                            {%- assign title = slide.settings.title | json | split : "\n" -%}
+                            {%- for line in title -%}
+                                {%- if forloop.first -%}
+                                    <span class="bg-blue pl-4 pb-1 pr-4 sm:pl-6 sm:pr-12 lg:pr-20 inline-block">
+                                        {{ line | replace : '"' , '' }}
+                                    </span>                                      
+                                {%- else -%}
+                                    <span class="hero-banner__text-green pr-10 sm:pb-1 inline-block">
+                                        <text>{{ line | replace : '"' , '' }}</text>
+                                    </span>  
+                                {%- endif -%}
+  
+                                <br/>
+                            {%- endfor -%}
+                        </h1>
+                        {% if slide.settings.subtitle != blank %}
+                            <h2 class="text-white text-xl xs:text-3xl sm:text-4xl xl:text-[45px] font-bold ml-4 normal-case flex flex-wrap tracking-normal">
+                                {%- assign subtitle = slide.settings.subtitle | json | split : "\n" -%}
+                                {%- for line in subtitle -%}
+                                    {% assign words = line | replace : '"' , '' | split : " " %}
+                                    {% for w in words %}
+                                        <span class="hero-banner__text-orange inline-block pr-1 sm:pr-2 lg:pb-2">
+                                            <text>{{ w }}</text>
+                                        </span>  
+                                    {% endfor %}
+                                    {% unless forloop.last %}
+                                        <br/>    
+                                    {% endunless %}
+                                {%- endfor -%}
+                            </h2>
+                        {% endif %}
+                        <div class="mt-8 text-white font-bold text-base sm:text-lg xl:text-2xl hidden-br">{{ slide.settings.text }}</div>
+    
+                        <a class="block relative btn-shop mt-9 text-blue" href="{{ slide.settings.link }}">
+                            <span>{{ slide.settings.link_text }}</span>
+                            {% include 'icon-arrow-btn' %}
+                        </a>
                     </div>
-                    
-                    <span class="relative sm:w-max pl-2 sm:mt-1 z-10">
-                        <span class="relative hero-banner__text-green block xs:inline">
-                            <text>{{ section.settings.subtitle }}</text>
-                        </span>
-                    </span>
-                </h1>
-                <div class="mt-4">
-                    <a class="block w-14 xs:w-18 xl:w-24 ml-auto text-white" href="{{ section.settings.link }}">
-                        {% render 'icon-arrow-linea' %}
-                    </a>
                 </div>
-                <div class="text-white font-bold text-2xl hidden-br">{{ section.settings.text }}</div>
-
-                <a class="block btn-shop mt-9 text-blue" href="{{ section.settings.link }}">
-                    <span>{{ section.settings.link_text }}</span>
-                    {% include 'icon-arrow-btn' %}
-                </a>
             </div>
+        {% endfor %}
         </div>
-        <div class="relative bg-blue text-center text-white fnt-sofiapro text-base lg:text-lg font-bold px-10 md:px-20 pt-20 pb-12 lg:py-9 tracking-[0.3em] hero-banner_botton-text">
+        <div class="absolute right-0 top-[55%] lg:top-[60%] xl:top-[55%] pr-10 md:pr-20 hidden sm:block">
+            <button class="next-slide-banner block w-14 xs:w-18 xl:w-24 ml-auto text-white" type="button">
+                {% render 'icon-arrow-linea' %}
+            </button>
+        </div>
+        <div class="absolute bottom-0 w-full bg-blue text-center text-white fnt-sofiapro text-xs xs:text-base lg:text-lg font-bold px-10 md:px-20 pt-10 pb-5 xs:pt-20 xs:pb-12 lg:py-9 tracking-[0.3em] hero-banner_botton-text">
             {{ section.settings.botton_text }}
         </div>        
     </div>
     <svg width="1" height="1">
         <clipPath id="hero-botton-text" clipPathUnits="objectBoundingBox">
-            <path id="Trazado_2751" data-name="Trazado 2751" d="M-778.013-1568.048v-.584c-.094-.147-.307-.424-.545-.359-.321.088-.455-.057-.455-.057v1Z" transform="translate(779.014 1569.048)" fill="#081346"/>
+            <path id="Trazado_2750" data-name="Trazado 2750" d="M-778.013-1567.753v-.568c-.093-.153-.306-.443-.545-.374-.321.092-.455-.058-.455-.058v1Z" transform="translate(779.013 1568.753)" fill="#081346"/>
         </clipPath>
     </svg>
 
@@ -54,41 +79,52 @@
   "class": "hero-banner",
   "settings": [
         {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        },
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-        },
-        {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subitle"
-        },
-        {
-            "type": "richtext",
-            "id": "text",
-            "label": "Contetnt"
-        },
-        {
-            "type": "url",
-            "id": "link",
-            "label": "Link"
-        },
-        {
-            "type": "text",
-            "id": "link_text",
-            "label": "Link Text"
-        },
-        {
             "type": "textarea",
             "id": "botton_text",
             "label": "Bottom Text"
         }
   ],
+  "blocks": [
+        {
+            "type" : "slide",
+            "name" : "Slide",
+            "settings" : [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "textarea",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "The Best Health Elixirs\nin all the Land."
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Subtitle"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Content",
+                    "default" : "<p>We make African-inspired health juices based on<br/>ancient recipes, right here in New York City.</p>"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "link_text",
+                    "label": "Link Text",
+                    "default": "SHOP NOW"
+                }
+            ]
+        }
+],
   "presets": [
     {
       "name": "Hero Banner"
