@@ -6,7 +6,7 @@
         "title": "<p><strong>Shipping <br\/>across the US.<\/strong><\/p>",
         "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
         "layout": "grid",
-        "grid": 5,
+        "grid": 3,
         "rows": 1,
         "show_collection_image": true,
         "show_vendor": false,

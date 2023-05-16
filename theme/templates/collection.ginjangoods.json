@@ -7,7 +7,7 @@
         "subtitle": "<p><strong>Made in New York City. Delivered to your door.<\/strong><\/p>",
         "layout": "grid",
         "grid": 5,
-        "rows": 1,
+        "rows": 8,
         "show_collection_image": true,
         "show_vendor": false,
         "sort_enable": false,
@@ -27,6 +27,7 @@
     },
     "c1c4cadc-1468-4ad8-83a9-894eff64b7e4": {
       "type": "hero",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/Screenshot_2023-05-10_at_1.32.46_PM.png",
         "alignment": "top",
@@ -63,6 +64,7 @@
     },
     "08e4beed-9207-405c-ac55-57141742a7cb": {
       "type": "collection-gb",
+      "disabled": true,
       "settings": {
         "title": "",
         "collection": "ginjangoods",
