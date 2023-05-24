@@ -1,0 +1,277 @@
+<section class="4xl:container relative mt-32 mb-24">
+    <div class="px-10 md:px-20 ">
+        <div class="border-b border-blue pb-2 md:pb-3 xl:pb-4 w-full text-blue font-bold font-sofiapro text-22 lg:text-lg 2xl:text-22">
+            <h2>{{ section.settings.title_section | escape }}</h2>
+        </div>
+        <blog-grid class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-featured-post gap-5 mt-6">
+            {% assign is_odd = section.blocks.size | modulo : 2 %}
+            {% for block in section.blocks %}
+                {% assign article = block.settings.article %}
+                <article class="relative px-8 lg:px-4 2xl:px-8 rounded-2xl overflow-hidden flex items-end pt-36 3xl:pt-80 pb-24 3xl:pb-36 {% if is_odd != 0 %} lg:last:col-span-2 2xl:last:col-span-1 {% endif %}">
+                    <picture class="absolute inset-0">
+                        {%- if block.settings.image != blank -%}
+                          <img src="{{ block.settings.image | image_url }}" alt="{{ article.title | strip_newlines }}" loading="lazy" class="w-full h-full object-cover"/>
+                        {% else %}  
+                          <img src="{{ article.image | image_url }}" alt="{{ article.title | strip_newlines }}" loading="lazy" class="w-full h-full object-cover"/>
+                        {%- endif -%}
+                    </picture>
+                    <div class="relative font-loto">
+                        <span class="text-xs p-1 tracking-widest font-bold top-tag-white" style="background: {{ article.metafields.post.color_top_tag }}; color: {{ article.metafields.post.text_color_top_tag }}">{{ article.metafields.post.top_tag }}</span>
+                        <h3 class="text-white whitespace-break-spaces text-2xl mt-2 font-bold">{{ article.title }}</h3>
+                        <div class='flex text-white mt-6 gap-6 items-start'>
+                            <a class="font-semibold border-b-4 border-white pb-1 " href="{{ article.url }}">READ MORE</a>
+                            <div class="flex items-center gap-2">
+                                {% render 'icon-time' %}
+                                <span>{{ article.metafields.custom.time }} MIN</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </blog-grid>
+        <div>
+          {% render 'text-full-background', data : section %}
+        </div>
+        <a class="block btn-shop btn-shop-blue mt-16 text-white mx-auto pr-5" href="{{ section.settings.btn_link }}">
+            <span class="pr-8">{{ section.settings.btn_label }}</span>
+        </a>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "List Blog - V2",
+  "class": "list-blog-v2",
+  "max_blocks": 3,
+  "settings": [
+        {
+            "type": "text",
+            "id": "title_section",
+            "label": "Title",
+            "default": "ON THE GINJAN BLOG /"
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "SEE ALL BLOGS"
+        },
+        {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link"
+        },
+        {
+          "type" : "header",
+          "content" : "Featured Section"
+        },
+        {
+          "type": "checkbox",
+          "id": "show",
+          "label": "Show this section"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "da": "Billede",
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fi": "Kuva",
+            "fr": "Image",
+            "hi": "इमेज",
+            "it": "Immagine",
+            "ja": "画像",
+            "ko": "이미지",
+            "nb": "Bilde",
+            "nl": "Afbeelding",
+            "pt-BR": "Imagem",
+            "pt-PT": "Imagem",
+            "sv": "Bild",
+            "th": "รูปภาพ",
+            "zh-CN": "图片",
+            "zh-TW": "圖片"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "top_title",
+          "label": {
+            "da": "Top Title",
+            "de": "Top Title",
+            "en": "Top Title",
+            "es": "Título top",
+            "fi": "Top Title",
+            "fr": "Top Title",
+            "hi": "Top Title",
+            "it": "Top Title",
+            "ja": "Top Title",
+            "ko": "Top Title",
+            "nb": "Top Title",
+            "nl": "Top Title",
+            "pt-BR": "Top Title",
+            "pt-PT": "Top Title",
+            "sv": "Top Title",
+            "th": "Top Title",
+            "zh-CN": "Top Title",
+            "zh-TW": "Top Title"
+          }
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Title",
+            "de": "Title",
+            "en": "Title",
+            "es": "Título",
+            "fi": "Title",
+            "fr": "Title",
+            "hi": "Title",
+            "it": "Title",
+            "ja": "Title",
+            "ko": "Title",
+            "nb": "Title",
+            "nl": "Title",
+            "pt-BR": "Title",
+            "pt-PT": "Title",
+            "sv": "Title",
+            "th": "Title",
+            "zh-CN": "Title",
+            "zh-TW": "Title"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": {
+            "da": "Text",
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fi": "Text",
+            "fr": "Text",
+            "hi": "Text",
+            "it": "Text",
+            "ja": "Text",
+            "ko": "Text",
+            "nb": "Text",
+            "nl": "Text",
+            "pt-BR": "Text",
+            "pt-PT": "Text",
+            "sv": "Text",
+            "th": "Text",
+            "zh-CN": "Text",
+            "zh-TW": "Text"
+          }
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": {
+            "da": "Knaptekst",
+            "de": "Button-Etikett",
+            "en": "Button label",
+            "es": "Etiqueta de botón",
+            "fi": "Tekstipainike",
+            "fr": "Texte du bouton",
+            "hi": "बटन लेबल",
+            "it": "Etichetta pulsante",
+            "ja": "ボタンのラベル",
+            "ko": "버튼 레이블",
+            "nb": "Knappetikett",
+            "nl": "Knoplabel",
+            "pt-BR": "Etiqueta de botão",
+            "pt-PT": "Etiqueta do botão",
+            "sv": "Knappetikett",
+            "th": "ป้ายกำกับปุ่ม",
+            "zh-CN": "按钮标签",
+            "zh-TW": "按鈕標籤"
+          }
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": {
+            "da": "Knaplink",
+            "de": "Button-Etikett",
+            "en": "Button link",
+            "es": "Enlace de botón",
+            "fi": "Painikelinkki",
+            "fr": "Lien du bouton",
+            "hi": "बटन लिंक",
+            "it": "Link pulsante",
+            "ja": "ボタンのリンク",
+            "ko": "버튼 링크",
+            "nb": "Kobling for knapp",
+            "nl": "Knoplink",
+            "pt-BR": "Link de botão",
+            "pt-PT": "Ligação do botão",
+            "sv": "Knapplänk",
+            "th": "ลิงก์ปุ่ม",
+            "zh-CN": "按钮链接",
+            "zh-TW": "按鈕連結"
+          }
+        }
+  ],
+  "blocks" : [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "List Blog - V2",
+      "category": {
+        "da": "Produkt",
+        "de": "Produkte",
+        "en": "Product",
+        "es": "Producto",
+        "fi": "Tuote",
+        "fr": "Produit",
+        "hi": "उत्पाद",
+        "it": "Prodotto",
+        "ja": "商品",
+        "ko": "제품",
+        "nb": "Produkt",
+        "nl": "Product",
+        "pt-BR": "Produto",
+        "pt-PT": "Produto",
+        "sv": "Produkt",
+        "th": "สินค้า",
+        "zh-CN": "产品",
+        "zh-TW": "產品"
+      },
+      "blocks": [
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

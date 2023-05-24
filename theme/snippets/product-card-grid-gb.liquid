@@ -45,14 +45,17 @@
         <div class="home-grid-collection mt-4 product-description-v3">
             {{ product.description }}
         </div>
-        <div class="text-center font-loto text-xs text-blue mt-3 font-bold">
+        {% comment %} <div class="text-center font-loto text-xs text-blue mt-3 font-bold">
           <span>{{ product.metafields.detail.pack }}<span>
-        </div>
+        </div> {% endcomment %}
     </div>
     <div class="product-card-list">
         {%- assign list = true -%}
         {% render 'product-price-listing-gb', product: product, show_vendor: show_vendor, list: list %}
     </div>
+    <a href="{{ product.url }}" class="text-center font-sofiapro text-xs text-blue mt-4 font-semibold">
+      <span>Learn More<span>
+    </a> 
 </div>
 
 

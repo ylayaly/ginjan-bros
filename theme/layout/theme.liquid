@@ -8,7 +8,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-0V1DE7JEDS');
-</script>
+</script> 
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264527222-1"></script>
@@ -19,7 +19,6 @@
 
   gtag('config', 'UA-264527222-1');
 </script>
-
   
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -133,7 +132,8 @@
   {{ content_for_header }}
 </head>
 
-<body class="template-{{ request.page_type | handle }}">
+<body class="template-{{ request.page_type | handle }} {% if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'customers/login' and request.page_type != 'customers/register' %} dark-mode {% endif %} ">
+  
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
@@ -142,7 +142,7 @@
 
   {% section 'header-gb' %}
 
-  <div class="page-container drawer-page-content 4xl:container bg-white" id="PageContainer">
+  <div class="page-container drawer-page-content 4xl:container bg-white {% if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'customers/login' and request.page_type != 'customers/register' %}lg:pt-72 2xl:pt-84 {% endif %}" id="PageContainer">
 
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
@@ -166,6 +166,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
+
 <!-- PF EDT START -->
 <script type='text/javascript'>
 {%- if content_for_header contains 'shopify-product-customizer' -%}

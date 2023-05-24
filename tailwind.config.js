@@ -25,12 +25,16 @@ module.exports = {
       },
       spacing: {
         "0.5": "0.125rem",
+        "4.5": "1.125rem",
+        9: "2.25rem",
         13: '3.25rem',
         18: '4.5rem',
+        21: '5.25rem',
         30: '7.5rem',
         48: '12rem',
         53: '13.31rem',
         77: '19.25rem',
+        84: '21rem',
         104: '26rem',
         112: '28rem',
         124: '31rem',
@@ -58,6 +62,8 @@ module.exports = {
         'orange-2': "#FAA440",
         'orange-3' : "#FAA94E",
         'orange-4' : "#EAAB42",
+        'orange-5' : "#FF9F00",
+        'orange-6' : "#FFA400",
         blue: "#081346",
         'blue-1': "#081833",
         'blue-2': "#0A1343",
@@ -65,8 +71,11 @@ module.exports = {
         grey: "#6F6F6F",
         "grey-2": "#F8F8F9",
         "grey-3": "#707070",
+        "grey-4": "#F4F4F4",
+        "grey-5": "#D0D0D0",
         "dark-grey": "#676767",
-        "light-grey": "#FAFAFA"
+        "light-grey": "#FAFAFA",
+        "light-brown": "#FFF7E5",
       },
       backgroundSize: {
         'full': '100% 100%',
@@ -96,7 +105,8 @@ module.exports = {
         'loto': ['Loto'],
         'aeonik': ['Aeonik'],
         'recoleta': ['Recoleta'],
-        'baskerville': ['Baskerville']
+        'baskerville': ['Baskerville'],
+        'sofiapro': ['Loto']
       },
       fontSize: {
         '8': '2rem',
@@ -121,7 +131,10 @@ module.exports = {
         '2-gb-1': '1.4fr 1.6fr',
         '2-gb-2': '1.6fr 1.4fr',
         'product' : '0.4fr 0.3fr 0.3fr',
-        'featured-post' : '0.28fr 0.22fr 0.5fr'
+        'featured-post' : '0.28fr 0.22fr 0.5fr',
+        'nav' : '0.25fr 0.75fr',
+        'nav-tablet' : '0.35fr 0.65fr',
+        '04-06' : '0.4fr 0.6fr',
       },
       height: (theme) => ({
         ...theme('spacing'),
@@ -164,6 +177,9 @@ module.exports = {
       bottom: {
         88: '22rem',
         160: '40rem',
+      },
+      transitionProperty: {
+        'spacing': 'margin, padding, height, max-height, width, max-width, opacity, transform',
       }
     }
   },

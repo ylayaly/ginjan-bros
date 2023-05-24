@@ -64,6 +64,20 @@
       </noscript>
     </div>
   {%- else -%}
+  {% if section.settings.image_mobile != blank %}
+    <style>
+    @media screen and (max-width: 767px) {
+      .hero-{{ section.id }}{
+        background-position: center;
+        background-color: white;
+        background-size: 100% 100%;
+        background-image: url({{ section.settings.image_mobile | image_url }}) !important;
+        aspect-ratio: 2 / 1;
+        height: auto !important;
+      }
+    }
+    </style>
+  {% endif %}
     <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
          id="Hero-{{ section.id }}"
          data-layout="{{ section.settings.hero_layout }}"
@@ -169,6 +183,11 @@
         "zh-CN": "图片",
         "zh-TW": "圖片"
       }
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
     },
     {
       "type": "select",

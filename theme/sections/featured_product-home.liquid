@@ -1,0 +1,98 @@
+<section class="4xl:container relative">
+    <span class="h-4 bg-green absolute top-0 left-0 w-full"></span>
+    <div class="relative px-10 md:px-20 overflow-hidden grid lg:grid-cols-2 gap-4 md:gap-12 xl:gap-36 2xl:gap-52 items-center py-24 lg:py-0">
+        <div class="absolute inset-0  bg-featured-product"></div>
+        <div class="relative font-loto xs:mx-7 sm::mx-12 lg:mx-0 lg:py-24">
+            <h2 class="text-blue font-black text-3xl lg:text-4xl 2xl:text-5xl normal-case tracking-normal">{{ section.settings.title }}</h2>
+            <h3 class="mt-1 text-white font-bold text-2xl lg:text-3xl 2xl:text-4xl normal-case pl-3 pr-4 relative -left-3 flex flex-wrap">
+                {% assign line = section.settings.text | split : " " %}
+                {% for word in line %}
+                    <span class="inline-block bg-blue pl-2 {% if forloop.last %} pr-4 {% endif %}">{{ word }}&#32;</span>
+                {% endfor %}
+            </h3>
+            <p class="mt-6 text-blue text-xl lg:w-11/12">{{ section.settings.description }}</p>
+            <a class="block btn-shop btn-shop-blue mt-9 text-white" href="{{ section.settings.f_product.url }}">
+                <span class="">{{ section.settings.btn_label }}</span>
+                {% include 'icon-arrow-btn' %}
+            </a>
+        </div>
+        <div class="relative">
+            <img class="max-w-[600px] w-full h-full mx-auto lg:mr-auto lg:ml-0" src="{{ section.settings.f_product.featured_media.preview_image | image_url }}" loading="lazy" alt="{{ section.settings.f_product.name }}" />
+        </div>
+    </div>
+
+    <svg width="1" height="1">
+        <clipPath id="bg-featured-product" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2751" data-name="Trazado 2751" d="M43.449,0h1V.989h-.1a1.708,1.708,0,0,1-.6-.036c-.194-.048-.273-.024-.306,0Z" transform="translate(-43.449)" fill="#009344"/>
+        </clipPath>
+    </svg>  
+
+
+    <svg width="1" height="1">
+        <clipPath id="bg-featured-product-mobile" clipPathUnits="objectBoundingBox">
+                <path id="Trazado_2751" data-name="Trazado 2751" d="M0,0H1V1H.887C.764,1,.511.962.314.963A1.184,1.184,0,0,0,0,1Z" fill="#009344"/>
+        </clipPath>
+    </svg>  
+</section>
+{% schema %}
+{
+  "name": "Featured Product - V2",
+  "class": "featured-product-v2",
+  "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Ancient African Recipe. "
+        },
+        {
+            "type": "text",
+            "id": "text",
+            "label": "Subtitle",
+            "default": "Superpowers for modern humans."
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default" : "The all organic, non-GMO superjuice  for gut health, immune system support\nprovides natural energy and post-workout recovery.  "
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "SHOP GINGER"
+        },
+        {
+            "type": "product",
+            "id": "f_product",
+            "label": "Product"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product - V2",
+      "category": {
+        "da": "Produkt",
+        "de": "Produkte",
+        "en": "Product",
+        "es": "Producto",
+        "fi": "Tuote",
+        "fr": "Produit",
+        "hi": "उत्पाद",
+        "it": "Prodotto",
+        "ja": "商品",
+        "ko": "제품",
+        "nb": "Produkt",
+        "nl": "Product",
+        "pt-BR": "Produto",
+        "pt-PT": "Produto",
+        "sv": "Produkt",
+        "th": "สินค้า",
+        "zh-CN": "产品",
+        "zh-TW": "產品"
+      }
+    }
+  ]
+}
+{% endschema %}

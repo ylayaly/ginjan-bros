@@ -268,15 +268,38 @@ $(() => {
             slidesToScroll: 1,
             dots: false,
             infinite: true,
-            // fade: true,
-            // cssEase: 'linear',
             autoplay: true,
             autoplaySpeed: 5000,
             arrows: false,
         });
+
+        $(".banner-slide").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false,
+            pauseOnHover: false,
+            adaptiveHeight : true
+        });
+
     }
+
+    $(".next-slide-banner").click(() => {
+        $('.banner-slide').slick('slickNext');
+    })
 
     setHeroSlide()
     setTimeout(setHeroSlide, 400)
+
+    $(".load-more").click(function() {
+        $(this).closest(".section-collection-gb").find("li").addClass("show")
+        $(this).closest(".section-collection-gb").find(".collection-gb-link").removeClass("hidden")
+        $(this).closest(".section-collection-gb").find(".collection-gb-link").addClass("flex")
+        $(this).remove()
+    })
+    
           
 })
