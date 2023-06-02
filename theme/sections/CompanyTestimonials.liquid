@@ -14,7 +14,7 @@
             <div class="grid lg:grid-cols-3 gap-21 lg:gap-18 2xl:gap-56">
                 {% for item in section.blocks %}
                     <div class="text-blue flex flex-col items-center font-loto ">
-                        <div class="font-black text-lg lg:text-22 text-center after-white text-white font-loto">
+                        <div class="font-black text-lg lg:text-22 text-center after-white text-white font-loto sm:w-1/2 lg:w-full">
                             <p class="whitespace-break-spaces">{{ item.settings.testimonial }}</p>
                             {% comment %} <p>
                                 {% assign lines = item.settings.testimonial | json | split : "\n" %}
@@ -45,7 +45,7 @@
       
 </section>
 
-  
+
 
 {% schema %}
 {

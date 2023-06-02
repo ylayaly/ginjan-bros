@@ -109,6 +109,7 @@ module.exports = {
         'sofiapro': ['Loto']
       },
       fontSize: {
+        'xxs': '0.625rem',
         '8': '2rem',
         '10': '2.62rem',
         '45': '45px',

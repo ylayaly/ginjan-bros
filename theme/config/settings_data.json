@@ -455,8 +455,8 @@
               "image": "shopify:\/\/shop_images\/home-hero_14e64dad-c6de-4ed8-86f9-a1651c4d6faa.png",
               "title": "The Best Health Elixirs\nin all the Land.",
               "subtitle": "",
-              "text": "<p>We make African-inspired health juices based on<br\/>ancient recipes, right here in New York City.<\/p>",
-              "link": "shopify:\/\/products\/ginger",
+              "text": "<p>We make African-inspired cold-pressed and organic health juices<br\/>right here in New York City, and ship across the US. <\/p>",
+              "link": "shopify:\/\/collections\/the-shop",
               "link_text": "SHOP NOW"
             }
           },
@@ -466,7 +466,7 @@
               "image": "shopify:\/\/shop_images\/our-story-5.png",
               "title": "We are the\nGinjan Brothers",
               "subtitle": "",
-              "text": "<p>We make African-inspired health juices based on<br\/>ancient recipes, right here in New York City.<\/p>",
+              "text": "<p>We came to America from Guinea as teenagers and today <br\/>we’re proud to bring African flavors to the World — in stores,<br\/>online and in our GinjanCafés in New York City.<\/p>",
               "link": "shopify:\/\/pages\/our-story",
               "link_text": "READ THEIR STORY"
             }
@@ -477,7 +477,7 @@
               "image": "shopify:\/\/shop_images\/Ginjan_Cafe_Harlem_4000px.jpg",
               "title": "GinjanCafé",
               "subtitle": "Home of African Flavors in New York City",
-              "text": "<p>We make African-inspired health juices based on<br\/>ancient recipes, right here in New York City.<\/p>",
+              "text": "<p>We created the Ginjan Café as a space that brings the best drinks, food, music, culture,<br\/>service and people together in Harlem and Brooklyn — while keeping it friendly, accessible and neighborly. <br\/>This is a new kind of space, where everyone is welcome. We think you’ll agree.<\/p>",
               "link": "shopify:\/\/pages\/ginjan-cafe",
               "link_text": "Menu + Directions"
             }
@@ -498,7 +498,7 @@
           "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-0": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "“This Ginger Drink Is Spicy, Sweet, \nand Perfect for Summer.”",
+              "testimonial": "“This Ginger Drink Is Spicy, Sweet,\nand Perfect for Summer.”",
               "author": "NINA FRIEND",
               "logo": "shopify:\/\/shop_images\/bonappetit.png"
             }
@@ -514,7 +514,7 @@
           "c98fc20a-d97e-4036-8c4d-229aeaf8bb5b-168404272024c135b5-2": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "“A business with enormous potential — \n                  we are proud that our Foundation is one \n                                         of their investors”",
+              "testimonial": "“A business with enormous potential — we are proud that our Foundation is one of their investors”",
               "author": "HOWARD SCHULTZ — FOUNDER OF",
               "logo": "shopify:\/\/shop_images\/startbucks.png"
             }
@@ -577,7 +577,7 @@
           "title": "Cocktails",
           "content": "<p>“Our organic juices taste like a cocktail on their own — thanks to flavor forward organic cold-pressed or brewed ingredients — but you can also create blends with some of your favorite spirits.  We’ve compiled recipes that can be used with full ABV as well as non-alcoholic spirits.”<\/p>",
           "button_label": "EXPLORE THE RECEIPES",
-          "button_link": ""
+          "button_link": "shopify:\/\/blogs\/recipes"
         }
       },
       "d842b6ad-8f0d-4aab-a2e9-2c7656bc4f3f": {
