@@ -1,9 +1,50 @@
 <section>
+
+  <style>
+    .top-links{
+      grid-template-columns: repeat({{ section.settings.col_mobile }}, minmax(0, 1fr));
+    }
+
+    @media (min-width: 468px) {
+      .top-links {
+          grid-template-columns: repeat({{ section.settings.col_tablet }}, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .top-links {
+          grid-template-columns: repeat({{ section.settings.col_desktop }}, minmax(0, 1fr));
+      }
+    }
+  </style>
+
   {% if section.blocks.size > 0 %}
-    <div class="relative 4xl:container grid grid-cols-2 items-center gap-1 mb-1">
+    <div id="{{ section.id }}" class="top-links relative 4xl:container grid items-center gap-1 mb-1">
       {% for block in section.blocks %}
-        <div class=" text-white font-black text-base md:text-xl lg:text-3xl 2xl:text-[2.6rem]" style="background-color: {{ block.settings.bg_color }}">
-          <a href="{{ block.settings.url }}" class="flex justify-center p-4 sm:p-6 xl:p-8 top-link">
+        <style>
+          #{{ section.id }} .top-links__item-{{ forloop.index }}{
+            grid-column: span {{ block.settings.col_mobile }} / span 1;
+          }
+      
+          @media (min-width: 468px) {
+            #{{ section.id }} .top-links__item-{{ forloop.index }} {
+              grid-column: span {{ block.settings.col_tablet }} / span {{ block.settings.col_tablet }};
+            }
+          }
+      
+          @media (min-width: 768px) {
+            #{{ section.id }} .top-links__item-{{ forloop.index }} {
+              grid-column: span {{ block.settings.col_desktop }} / span {{ block.settings.col_desktop }};
+            }
+          }
+        </style>
+        <div class="top-links__item-{{ forloop.index }} h-full text-white font-black text-base md:text-lg lg:text-3xl 2xl:text-[2.6rem]" style="background-color: {{ block.settings.bg_color }}">
+          <a href="{{ block.settings.url }}" {%- if block.settings.target_blank -%} target="_blank" rel="noopener" {%- endif -%} class="flex justify-center items-center p-4 md:p-6 xl:p-8 top-link gap-6 2xl:gap-10">
+            {%- if block.settings.icon != blank -%}
+              <span class="block w-8 2xl:w-13">
+                <img class="w-full h-full" src="{{ block.settings.icon | image_url }}" loading="lazy" width="10" height="10" alt="{{ block.settings.title }}" />
+              </span>  
+            {%- endif -%}
             <span class="text-white">
               {{ block.settings.title }}
             </span>
@@ -17,12 +58,45 @@
 {
   "name": "Top Links",
   "class": "page-section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "col_desktop",
+      "label": "Desktop Columns",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "col_tablet",
+      "label": "Tablet Columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "col_mobile",
+      "label": "Mobile Columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    }
+  ],
   "blocks": [
     {
       "type": "items",
       "name": "Top Links",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
         {
           "type": "text",
           "id": "title",
@@ -34,10 +108,43 @@
           "label": "Link"
         },
         {
+          "type": "checkbox",
+          "id": "target_blank",
+          "label": "Open in new tab"
+        },
+        {
           "type": "color",
           "id": "bg_color",
           "label": "Bg Color"
+        },
+        {
+          "type": "range",
+          "id": "col_desktop",
+          "label": "Desktop Columns",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "col_tablet",
+          "label": "Tablet Columns",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "col_mobile",
+          "label": "Mobile Columns",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
         }
+
       ]
     }
   ],

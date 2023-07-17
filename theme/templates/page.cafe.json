@@ -3,12 +3,29 @@
     "TopLinks": {
       "type": "top-links",
       "blocks": {
+        "d30226f7-e13b-4a8f-aeec-b37febad176b": {
+          "type": "items",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/order_delivery.svg",
+            "title": "Order Delivery >",
+            "url": "https:\/\/www.grubhub.com\/restaurant\/ginjan-caf-85-e-125th-st-new-york\/3079128",
+            "target_blank": true,
+            "bg_color": "#009344",
+            "col_desktop": 1,
+            "col_tablet": 1,
+            "col_mobile": 1
+          }
+        },
         "29282fbd-407a-4198-9b5a-cbd51d88d0f5": {
           "type": "items",
           "settings": {
             "title": "Menu >",
             "url": "#menu",
-            "bg_color": "#081346"
+            "target_blank": false,
+            "bg_color": "#081346",
+            "col_desktop": 1,
+            "col_tablet": 1,
+            "col_mobile": 1
           }
         },
         "a07ccaa0-50da-4ad6-8efe-2fd28462a896": {
@@ -16,15 +33,23 @@
           "settings": {
             "title": "Directions >",
             "url": "#directions",
-            "bg_color": "#eaab42"
+            "target_blank": false,
+            "bg_color": "#eaab42",
+            "col_desktop": 1,
+            "col_tablet": 2,
+            "col_mobile": 1
           }
         }
       },
       "block_order": [
+        "d30226f7-e13b-4a8f-aeec-b37febad176b",
         "29282fbd-407a-4198-9b5a-cbd51d88d0f5",
         "a07ccaa0-50da-4ad6-8efe-2fd28462a896"
       ],
       "settings": {
+        "col_desktop": 3,
+        "col_tablet": 2,
+        "col_mobile": 1
       }
     },
     "cb558a47-5a95-4595-8931-83bcc62fb5ac": {
