@@ -58,20 +58,21 @@
         "a659bf75-145a-4fee-921b-baa03571328d": {
           "type": "items",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Brooklyn.png",
-            "tag": "Brooklyn",
+            "image": "shopify:\/\/shop_images\/ezgif.com-video-to-gif-2.gif",
+            "tag": "Harlem & Brooklyn",
             "title": "Ginjan Café",
-            "subtitle": "<p>The Home of African Flavors<br\/>in New York City — in Harlem + Brooklyn<\/p>",
+            "subtitle": "<p>The Home of African Flavors in New York City<\/p>",
             "description": ""
           }
         },
         "f62b78d8-9fcb-49f0-b746-9e46504f22b2": {
           "type": "items",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Ginjan_Cafe_Harlem_4000px.jpg",
             "tag": "Harlem",
-            "title": "Ginjan Café",
-            "subtitle": "<p>The Home of African Flavors<br\/>in New York City — in Harlem + Brooklyn<\/p>",
+            "title": "GinjanCafé",
+            "subtitle": "<p>The home of African Flavors in New York City<\/p>",
             "description": ""
           }
         }

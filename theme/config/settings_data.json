@@ -205,7 +205,7 @@
           "text_menu": "Born of Africa. Made in New York™",
           "message": true,
           "home_page_only": false,
-          "message_text": "SHIPPING ACROSS THE UNITED STATES  —  FREE SHIPPING ON ORDERS $100 +",
+          "message_text": "SHIPPING ACROSS THE UNITED STATES",
           "message_link": "",
           "color_bg": "#ffa400",
           "color_text": "#081346"
@@ -463,7 +463,7 @@
           "b79cc04b-57b8-4da6-bc67-ca53a2551f46": {
             "type": "slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/our-story-5.png",
+              "image": "shopify:\/\/shop_images\/ezgif.com-video-to-gif-4.gif",
               "title": "We are the\nGinjan Brothers",
               "subtitle": "",
               "text": "<p>We came to America from Guinea as teenagers and today <br\/>we’re proud to bring African flavors to the World — in stores, <br\/>online and in our GinjanCafés in New York City.<\/p>",
