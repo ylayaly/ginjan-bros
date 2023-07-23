@@ -384,7 +384,7 @@
       "text-full-background": {
         "type": "text-full-background",
         "settings": {
-          "show": true,
+          "show": false,
           "image": "shopify:\/\/shop_images\/desktop_fa32ac93-8fd4-4096-8bea-49fb5acd6c5d.png",
           "top_title": "NATURAL OR SUPER-NATURAL",
           "title": "Ginjan Gives Good Drink",
@@ -398,7 +398,7 @@
         "type": "product-recommendations-gb",
         "settings": {
           "show_product_recommendations": true,
-          "heading": "",
+          "heading": "You may also like",
           "show_vendor": false
         }
       },

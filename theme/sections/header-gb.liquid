@@ -43,12 +43,12 @@
 
                   <div class="text-xs announcement-text font-sofiapro">                    
                       {% if section.settings.message_link == blank %}
-                          <div class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-[0.875rem] 2xl:py-4.5 text-[0.56rem] xs:text-xs text-blue tracking-[0.2em] font-bold overflow-x-auto no-scroll-bar">
+                          <div class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-[0.875rem] 2xl:py-4.5 text-[0.56rem] xs:text-xs lg:text-[15px] text-blue font-bold overflow-x-auto no-scroll-bar">
                       {% else %}
-                          <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-[0.875rem] 2xl:py-4.5 text-[0.56rem] xs:text-xs text-blue tracking-[0.2em] font-bold notice-bar notice-bar--link overflow-x-auto no-scroll-bar">
+                          <a href="{{ section.settings.message_link }}" class="bg-full bg-right-top bg-orange-6 bg-no-repeat ml-auto text-center p-[0.875rem] 2xl:py-4.5 text-[0.56rem] xs:text-xs lg:text-[15px] text-blue font-bold notice-bar notice-bar--link overflow-x-auto no-scroll-bar">
                       {% endif %}
 
-                          <span class="notice-bar__message block w-max mx-auto">{{ section.settings.message_text | escape }}</span>
+                          <span class="notice-bar__message block w-max mx-auto tracking-[0.3em]">{{ section.settings.message_text | escape }}</span>
 
                       {% if section.settings.message_link == blank %}
                           </div>

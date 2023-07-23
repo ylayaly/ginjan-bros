@@ -1,0 +1,86 @@
+<div class="w-full px-10 lg:px-20 2xl:px-35 pb-9 grid lg:grid-cols-2 xl:grid-cols-3 gap-13 product__blog">
+  {% assign blogs_handle = 'recipes,posts,news' | split: ',' %}
+  {% for handle in blogs_handle %}
+    {%- assign blog = blogs[handle] -%}
+
+    {% for article in blog.articles %}
+      {% assign exist = false %}
+      {% for pp in article.metafields.product_blog_section.products.value %}
+        {% if pp.handle == product.handle %}
+          {% assign exist = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if exist == false %}
+        {% continue %}
+      {% endif %}
+
+      {% assign image = article.image %}
+      {% if image == blank %}
+        {% assign image = article.blog.featured_image %}
+      {% endif %}
+
+      <div class="relative rounded-[20px] overflow-hidden">
+        <img
+          class="absolute inset-0 w-full h-full object-cover"
+          src="{{ article.image | img_url: '300x300' }}"
+          alt=""
+          width="auto"
+          height="auto"
+          loading="lazy"
+        >
+        <div class="relative p-9 flex flex-col justify-between gap-40 bg-blue/30 h-full ">
+          <span class="text-sm relative block w-fit">
+            <span
+              class="absolute top-0 bottom-0 right-[10%] w-3/4 mx-auto scale-y-150"
+              style="background-color: {{ article.metafields.post.color_top_tag }}"
+            ></span>
+            <span class="relative text-white tracking-[0.1em] ">{{ article.metafields.post.top_tag }}</span>
+          </span>
+          <div>
+            <div class="text-blue">
+              {% assign title = article.metafields.product_blog_section.title | strip_html | json %}
+              {% assign title = title | replace: '"', '' | split: '\n' %}
+              <h3 class="font-extrabold font-loto text-lg 2xl:text-22 relative left-1">
+                {% for line in title %}
+                  {% assign words = line | split: ' ' %}
+                  {% for word in words %}
+                    <span class="relative inline-block py-1">
+                      <span class="bg-white absolute top-0 -left-1 h-full w-[130%] min-w-[5rem] block z-10"></span>
+                      <span class="relative inline-block z-20">{{ word }}</span>
+                    </span>
+                  {% endfor %}
+                  <br class="hidden xs:block">
+                {% endfor %}
+              </h3>
+
+              {% if article.metafields.product_blog_section.extract != blank %}
+                <div class="relative text-blue product__blog--rt">
+                  <span class="absolute top-0 left-0 h-full w-11/12 bg-white"></span>
+                  <div class="relative p-2">{{ article.metafields.product_blog_section.extract | metafield_tag }}</div>
+                </div>
+              {% endif %}
+            </div>
+            {% if article.metafields.product_blog_section.image %}
+              <div>
+                <img
+                  class="relative w-auto h-11 object-contain mt-2"
+                  src="{{ article.metafields.product_blog_section.image | img_url: '300x300' }}"
+                  alt=""
+                  width="auto"
+                  height="auto"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+            <a href="{{ article.url }}" class="mt-5 inline-block"
+              ><span class="uppercase font-loto font-semibold text-[10px] text-white tracking-[0.2em]"
+                >READ MORE</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endfor %}
+</div>

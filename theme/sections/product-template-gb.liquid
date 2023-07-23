@@ -1,11 +1,11 @@
-<div class="product-template__container 4xl:container"
+<div
+  class="product-template__container 4xl:container"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
   data-section-type="product"
   data-enable-history-state="true"
   data-ajax-enabled="{{ settings.enable_ajax }}"
 >
-
   {% comment %}
     Get first variant, or deep linked one
   {% endcomment %}
@@ -36,520 +36,31 @@
       {%- assign height = 1090 -%}
       {%- assign enable_image_zoom = false -%}
   {% endcase %}
-  <script> 
+  <script>
     var p_plans = {{ product | json }}
   </script>
-  <div>
-  {% assign product_color = settings.product_colors | split: " " | first | split: "#" | last | prepend: '#' %}
-  
-  {%- assign product_colors = settings.product_colors | split: " " -%}
-  {%- for color in product_colors -%}
-    {%- assign n_color = color | split:"#" | first -%}
-    {%- if product.tags contains n_color -%}
-          {%- assign product_color = color | split:"#" | last | prepend: '#' -%}
-    {%- endif -%}
-  {%- endfor -%}
 
-
-  {%- assign product_text_color = "#081346" -%}
-  {%- if product_color == "#081346" or product_color == "#CB5027" -%}
-    {%- assign product_text_color = "#ffffff" -%}
-  {%- endif -%}
-
-  <style>
-    .product-tabs .map-tab-header button.active{
-      color: {{ product_color }};
-    }
-  
-    .product-tabs .map-tab-header button.active::after{
-        border-bottom:  {{ product_color }} solid 4px;
-    }
-  </style>
-
-  </div>
-  <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %} relative">
-    
-    {% comment %} {% unless product.has_only_default_variant %}
-      <div class="">
-        {% for variant in product.variants %}
-          <div value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
-            {{ variant.title }} - {{ variant.price | money }}
-            * {{ variant.metafields.custom.product.id }} *
-            {% assign productMetafields = all_products[variant.metafields.custom.product] %}
-            <img width="300" src="{{ productMetafields.featured_media | img_url: product_image_size, scale: product_image_scale }}" />"
-          </div>
-        {% endfor %}
-      </div>
-    {% endunless %} {% endcomment %}
-
-
-    <div class="relative flex flex-col lg:flex-row pt-8 lg:py-16">
-
-      <div class="min-h-40 md:min-h-56 absolute top-0 right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84" style="background-color: {{ product_color }}"></div>
-    <div class="mx-auto w-full lg:w-1/55 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52">
-      <div class="w-screen lg:w-full lg:absolute max-h-[500px] mx-auto {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
-      {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
-      <div id="product-gallery">
-        {%- for media in product.media -%}
-          {% comment %} {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale, media_type: section.settings.media_type %} {% endcomment %}
-          <div class="px-14 md:px-20 xl:px-40 flex items-center">
-            {% capture product_image_size %}{{ height }}x{% endcapture %}
-            <img class="mx-auto max-h-[300px] lg:max-h-[700px] max-w-[90%]" src="{{ media | img_url: product_image_size, scale: product_image_scale }}" alt="{{ media.alt }}">
-          </div>
-        {%- endfor -%}
-      </div>
-      <noscript>
-        {% capture product_image_size %}{{ height }}x{% endcapture %}
-        <img src="{{ featured_media | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_media.alt }}" id="FeaturedMedia-{{ section.id }}" class="product-featured-media" style="max-width: {{ height }}px;">
-      </noscript>
-
-      {% assign first_3d_model = product.media | where: "media_type", "model" | first %}
-
-      {%- if first_3d_model -%}
-        <button
-          aria-label="{{ 'products.product.view_in_space_label' | t }}"
-          class="product-single__view-in-space"
-          data-shopify-xr
-          data-shopify-model3d-id="{{ first_3d_model.id }}"
-          data-shopify-title="{{ product.title | escape }}"
-          data-shopify-xr-hidden
-        >
-          {% include 'icon-3d-badge-full-color' %}<span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
-        </button>
-      {%- endif -%}
-
-
-      {% if product.media.size > 1 and show_gallery %}
-        {% if product.media.size > 4 %}
-          {%- assign enable_thumbnail_slides = true -%}
-        {% endif %}
-
-        <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
-          {% if enable_thumbnail_slides == true %}
-            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-              {% include 'icon-chevron-left' %}
-              <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
-            </button>
-          {% endif %}
-          <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}">
-            {% for media in product.media %}
-              <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} js">
-                <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                   class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                   data-thumbnail-id="{{ section.id }}-{{ media.id }}"
-                   {% if enable_image_zoom %}data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-
-                    {%- capture thumbnailAlt -%}
-                      {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-                        {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-                      {%- elsif media.media_type == 'model' -%}
-                        {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-                      {%- else -%}
-                        {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-                      {%- endif -%}
-                    {%- endcapture -%}
-
-                    <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
-                    {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-                      <div class="product-single__thumbnail-badge">
-                        {% include 'icon-video-badge-full-color' %}
-                      </div>
-                    {%- endif -%}
-                    {%- if media.media_type == 'model' -%}
-                      <div class="product-single__thumbnail-badge">
-                        {% include 'icon-3d-badge-full-color' %}
-                      </div>
-                    {%- endif -%}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-          {% if enable_thumbnail_slides == true %}
-            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-              {% include 'icon-chevron-right' %}
-              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-            </button>
-          {% endif %}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-
-    <div class="mx-auto w-full sm:w-2/3 lg:w-1/45 px-10 lg:pl-0 lg:pr-20 mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-52">
-
-      <div class="xl:w-[90%] 2xl:w-4/5 ml-auto">
-        <div>
-          <h1 class="text-5xl lg:text-7xl text-left font-bold text-blue-mobile" style="color: {{ product_text_color }}">{{ product.title }}</h1>
-        </div>
-        <div class="product-single__meta w-full lg:w-11/12 mr-auto">
-            <div class="product-single__description mx-auto w-full font-loto flex flex-col mt-2 lg:mt-4 text-blue-mobile" style="color: {{ product_text_color }}">
-              {% unless product.metafields.detail.ingredients == blank %}
-              <p class="font-bold text-lg lg:text-xl order-1">{{ product.metafields.detail.ingredients }}</p>
-              {% endunless %}
-              {% unless product.metafields.detail.pack == blank %}
-              <p class="font-bold text-lg order-4">{{ product.metafields.detail.pack }}</p>
-              {% endunless %}
-              {% unless product.metafields.detail.additional_info == blank %}
-              <p class="text-xs font-semibold mt-2 order-4">{{ product.metafields.detail.additional_info }}</p>
-              {% endunless %}
-              <p class="font-light text-base lg:text-lg mt-8 mb-6 order-2">{{ product.metafields.detail.details }}</p>
-              <span data-bottel-onetime="{{ product.metafields.custom.price_unit }}" data-bottel-subsave="{{ product.metafields.custom.price_unit_subscription }}" data-compare-at-price="{{ compare_at_price }}"></span>
-            </div>
-            <span class="hidden text-orange font-bold text-14 w-[90%] text-center leading-16 text-26 text-black font-normal mt-20 text-green text-base font-normal font-semibold font-extralight not-italic font-light ml-2 font-aeonik font-light italic text-xl lg:text-2xl  ml-6 mt-10 lg:mt-16 w-1/2 md:w-1/3 md:w-1/2 grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 xxs:grid-cols-1 xxs:grid-cols-2 xxs:grid-cols-3 xxs:grid-cols-4"></span>
-        </div>
-        {%- comment -%}
-          Live region for announcing updated price and availability to screen readers
-        {%- endcomment -%}
-        <p class="visually-hidden" data-product-status
-          aria-live="polite"
-          role="status"
-        ></p>
-        {%- comment -%}
-          Live region for announcing that the product form has been submitted and the
-          product is in the process being added to the cart
-        {%- endcomment -%}
-        <p class="visually-hidden" data-loader-status
-          aria-live="assertive"
-          role="alert"
-          aria-hidden="true"
-        >{{ 'products.product.loader_label' | t }}</p>
-
-        {% comment %} 
-        <div class="tabs max-w-4xl mx-auto product-tabs px-4">
-            {{ product.description }}
-        </div> {% endcomment %}
-
-        {% if section.settings.show_subscription_section %}
-        <a href="{{ section.settings.subcription_link.url }}" class="block py-6 md:py-10 3xl:py-14 text-center w-11/12 md:w-1/2 xl:w-2/6 suscription-text mx-auto my-14">
-            <p class="text-green text-2xl xl:text-4xl font-bold mb-8">{{ section.settings.title }}</p>
-            <p class="text-black text-xl xl:text-2xl font-extralight">{{ section.settings.subtitle }}</p>
-            <div class="flex justify-center items-center mt-4">             
-              <span class="font-bold">  Subscribe Now </span> 
-              <span class="subscribe-icon">{% include 'icon-arrow-black' %}</span>
-            </div>
-        </a>
-        {% endif %}
-
-        {% if section.settings.show_share_buttons %}
-        <div class="w-max mx-auto my-14">
-            {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}  
-        </div>
-        {% endif %}
-
-      </div>
-
-    </div>
-
-  </div>
-
-<div class="flex flex-col lg:flex-row w-full min-h-[30rem] row-span-3">
-  <div class='w-1/55 mx-auto'></div>
-  <div class="w-full sm:w-2/3 lg:w-1/45 mx-auto px-10 lg:pl-0 lg:pr-20">
-    <div class="xl:w-[90%]  2xl:w-4/5 ml-auto">
-      {% capture "form_classes" -%}
-        flex flex-col mr-auto w-full relative product-form pt-4 lg:mt-10 w-full product-form-{{ section.id }}
-        {%- unless section.settings.show_variant_labels %} product-form--hide-variant-labels {% endunless %}
-        {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
-        {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
-        {%- if template_type == 'product_subscription' -%} product-subscribe {%- endif -%}
-      {%- endcapture %}
-      
-      {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-        
-        {% unless product.has_only_default_variant %}
-          <div class="product-form__controls-group mx-auto w-full  my-4 order-1">
-            {% for option in product.options_with_values %}
-              <div class="selector-wrapper js product-form__item">
-                <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
-                  {{ option.name }}
-                </label>
-                <select class="border-2 border-blue rounded-xl single-option-selector single-option-selector-{{ section.id }} product-form__input"
-                  id="SingleOptionSelector-{{ forloop.index0 }}"
-                  data-index="option{{ forloop.index }}"
-                >
-                  {% for value in option.values %}
-                    <option data-variant="{{ option | json }}" value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
-            {% endfor %}
-          </div>
-        {% endunless %}
-
-        <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js order-1">
+  <div class="lg:grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %} relative">
+    {% comment %}
+      {% unless product.has_only_default_variant %}
+        <div class="">
           {% for variant in product.variants %}
-            <option value="{{ variant.id }}"
-              {%- if variant == current_variant %} selected="selected" {%- endif -%}
-            >
-              {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-            </option>
+            <div value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+              {{ variant.title }} - {{ variant.price | money }}
+              * {{ variant.metafields.custom.product.id }} *
+              {% assign productMetafields = all_products[variant.metafields.custom.product] %}
+              <img width="300" src="{{ productMetafields.featured_media | img_url: product_image_size, scale: product_image_scale }}" />"
+            </div>
           {% endfor %}
-        </select>
-    
-    
-      {%- if product.selling_plan_groups.size == 0 -%}
-        <div class="w-full bg-green rounded-xl flex justify-between items-center p-4 order-2 cursor-pointer mb-6" data-withow-plan>
-          <div>
-            <span class="text-white text-lg font-bold text-centered sm:text-left ">One time Purchase </span>
-          </div>
-          <div class="product__price {% if template_type == 'product_subscription' %} text-blue {% else %} text-white {% endif %} ">
-            {% include 'product-price-gb', variant: current_variant, show_vendor: section.settings.show_vendor %}
-          </div>
         </div>
-      {%- endif -%}
+      {% endunless %}
+    {% endcomment %}
 
-      {%- if template_type == 'product_subscription' -%}
-        <div class="w-full border-blue border-2 rounded-xl flex gap-2 lg:gap-4 justify-between items-center p-4 py-6 order-2 cursor-pointer {% if compare_at_price != blank and product.metafields.custom.price_unit_subscription != blank %} compare-price {% endif %} {% if compare_at_price != blank and product.metafields.custom.price_unit_subscription == blank %} only-compare-price {% endif %}" data-with-subscription>
-          <div class="flex flex-col lg:flex-row w-full option_tittle">
-            <div>
-              <span class="text-blue text-base leading-none lg:text-lg font-bold text-centered sm:text-left ">Subscribe + Save </span>
-            </div>
-          </div>
-          {% if product.metafields.custom.price_unit_subscription != blank%}
-          <span class="per-bottle text-blue">{{ product.metafields.custom.price_unit_subscription }}</span>
-          {% endif %}
-          {% if compare_at_price != blank %}
-            <span class="compare-at-price text-blue">{{ compare_at_price | money }}</span>
-          {% endif %}
-          <div class="product__price text-blue">
-            {% include 'product-price-gb', variant: current_variant, show_vendor: section.settings.show_vendor %}
-          </div>
-        </div>
-      {%- endif -%}
+    {%- render 'pdp_hero' -%}
     
-      {% capture "onetime_classes" -%}
-      grid-cols-product lg:grid-cols-product justify-between items-center order-3 bg-green rounded-xl py-2 xs:py-3 md:py-5 hidden opacity-0 lg:py-[0.81rem] _ 
-        {%- if product.selling_plan_groups.size > 0 %} _ min-h-[88px] md:min-h-[86px] 2xl:min-h-[74px] {%- else -%} _ grid w-full mb-6 {%- endif -%}
-      {%- endcapture %}
-    
-        
-      <div data-widget-button data-widget-button-onetime data-type="onetime" class="{{ onetime_classes }}">
-    
-        <div class="font-light border-r-1 border-white order-2 lg:order-1 selling_plan ">
-          <div class=" text-white px-2 sm:px-4 xl:px-6 flex items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-[17px] text-centered sm:text-left"> <span>One Time Purchase</span> </div>
-        </div>
-    
-        {% if section.settings.show_quantity_selector %}
-          <div class="flex items-center justify-end md:justify-between pr-2 xs:pr-4 md:px-4 xl:px-6 text-3xl font-aeonik order-2 lg:border-l border-r border-white">
-            <div class="font-light cursor-pointer text-white border border-white rounded-full w-4 h-4 lg:w-6 lg:h-6 flex justify-center items-center text-base lg:text-8 pb-1 lg:pb-[0.4rem] minus-quantity" data-type="onetime" id="minus-quantity">-</div>
-            <input class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl lg:text-4xl font-aeonik font-bold product-quantity-onetime bg-transparent text-white" id="Quantity-{{ section.id }}" type="number" value="1" pattern="[0-9.]+">
-            <div class="font-light cursor-pointer text-white border border-white rounded-full w-4 h-4 lg:w-6 lg:h-6 flex justify-center items-center text-base lg:text-8 pb-1 lg:pb-[0.4rem] plus-quantity" data-type="onetime" id="plus-quantity">+</div>
-          </div>
-        {% endif %}
-          <div class="order-3">
-            <button type="submit" name="add"
-              {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-              aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}Add to Box{% endunless %}"
-              class="product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}
-              border-none mb-0  text-white px-2 sm:px-4 xl:px-6 text-xs sm:text-sm lg:text-[10px] xl:text-[17px] font-bold"
-              >
-              <span class="text-center whitespace-nowrap">
-                {% unless current_variant.available %}
-                  {{ 'products.product.sold_out' | t }}
-                {% else %}
-                  Add to Box <span class="hidden xl:inline-block">></span>
-                {% endunless %}
-                
-              </span>
-              <span class="hide" data-loader>
-                {% include 'icon-spinner' %}
-                <p class="whitespace-nowrap" style="visibility: hidden">Add to Box <span class="hidden xl:inline-block">></span></p>
-              </span>
-              
-            </button>
-          </div>
-      </div>
-    
-    
-      
-      
-      
-      <div data-widget-button data-type="subsave" class="order-3 opacity-0 hidden {% if template_type == 'product_subscription' %} mt-3 {% endif %} w-full">
-        <div class="grid border-2 grid-cols-product lg:grid-cols-product justify-between mx-auto w-full items-center min-h-[88px] md:min-h-[86px] 2xl:min-h-[74px] border-blue rounded-xl py-2 xs:py-3 md:py-5 lg:py-[0.81rem] z-20 relative bg-white">
-           {%- if product.selling_plan_groups.size > 0 -%}
-          <div class="font-light border-r-1 border-white order-2 lg:order-1 selling_plan">
-            {% assign plans = product.selling_plan_groups | first %}
-            {% assign plans = plans.selling_plans %}
-            {% assign current_plan = plans | first %}
-            {% assign total_plans = plans | size %}
-
-            <button id="selling_plan" data-dropdown-toggle="selling_plan_dropdown" class=" text-blue px-2 sm:px-4 xl:px-6 flex justify-between items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-[17px] {% if total_plans <= 1 %} cursor-default {% endif %}" type="button"> <span class="text-centered sm:text-left ">{{ current_plan.name | replace: "Delivery every 1 Month, Charge every 6 Months", "Ships Every Month" | replace: "Delivery e", "E" }}</span> 
-            {%- if total_plans > 1 -%}
-            <svg class="w-4 h-4 ml-4 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            {%- endif -%}
-          </button>
-          </div>
-        {%- else -%}
-    
-          <div class="font-light border-r-1 border-white hidden order-2 lg:order-1 selling_plan">
-            <button class=" text-white py-5 px-2 sm:px-4 xl:px-6 flex items-center font-medium text-lg lg:text-xl uppercase"> <span>One time</span> </button>
-          </div>
-    
-    
-        {%- endif -%}
-    
-          {% if section.settings.show_quantity_selector %}
-            <div class="flex justify-end md:justify-between items-center pr-2 xs:pr-4 md:px-4 xl:px-6 text-blue text-3xl font-aeonik order-2 lg:border-l border-r border-blue">
-              <div class="font-light cursor-pointer border border-blue rounded-full w-4 h-4 lg:w-6 lg:h-6 flex justify-center items-center text-base lg:text-8 pb-1 lg:pb-[0.4rem] minus-quantity" data-type="subsave" id="minus-quantity-subsave">-</div>
-              <input class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl lg:text-4xl font-aeonik font-bold product-quantity-subsave bg-transparent " id="Quantity-subsave-{{ section.id }}" type="number" value="1" pattern="[0-9.]+">
-              <div class="font-light cursor-pointer border border-blue rounded-full w-4 h-4 lg:w-6 lg:h-6 flex justify-center items-center text-base lg:text-8 pb-1 lg:pb-[0.4rem] plus-quantity" data-type="subsave" id="plus-quantity-subsave">+</div>
-            </div>
-          {% endif %}
-            <div class="order-3">
-              <button type="submit" name="add"
-                {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-                aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}Subscribe{% endunless %}"
-                class="product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}
-                border-none text-xs sm:text-sm lg:text-[10px] xl:text-[17px] font-bold mb-0 text-blue px-2 sm:px-4 xl:px-6"
-                >
-                <span class="text-center whitespace-nowrap">
-                  {% unless current_variant.available %}
-                    {{ 'products.product.sold_out' | t }}
-                  {% else %}
-                    Subscribe <span class="hidden xl:inline-block">></span>
-                  {% endunless %}
-                  
-                </span>
-                <span class="hide" data-loader>
-                  {% include 'icon-spinner' %}
-                  <p class="whitespace-nowrap" style="visibility: hidden">Subscribe <span class="hidden xl:inline-block">></span></p>
-                </span>
-                
-              </button>
-            </div>
-        </div>  
-        {%- if product.selling_plan_groups.size > 0 -%}
-            {% assign plans = product.selling_plan_groups | first %}
-            {% assign plans = plans.selling_plans %}
-            {% assign current_plan = plans | first %}
-            {% assign total_plans = plans | size %}
-          <!-- Dropdown menu -->
-          <div id="selling_plan_dropdown" class="relative -top-4 rounded-lg w-fit z-10 hidden text-blue divide-y divide-gray-100 border-2 border-blue bg-blue/10 {% if total_plans <= 1 %} opacity-0 hidden-important {% endif %}">
-            <ul class="pt-4 text-xs" aria-labelledby="selling_plan">
-              {% for plan in plans %}
-                {% capture "item_class" -%} selling_plan_item block px-4 py-2 py-5 pl-6 pr-13 font-loto
-                  {%- if current_plan.id == plan.id %} font-medium {%- endif -%}
-                {%- endcapture %}
-    
-                {% capture "item_li_class" -%} border-b border-blue last:border-b-0
-                  {%- if current_plan.id == plan.id %} hidden {%- endif -%}
-                {%- endcapture %}
-    
-                <li data-plans-item="{{ plan.id }}" class="{{ item_li_class }}">
-                  <a href="#" data-value="{{ plan.id }}" class="{{ item_class }}">{{ plan.name | replace: "Delivery every 1 Month, Charge every 6 Months", "Ships Every Month" | replace: "Delivery e", "E"  }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {%- endif -%}
-        
-        </div>
-
-        
-      
-        {%- liquid 
-          assign badges = "" | split: "||" 
-        for badge in product.metafields.badges
-          assign t = badge | first
-          assign v = badge | last
-          if t contains "title_"
-            if v != blank
-              assign vv = v | split: "||"
-              assign badges = badges | concat: vv
-            endif
-          endif
-        endfor
-
-        assign badges_size = badges.size
-        if badges_size > 4
-          assign badges_size = 4
-        endif
-        -%}
-
-        {% if badges_size > 0 %}
-        <div class="border-2 rounded-xl mr-auto ml-0 border-blue py-3 px-3 xl:px-6 grid grid-cols-2 xxs:grid-cols-{{ badges_size }} order-5 text-center items-start gap-3 xl:gap-6 my-4 {% if badges_size == 4 %} w-full {% else %} w-auto {% endif %} " style="margin-left: 0">
-          {% unless product.metafields.badges.title_1 == blank %}
-            <div class="flex flex-col justify-start items-center gap-3">
-              <img src="{{ product.metafields.badges.img_1 | img_url }}" class="h-12 object-contain" loading="lazy" />
-              <span class="text-blue text-[10px] xl:text-xs font-semibold text-center">{{ product.metafields.badges.title_1 | metafield_tag }}</span>
-            </div>
-          {% endunless %}
-          {% unless product.metafields.badges.title_2 == blank %}
-            <div class="flex flex-col justify-start items-center gap-3">
-              <img src="{{ product.metafields.badges.img_2 | img_url }}" class="h-12 object-contain" loading="lazy" />
-              <span class="text-blue text-[10px] xl:text-xs font-semibold text-center">{{ product.metafields.badges.title_2 | metafield_tag }}</span>
-            </div>
-          {% endunless %}
-          {% unless product.metafields.badges.title_3 == blank %}
-            <div class="flex flex-col justify-start items-center gap-3">
-              <img src="{{ product.metafields.badges.img_3 | img_url }}" class="h-12 object-contain" loading="lazy" />
-              <span class="text-blue text-[10px] xl:text-xs font-semibold text-center">{{ product.metafields.badges.title_3 | metafield_tag }}</span>
-            </div>
-          {% endunless %}
-          {% unless product.metafields.badges.title_4 == blank %}
-            <div class="flex flex-col justify-start items-center gap-3">
-              <img src="{{ product.metafields.badges.img_4 | img_url }}" class="h-12 object-contain" loading="lazy" />
-              <span class="text-blue text-[10px] xl:text-xs font-semibold text-center">{{ product.metafields.badges.title_4 | metafield_tag }}</span>
-            </div>
-          {% endunless %}
-        </div>
-      {% endif %}
-    
-        {%- if shop.taxes_included or shop.shipping_policy.body != blank or section.settings.btn_policy_show -%}
-        <div class="bg-grey-2 rounded-lg px-4 pt-4 pb-7 order-5 text-dark-grey mt-6">
-          {%- if section.settings.btn_policy_show -%}
-            <div class="font-loto font-bold text-base lg:text-lg order-3">
-              <a class="w-max underline " href="{{ section.settings.btn_policy_link }}" target="_blank">{{ section.settings.btn_policy_text }}</a>
-            </div>
-            {%- endif -%}
-    
-            {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-              <div class="product__policies rte text-xs mt-2 order-3" data-product-policies>
-                {%- if shop.taxes_included -%}
-                  {{ 'products.product.include_taxes' | t }}
-                {%- endif -%}
-                {%- if shop.shipping_policy.body != blank -%}
-                  {{ 'products.product.shipping_policy_html' | t: link: shop.privacy_policy.url }}
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-    
-        </div>
-      {%- endif -%}
-    
-    
-    
-        <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %} order-3"
-          data-error-message-wrapper
-          role="alert"
-        >
-          <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-          {% include 'icon-error' %}
-          <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
-        </div>
-    
-        {% if section.settings.enable_payment_button %}
-        <div class="product-form__controls-group product-form__controls-group--submit mx-auto w-max mt-10 lg:mt-12 order-3">
-          <div class="product-form__item product-form__item--submit
-            {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}" >
-            <div class="container-lg shopify-buttons">
-              {{ form | payment_button }}
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <input class="hidden" id="Quantity-{{ section.id }}" type="number" value="1" name="quantity" pattern="[0-9.]+" data-quantity-input>
-    
-      {% endform %}
-      
-
-    </div>
-
-
-  
-</div>
-</div>
-
+    {%- render 'pdp_form' current_variant: current_variant -%}
+    {%- render 'pdp_nutrition_info' -%}
+    {%- render 'pdp_blog' -%}
 
   </div>
 </div>
@@ -562,8 +73,6 @@
     {{ product.media | where: 'media_type', 'model' | json }}
   </script>
 {% endunless %}
-
-
 
 {% schema %}
 {
@@ -1097,7 +606,6 @@
       "id": "btn_policy_link",
       "label": "Button url"
     }
-
   ]
 }
 {% endschema %}

@@ -11,10 +11,10 @@
         {% else %}
         {%- assign grid_item_width = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' -%}
     {% endcase %}
-      <div class="product-recommendations__inner pt-32 md:pt-28 xl:pt-36 p-0">
+      <div class="product-recommendations__inner pt-8 p-0">
         {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center mb-20 xl:mb-28">
-            <h2 class="font-recoleta text-2xl xl:text-4xl">{{ section.settings.heading | escape }}</h2>
+          <div class="section-header text-center mb-8 xl:mb-12">
+            <h2 class="font-extrabold font-loto text-22 text-left normal-case px-4">{{ section.settings.heading | escape }}</h2>
           </div>
         {%- endif -%}
         <ul id="product-recommendations__list" class="grid {{ grid_item_width }} gap-6 mb-8">
@@ -27,7 +27,7 @@
       </div>
     {%- endif -%}
   {%- else  -%}
-    <div class="4xl:container px-10 lg:px-16" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations-gb"></div>
+    <div class="4xl:container px-10 lg:px-20 2xl:px-35" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations-gb"></div>
   {%- endif -%}
 {%- endif -%}
 

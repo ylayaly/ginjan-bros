@@ -735,7 +735,7 @@ span.rc-option__price.rc_widget__price {
 }
 
 .rc-radio.rc-option {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
 }
 
 .rc-option__text {
@@ -1064,7 +1064,8 @@ div.rc-widget div[data-option-onetime] {
 div[data-option-onetime] .rc-option__text {
     color: white;
     font-family: "Loto";
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 [data-option-onetime].rc-radio.rc-option {
@@ -1088,8 +1089,13 @@ span.rc-option__price.rc_widget__price,
 .rc-option__text {
     color: inherit;
     font-family: Loto;
-    font-size: 15px;
+    font-size: 17px;
     text-transform: capitalize;
+    font-weight: 700;
+}
+
+span.rc-option__price.rc_widget__price{
+    font-size: 29px;
 }
 
 label.rc-radio__label span.per-bottle {
@@ -1139,16 +1145,16 @@ label.rc-radio__label {
 }
 
 .slick-prev {
-    left: 10%;
-    width: 2.5rem;
-    height: 2.5rem;
+    left: 4%;
+    width: 2.88rem;
+    height: 2.88rem;
     z-index: 10;
 }
 
 .slick-next {
-    right: 10%;
-    width: 2.5rem;
-    height: 2.5rem;
+    right: 4%;
+    width: 2.88rem;
+    height: 2.88rem;
 }
 
 .slick-next:before, .slick-prev:before  {
@@ -1184,9 +1190,9 @@ label.rc-radio__label {
     margin-right: 0px;
 }
 
-#product-gallery .slick-slide{
+#product-gallery{
     min-height: 700px;
-    display: flex;
+    /* display: flex; */
 }
 
 #product-recommendations__list [data-card-recommendation]{
@@ -1918,7 +1924,7 @@ a.navbar-link-collection:focus{
         grid-template-columns: 4fr 1fr;
     }
 
-     .rc-template__legacy-radio label.rc-radio__label.compare-price, .compare-price:not(.hidden) {
+    .rc-template__legacy-radio label.rc-radio__label.compare-price, .compare-price:not(.hidden) {
         display: grid;
         grid-template-columns: 4fr 1fr 1fr;
         row-gap: 0.2rem;
@@ -1988,6 +1994,18 @@ a.navbar-link-collection:focus{
 
     .lg-hidden-child-3:nth-child(0n+4){
         display: none;
+    }
+
+    .slick-prev {
+        left: 6%;
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+     .slick-next {
+        right: 6%;
+        width: 2.25rem;
+        height: 2.25rem;
     }
 }
 
@@ -2094,6 +2112,7 @@ a.navbar-link-collection:focus{
     .site-header__cart-count span{
         font-size: 12px;
     }
+    
 }
 
 @media (max-width: 1023px) {
@@ -2133,7 +2152,7 @@ a.navbar-link-collection:focus{
     .text-blue-mobile{
         color: #081346 !important;
     }
-    #product-gallery .slick-slide{
+    #product-gallery{
         min-height: 300px;
     }
     #ContactBlog-email, #ContactBlog-email::placeholder{
@@ -2580,3 +2599,25 @@ a.navbar-link-collection:focus{
 }
 
 /*http://127.0.0.1:9292/products_preview?preview_key=be3bbedb6272bfb7add0e8564cb3788d&recharge=true*/
+
+
+
+/* PDP */
+.product__hero--bg{
+    clip-path: url(#hero_pdp);
+}
+
+.rc_popup_label_wrapper.row{
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(./star.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -222,7 +222,7 @@ $(document).ready(function(){
             $("#product-gallery").fadeTo("slow", 0, function(){
                 $("#product-gallery").html(`
                 <div class="px-14 md:px-20 xl:px-40 flex items-center" data-slick-index="10" aria-hidden="true" role="option" tabindex="-1">    
-                    <img class="mx-auto max-h-[300px] lg:max-h-[700px] max-w-[90%]" src="${p.featured_image.src}" alt="Subscribe">
+                    <img class="mx-auto max-h-[300px] lg:max-h-[800px] max-w-full" src="${p.featured_image.src}" alt="Subscribe">
                 </div>`).fadeTo("slow", 1)
             })
             

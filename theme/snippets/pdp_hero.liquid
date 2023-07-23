@@ -1,0 +1,220 @@
+<div class="relative flex flex-col lg:flex-row lg:pt-12 2xl:pt-16 lg:pb-19 product__hero px-10 lg:px-20 2xl:px-35">
+    <div
+      class="min-h-40 md:min-h-56 lg:min-h-72 absolute right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84 product__hero--bg bg-blue"
+      style="background-color: {{ product.metafields.detail.bg_color }}"
+    ></div>
+    <div class="mx-auto w-full lg:w-[62%] xl:w-[55%] 3xl:w-[62%] relative sm:pt-14 lg:pt-40 xl:pt-44 2xl:pt-60">
+      <div
+        class="w-full lg:absolute max-h-[500px] mx-auto pt-6 lg:pt-0 {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}"
+        data-product-single-media-group
+      >
+        {%- assign featured_media = product.selected_or_first_available_variant.featured_media
+          | default: product.featured_media
+        -%}
+        <div id="product-gallery">
+          {%- for media in product.media -%}
+            {% comment %} {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale, media_type: section.settings.media_type %} {% endcomment %}
+            <div class="px-14 md:px-20 xl:px-32 flex items-center">
+              {% capture product_image_size %}{{ height }}x{% endcapture %}
+              <img
+                class="mx-auto max-h-[300px] lg:max-h-[800px] max-w-full"
+                src="{{ media | img_url: product_image_size, scale: product_image_scale }}"
+                alt="{{ media.alt }}"
+                loading="lazy" width="auto" height="auto"
+              >
+            </div>
+          {%- endfor -%}
+        </div>
+        <noscript>
+          {% capture product_image_size %}{{ height }}x{% endcapture %}
+          <img
+            src="{{ featured_media | img_url: product_image_size, scale: product_image_scale }}"
+            alt="{{ featured_media.alt }}"
+            id="FeaturedMedia-{{ section.id }}"
+            class="product-featured-media"
+            style="max-width: {{ height }}px;"
+            loading="lazy" width="auto" height="auto"
+          >
+        </noscript>
+
+        {% assign first_3d_model = product.media | where: 'media_type', 'model' | first %}
+
+        {%- if first_3d_model -%}
+          <button
+            aria-label="{{ 'products.product.view_in_space_label' | t }}"
+            class="product-single__view-in-space"
+            data-shopify-xr
+            data-shopify-model3d-id="{{ first_3d_model.id }}"
+            data-shopify-title="{{ product.title | escape }}"
+            data-shopify-xr-hidden
+          >
+            {% include 'icon-3d-badge-full-color' -%}
+            <span class="product-single__view-in-space-text">{{ 'products.product.view_in_space' | t }}</span>
+          </button>
+        {%- endif -%}
+
+        {% if product.media.size > 1 and show_gallery %}
+          {% if product.media.size > 4 %}
+            {%- assign enable_thumbnail_slides = true -%}
+          {% endif %}
+
+          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+            {% if enable_thumbnail_slides == true %}
+              <button
+                type="button"
+                class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}"
+              >
+                {% include 'icon-chevron-left' %}
+                <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+              </button>
+            {% endif %}
+            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+              {% for media in product.media %}
+                <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} js">
+                  <a
+                    href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                    data-thumbnail-id="{{ section.id }}-{{ media.id }}"
+                    {% if enable_image_zoom %}
+                      data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                    {% endif %}
+                  >
+                    {%- capture thumbnailAlt -%}
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                    {%- elsif media.media_type == 'model' -%}
+                      {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                    {%- else -%}
+                      {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                    {%- endif -%}
+                  {%- endcapture -%}
+
+                    <img
+                      class="product-single__thumbnail-image"
+                      src="{{ media.preview_image | img_url: '110x110', scale: 2 }}"
+                      alt="{{ thumbnailAlt }}"
+                    >
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      <div class="product-single__thumbnail-badge">
+                        {% include 'icon-video-badge-full-color' %}
+                      </div>
+                    {%- endif -%}
+                    {%- if media.media_type == 'model' -%}
+                      <div class="product-single__thumbnail-badge">
+                        {% include 'icon-3d-badge-full-color' %}
+                      </div>
+                    {%- endif -%}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% if enable_thumbnail_slides == true %}
+              <button
+                type="button"
+                class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}"
+              >
+                {% include 'icon-chevron-right' %}
+                <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="mx-auto w-full sm:w-2/3 lg:w-[38%] xl:w-[45%] 3xl:w-[38%] mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-48">
+      <div class="xl:w-[90%] 2xl:w-4/5 ml-auto">
+        <div>
+          <h1
+            class="text-5xl lg:text-7xl text-left font-bold text-blue-mobile text-white"
+            style="color: {{ product.metafields.detail.text_color }}"
+          >
+            {{ product.title }}
+          </h1>
+        </div>
+        <div class="product-single__meta w-full lg:w-11/12 mr-auto">
+          <div
+            class="product-single__description mx-auto w-full font-loto flex flex-col mt-2 lg:mt-4 text-blue-mobile text-white"
+            style="color: {{ product.metafields.detail.text_color }}"
+          >
+            {% unless product.metafields.detail.ingredients == blank %}
+              <p class="font-bold text-lg lg:text-xl order-1">{{ product.metafields.detail.ingredients }}</p>
+            {% endunless %}
+            {% comment %} {% unless product.metafields.detail.pack == blank %}
+              <p class="font-bold text-lg order-4">{{ product.metafields.detail.pack }}</p>
+            {% endunless %} {% endcomment %}
+            {% unless product.metafields.detail.additional_info == blank %}
+              <p class="text-xs font-semibold mt-2 order-4">{{ product.metafields.detail.additional_info }}</p>
+            {% endunless %}
+            <p class="font-light text-base lg:text-lg mt-12 mb-8 order-2">{{ product.metafields.detail.details }}</p>
+            <span
+              data-bottel-onetime="{{ product.metafields.custom.price_unit }}"
+              data-bottel-subsave="{{ product.metafields.custom.price_unit_subscription }}"
+              data-compare-at-price="{{ compare_at_price }}"
+            ></span>
+          </div>
+          <span
+            class="hidden text-orange font-bold text-14 w-[90%] text-center leading-16 text-26 text-black font-normal mt-20 text-green text-base font-normal font-semibold font-extralight not-italic font-light ml-2 font-aeonik font-light italic text-xl lg:text-2xl  ml-6 mt-10 lg:mt-16 w-1/2 md:w-1/3 md:w-1/2 grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 xxs:grid-cols-1 xxs:grid-cols-2 xxs:grid-cols-3 xxs:grid-cols-4"
+          ></span>
+        </div>
+        {%- comment -%}
+          Live region for announcing updated price and availability to screen readers
+        {%- endcomment -%}
+        <p
+          class="visually-hidden"
+          data-product-status
+          aria-live="polite"
+          role="status"
+        ></p>
+        {%- comment -%}
+          Live region for announcing that the product form has been submitted and the
+          product is in the process being added to the cart
+        {%- endcomment -%}
+        <p
+          class="visually-hidden"
+          data-loader-status
+          aria-live="assertive"
+          role="alert"
+          aria-hidden="true"
+        >
+          {{ 'products.product.loader_label' | t }}
+        </p>
+
+        {% comment %}
+          <div class="tabs max-w-4xl mx-auto product-tabs px-4">
+              {{ product.description }}
+          </div>
+        {% endcomment %}
+
+        {% if section.settings.show_subscription_section %}
+          <a
+            href="{{ section.settings.subcription_link.url }}"
+            class="block py-6 md:py-10 3xl:py-14 text-center w-11/12 md:w-1/2 xl:w-2/6 suscription-text mx-auto my-14"
+          >
+            <p class="text-green text-2xl xl:text-4xl font-bold mb-8">{{ section.settings.title }}</p>
+            <p class="text-black text-xl xl:text-2xl font-extralight">{{ section.settings.subtitle }}</p>
+            <div class="flex justify-center items-center mt-4">
+              <span class="font-bold"> Subscribe Now </span>
+              <span class="subscribe-icon">{% include 'icon-arrow-black' %}</span>
+            </div>
+          </a>
+        {% endif %}
+
+        {% if section.settings.show_share_buttons %}
+          <div class="w-max mx-auto my-14">
+            {% include 'social-sharing',
+              share_title: product.title,
+              share_permalink: product.url,
+              share_image: product.featured_media
+            %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <svg width="1" height="1">
+        <clipPath id="hero_pdp" clipPathUnits="objectBoundingBox">
+            <path id="Trazado_2618" data-name="Trazado 2618" d="M1575-2903v.826s.046,0,.283,0,.439.187.584.173a.33.33,0,0,0,.134-.037V-2903Z" transform="translate(-1575 2903)" fill="#ff9f17"/>
+        </clipPath>
+    </svg>
+  </div>
+
