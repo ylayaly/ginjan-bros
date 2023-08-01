@@ -1,23 +1,24 @@
-<div class="relative flex flex-col lg:flex-row lg:pt-12 2xl:pt-16 lg:pb-19 product__hero px-10 lg:px-20 2xl:px-35">
+<div class="relative flex flex-col lg:flex-row lg:pt-12 2xl:pt-14 lg:pb-19 product__hero px-10 lg:px-20 2xl:px-35">
     <div
-      class="min-h-40 md:min-h-56 lg:min-h-72 absolute right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84 product__hero--bg bg-blue"
+      class="hidden lg:block min-h-40 md:min-h-56 lg:min-h-72 absolute right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84 product__hero--bg bg-blue"
       style="background-color: {{ product.metafields.detail.bg_color }}"
     ></div>
-    <div class="mx-auto w-full lg:w-[62%] xl:w-[55%] 3xl:w-[62%] relative sm:pt-14 lg:pt-40 xl:pt-44 2xl:pt-60">
+    <div class="mx-auto w-full lg:w-[62%] 2xl:w-[55%] 3xl:w-[62%] relative sm:pt-14 lg:pt-44 xl:pt-56 2xl:pt-60">
       <div
-        class="w-full lg:absolute max-h-[500px] mx-auto pt-6 lg:pt-0 {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}"
+        class="w-full lg:absolute max-h-[800px] mx-auto pt-6 lg:pt-0 {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}"
         data-product-single-media-group
       >
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media
           | default: product.featured_media
         -%}
+
         <div id="product-gallery">
           {%- for media in product.media -%}
             {% comment %} {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale, media_type: section.settings.media_type %} {% endcomment %}
-            <div class="px-14 md:px-20 xl:px-32 flex items-center">
+            <div class="px-6 sm:px-14 md:px-20 xl:px-21 3xl:px-32 flexi items-center">
               {% capture product_image_size %}{{ height }}x{% endcapture %}
               <img
-                class="mx-auto max-h-[300px] lg:max-h-[800px] max-w-full"
+                class="mx-auto max-h-[300px] sm:max-h-[400px] lg:max-h-[800px] max-w-full"
                 src="{{ media | img_url: product_image_size, scale: product_image_scale }}"
                 alt="{{ media.alt }}"
                 loading="lazy" width="auto" height="auto"
@@ -122,23 +123,23 @@
       </div>
     </div>
 
-    <div class="mx-auto w-full sm:w-2/3 lg:w-[38%] xl:w-[45%] 3xl:w-[38%] mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-48">
+    <div class="mx-auto w-full sm:w-2/3 lg:w-[38%] 2xl:w-[45%] 3xl:w-[38%] mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-48">
       <div class="xl:w-[90%] 2xl:w-4/5 ml-auto">
         <div>
           <h1
-            class="text-5xl lg:text-7xl text-left font-bold text-blue-mobile text-white"
+            class="text-5xl 2xl:text-[4rem] 3xl:text-7xl text-left font-bold text-blue-mobile text-white"
             style="color: {{ product.metafields.detail.text_color }}"
           >
             {{ product.title }}
           </h1>
         </div>
-        <div class="product-single__meta w-full lg:w-11/12 mr-auto">
+        <div class="product-single__meta w-full">
           <div
-            class="product-single__description mx-auto w-full font-loto flex flex-col mt-2 lg:mt-4 text-blue-mobile text-white"
+            class="product-single__description mx-auto w-full font-loto flex flex-col mt-0 text-blue-mobile text-white"
             style="color: {{ product.metafields.detail.text_color }}"
           >
             {% unless product.metafields.detail.ingredients == blank %}
-              <p class="font-bold text-lg lg:text-xl order-1">{{ product.metafields.detail.ingredients }}</p>
+              <p class="font-bold text-lg lg:text-xl order-1 mt-1">{{ product.metafields.detail.ingredients }}</p>
             {% endunless %}
             {% comment %} {% unless product.metafields.detail.pack == blank %}
               <p class="font-bold text-lg order-4">{{ product.metafields.detail.pack }}</p>
@@ -146,7 +147,7 @@
             {% unless product.metafields.detail.additional_info == blank %}
               <p class="text-xs font-semibold mt-2 order-4">{{ product.metafields.detail.additional_info }}</p>
             {% endunless %}
-            <p class="font-light text-base lg:text-lg mt-12 mb-8 order-2">{{ product.metafields.detail.details }}</p>
+            <div class="font-light text-base lg:text-lg my-9 order-2">{{- product.metafields.hero_section.description | metafield_tag -}}</div>
             <span
               data-bottel-onetime="{{ product.metafields.custom.price_unit }}"
               data-bottel-subsave="{{ product.metafields.custom.price_unit_subscription }}"

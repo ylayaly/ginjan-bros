@@ -13,8 +13,12 @@
     {% endcase %}
       <div class="product-recommendations__inner pt-8 p-0">
         {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center mb-8 xl:mb-12">
-            <h2 class="font-extrabold font-loto text-22 text-left normal-case px-4">{{ section.settings.heading | escape }}</h2>
+          <div class="section-header text-center mb-4 xl:mb-6 flex justify-between gap-2 items-center">
+            <h2 class="font-extrabold font-loto text-22 text-left normal-case text-blue">{{ section.settings.heading | escape }}</h2>
+            <div class="flex gap-1">
+              <button id="product-recommendations__list-prevArrow" class="slick-prev relative top-auto left-auto right-auto" aria-label="Previous" type="button" style="display: block;">Previous</button>
+              <button id="product-recommendations__list-nextArrow" class="slick-next relative top-auto left-auto right-auto" aria-label="Next" type="button" style="display: block;">Next</button>
+            </div>
           </div>
         {%- endif -%}
         <ul id="product-recommendations__list" class="grid {{ grid_item_width }} gap-6 mb-8">

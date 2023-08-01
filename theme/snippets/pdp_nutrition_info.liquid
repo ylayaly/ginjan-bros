@@ -1,8 +1,9 @@
+{%- if product.metafields.nutrition_facts.title != blank or product.metafields.nutrition_facts.subtitle != blank or product.metafields.nutrition_facts.detail.value != blank or product.metafields.detail.reviews.value != blank -%}
 <div class="w-full px-10 lg:px-20 2xl:px-35 mt-13 pb-9">
     <div class="border border-grey-5 rounded-[20px] text-blue font-loto">
-        {%- if product.metafields.nutrition_facts.title != blank or product.metafields.nutrition_facts.subtitle != blank or product.metafields.nutrition_facts.items.value != blank -%}
+        {%- if product.metafields.nutrition_facts.title != blank or product.metafields.nutrition_facts.subtitle != blank or product.metafields.nutrition_facts.detail.value != blank -%}
             <div class="flex flex-col gap-10 lg:gap-0 lg:flex-row py-5 sm:py-10 lg:py-12 border border-grey-5 rounded-[20px] bg-grey-4">
-                <div class="w-full lg:w-[62%] xl:w-[55%] 3xl:w-[62%] mx-auto px-5 sm:px-10 lg:pl-14 lg:pr-32 2xl:pr-52 flex flex-col gap-8 font-loto">
+                <div class="w-full lg:w-[62%] 2xl:w-[55%] 3xl:w-[62%] mx-auto px-5 sm:px-10 lg:pl-14 lg:pr-32 xl:pr-20 3xl:pr-52 flex flex-col gap-8 font-loto">
                     <p class="font-bold text-lg">
                         {{- product.metafields.nutrition_facts.title | metafield_tag -}}
                     </p>
@@ -10,16 +11,29 @@
                         {{- product.metafields.nutrition_facts.subtitle | metafield_tag -}}
                     </p>
                 </div>
-                <div class="w-full lg:w-[38%] xl:w-[45%] 3xl:w-[38%] mx-auto">
-                    <div class="xl:w-[90%]  2xl:w-4/5 ml-auto px-5 sm:px-10 lg:px-14 lg:pl-0">
-                        {% if product.metafields.nutrition_facts.items.value != blank %}
-                            <h3 class="text-xl 2xl:text-22">Nutrition <span class="font-bold">Facts</span></h3>
-                            <div class="grid grid-cols-4 text-xs font-semibold mt-3 gap-2">
-                                {%- for item in product.metafields.nutrition_facts.items.value -%}
-                                    <span class="col-span-3 sm:col-span-2 {% if forloop.first %} text-base font-bold leading-4 {% endif %} "> {{ item | split : "|" | first }} </span>
-                                    <span class="col-span-1 sm:col-span-2 {% if forloop.first %} text-base font-bold leading-4 {% endif %} ">{{ item | split : "|" | last }} </span>
-                                {%- endfor -%}
-                            </div>
+                {%- liquid assign nutriton_facts_size = 0
+                    if product.metafields.nutrition_facts.detail.value != blank 
+                        for detail in product.metafields.nutrition_facts.detail.value 
+                            assign nutriton_facts_size = forloop.length 
+                        endfor 
+                    endif 
+                -%}
+                <div class="w-full {% if nutriton_facts_size > 1 %} lg:w-[50%] {% else %} lg:w-[38%] {% endif %} 2xl:w-[45%] 3xl:w-[38%] mx-auto">
+                    <div class="{% if nutriton_facts_size <= 1 %} xl:w-[90%] 2xl:w-4/5 ml-auto {% else %} grid sm:grid-cols-2 section-header mb-8 xl:mb-12 lg:grid-cols-1 xl:grid-cols-2 gap-8 3xl:gap-12 {% endif %} px-5 sm:px-10 lg:px-14 lg:pl-0">
+                        {% if product.metafields.nutrition_facts.detail.value != blank %}
+                            {% for detail in product.metafields.nutrition_facts.detail.value %}
+                                <div>
+                                    <div class="text-xl 2xl:text-22 font-light gb_richtext">{{- detail.title | metafield_tag -}}</div>
+                                    {% assign items = detail.items.value.item.value %}
+                                    <div class="grid grid-cols-4 text-xs font-semibold mt-3 gap-2">
+                                        {% for item in items %}
+                                            <span class="col-span-3 sm:col-span-2 {% if forloop.first %} text-base font-bold leading-4 {% endif %} "> {{ item | split : "|" | first }} </span>
+                                            <span class="col-span-1 sm:col-span-2 {% if nutriton_facts_size > 1 %} sm:text-right pr-5 {% endif %} {% if forloop.first %} text-base font-bold leading-4 {% endif %} ">{{ item | split : "|" | last }} </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            
                         {% endif %}
                     </div>
                 </div>
@@ -38,7 +52,7 @@
                                 <span class="star"></span>
                             </div>
                         </div>
-                        <h4 class="text-base mb-6">{{ item.author }} · {{ item.date }}</h4>
+                        <h4 class="text-base mb-6">{{ item.author }} · {{ item.date | date: "%b %d, %Y" }}</h4>
                         <p class="text-xs lg:text-sm 2xl:text-base">
                             {{- item.text | metafield_tag -}}
                         </p>
@@ -50,6 +64,6 @@
 
     </div>
 </div>
-
+{%- endif -%}
 
 

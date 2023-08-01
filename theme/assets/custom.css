@@ -1049,6 +1049,7 @@ header .flex {
 
 .rc_widget__option__selector label.rc-radio__label span {
     margin-top: 0px;
+    line-height: 1;
 }
 
 .rc-template__legacy-radio [data-option-onetime].rc-radio+.rc-radio,
@@ -1195,6 +1196,10 @@ label.rc-radio__label {
     /* display: flex; */
 }
 
+#product-recommendations__list{
+    margin: 0px -1rem;
+}
+
 #product-recommendations__list [data-card-recommendation]{
     width: 100%;
 }
@@ -1207,20 +1212,13 @@ label.rc-radio__label {
     display: inline-flex;
 }
 
-#product-recommendations__list .slick-next {
+.product-recommendations__inner .slick-next, .product-recommendations__inner .slick-prev {
     left: auto;
-    right: 1%;
-    top: -6%;
+    right: auto;
+    top: auto;
     width: 2rem;
     height: 2rem;
-}
-
-#product-recommendations__list .slick-prev {
-    left: auto;
-    right: calc(1% + 2.5rem);
-    top: -6%;
-    width: 2rem;
-    height: 2rem;
+    transform: none;
 }
 
 .cart-popup-wrapper {
@@ -1789,7 +1787,7 @@ a.navbar-link-collection:focus{
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: 0;.
     background-color: white;
     width: 105%;
 }
@@ -1800,6 +1798,11 @@ a.navbar-link-collection:focus{
 
 .top-tag-white{
     color: white;
+}
+
+.flexi{
+    display: flex !important;
+    min-height: 700px !important;
 }
 
 @keyframes fadeIn {
@@ -1905,20 +1908,13 @@ a.navbar-link-collection:focus{
     }
 }
 
-@media (max-width: 1280px) {
-    .bg-footer-mark {
-        height: 70%;
-        right: -25%;
+@media (max-width: 1919px) {
+    span.rc-option__price.rc_widget__price{
+        font-size: 22px;
     }
+}
 
-    .blog__item:nth-child(even) .blog__item-text {
-        width: 90%;
-    }
-
-    .h-cta-banner {
-        height: 50rem;
-    }
-
+@media (max-width: 1535px) {
     .rc-template__legacy-radio label.rc-radio__label {
         display: grid;
         grid-template-columns: 4fr 1fr;
@@ -1935,14 +1931,14 @@ a.navbar-link-collection:focus{
         font-size: 1.2rem;
     }
 
-     label.rc-radio__label.compare-price span.per-bottle, .compare-price span.per-bottle{
+    label.rc-radio__label.compare-price span.per-bottle, .compare-price span.per-bottle{
         order: 4;
     }
 
     label.rc-radio__label span.rc-option__price {
         order: 2;
         grid-row: span 2 / span 2;
-        font-size: 2rem;
+        font-size: 1.6vw;
         line-height: initial;
     }
 
@@ -1969,6 +1965,22 @@ a.navbar-link-collection:focus{
     .compare-at-price{
         font-size: 1rem;
     }
+}
+
+@media (max-width: 1280px) {
+    .bg-footer-mark {
+        height: 70%;
+        right: -25%;
+    }
+
+    .blog__item:nth-child(even) .blog__item-text {
+        width: 90%;
+    }
+
+    .h-cta-banner {
+        height: 50rem;
+    }
+
 
     .grid.myaccount {
         grid-template-columns: 1fr;
@@ -2063,6 +2075,10 @@ a.navbar-link-collection:focus{
 }
 
 @media screen and (max-width: 1023px) {
+    label.rc-radio__label span.rc-option__price
+    {
+        font-size: 1.3rem;
+    }
     .hilight-text strong{
         padding: 0 0.5rem;
     }
@@ -2112,10 +2128,10 @@ a.navbar-link-collection:focus{
     .site-header__cart-count span{
         font-size: 12px;
     }
-    
-}
+    .flexi{
+        min-height: 400px !important;
+    }
 
-@media (max-width: 1023px) {
     .blog__grid {
         grid-template-columns: 1fr;
     }
@@ -2155,6 +2171,7 @@ a.navbar-link-collection:focus{
     #product-gallery{
         min-height: 300px;
     }
+
     #ContactBlog-email, #ContactBlog-email::placeholder{
         font-size: 24px;
     }
@@ -2350,8 +2367,14 @@ a.navbar-link-collection:focus{
     }
 
     .slick-next, .slick-prev{
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .slick-prev {
+        left: 0%;
+    }
+    .slick-next {
+        right: 0%;
     }
     .rc-selling-plans__dropdown,
     .single-option-selector {
@@ -2383,6 +2406,10 @@ a.navbar-link-collection:focus{
         height: 12px;
         right: -0.3rem;
         top: -0.2rem;
+    }
+
+    .flexi{
+        min-height: 300px !important;
     }
 
 }
@@ -2616,8 +2643,23 @@ a.navbar-link-collection:focus{
     display: inline-block;
     width: 18px;
     height: 18px;
-    background: url(./star.png);
+    background: url(./star.svg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.gb_richtext strong{
+    font-weight: 700;
+}
+
+.product__blog-item:first-child .product__blog-tag{
+    width: 75%;
+}
+.selector-wrapper.product-form__item{
+    margin-bottom: 0px;
+}
+
+.per-bottle{
+    padding-right: 4px;
 }

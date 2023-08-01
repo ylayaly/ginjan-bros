@@ -1,6 +1,6 @@
 <div class="flex flex-col lg:flex-row w-full min-h-[30rem] row-span-3 px-10 lg:px-20 2xl:px-35 mt-10 lg:mt-0">
-    <div class="w-full sm:w-1/3 lg:w-[62%] xl:w-[55%] 3xl:w-[62%] mx-auto"></div>
-    <div class="w-full sm:w-2/3 lg:w-[38%] xl:w-[45%] 3xl:w-[38%] mx-auto">
+    <div class="w-full sm:w-1/3 lg:w-[62%] 2xl:w-[55%] 3xl:w-[62%] mx-auto"></div>
+    <div class="w-full sm:w-2/3 lg:w-[38%] 2xl:w-[45%] 3xl:w-[38%] mx-auto">
       <div class="xl:w-[90%]  2xl:w-4/5 ml-auto">
         {% capture "form_classes" -%}
       flex flex-col gap-4 mr-auto w-full relative product-form w-full mt-0 pt-0 product-form-{{ section.id }}
@@ -12,7 +12,7 @@
 
         {% form 'product', product, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
           {% unless product.has_only_default_variant %}
-            <div class="product-form__controls-group mx-auto w-full  my-4 order-1">
+            <div class="product-form__controls-group mx-auto w-full order-1">
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
                   <label
@@ -105,7 +105,7 @@
 
           <div data-widget-button data-widget-button-onetime data-type="onetime" class="{{ onetime_classes }}">
             <div class="font-light border-r-1 border-white order-2 lg:order-1 selling_plan ">
-              <div class=" text-white px-2 sm:px-4 xl:px-6 flex items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-[17px] text-centered sm:text-left">
+              <div class=" text-white px-2 sm:px-4 xl:px-6 flex items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-sm 2xl:text-[17px] text-centered sm:text-left">
                 <span>One Time Purchase</span>
               </div>
             </div>
@@ -120,7 +120,7 @@
                   -
                 </div>
                 <input
-                  class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl lg:text-4xl font-aeonik font-bold product-quantity-onetime bg-transparent text-white"
+                  class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl 2xl:text-4xl font-aeonik font-bold product-quantity-onetime bg-transparent text-white"
                   id="Quantity-{{ section.id }}"
                   type="number"
                   value="1"
@@ -145,7 +145,7 @@
                 aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}Add to Box{% endunless %}"
                 class="
                   product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}
-                  border-none mb-0  text-white px-2 sm:px-4 xl:px-6 text-xs sm:text-sm lg:text-[10px] xl:text-[17px] font-bold
+                  border-none mb-0  text-white px-2 sm:px-4 xl:px-6 text-xs sm:text-sm lg:text-[10px] xl:text-sm 2xl:text-[17px] font-bold
                 "
               >
                 <span class="text-center whitespace-nowrap">
@@ -181,7 +181,7 @@
                   <button
                     id="selling_plan"
                     data-dropdown-toggle="selling_plan_dropdown"
-                    class=" text-blue px-2 sm:px-4 xl:px-6 flex justify-between items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-[17px] {% if total_plans <= 1 %} cursor-default {% endif %}"
+                    class=" text-blue px-2 sm:px-4 xl:px-6 flex justify-between items-center font-bold text-xs sm:text-sm lg:text-[10px] xl:text-sm 2xl:text-[17px] {% if total_plans <= 1 %} cursor-default {% endif %}"
                     type="button"
                   >
                     <span class="text-centered sm:text-left ">
@@ -222,7 +222,7 @@
                     -
                   </div>
                   <input
-                    class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl lg:text-4xl font-aeonik font-bold product-quantity-subsave bg-transparent "
+                    class="appearance-none outline-none border-0 p-0 w-8 sm:w-12 text-center text-2xl 2xl:text-4xl font-aeonik font-bold product-quantity-subsave bg-transparent "
                     id="Quantity-subsave-{{ section.id }}"
                     type="number"
                     value="1"
@@ -247,7 +247,7 @@
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}Subscribe{% endunless %}"
                   class="
                     product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}
-                    border-none text-xs sm:text-sm lg:text-[10px] xl:text-[17px] font-bold mb-0 text-blue px-2 sm:px-4 xl:px-6
+                    border-none text-xs sm:text-sm lg:text-[10px] xl:text-sm 2xl:text-[17px] font-bold mb-0 text-blue px-2 sm:px-4 xl:px-6
                   "
                 >
                   <span class="text-center whitespace-nowrap">
@@ -302,7 +302,7 @@
           </div>
 
           {%- unless product.metafields.detail.subscription_details == blank -%}
-            <p class="order-5 text-[10px] font-loto whitespace-pre-line pl-6">{{ product.metafields.detail.subscription_details }}</p>
+            <p class="order-5 text-2 text-xxs font-loto whitespace-pre-line pl-6 text-blue">{{ product.metafields.detail.subscription_details }}</p>
           {%- endunless -%}
 
           {% if product.metafields.detail.badges.value != blank %}
@@ -343,7 +343,7 @@
               {%- endif -%}
 
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-                <div class="product__policies rte text-xs mt-2 order-3" data-product-policies>
+                <div class="product__policies rte text-xxs mt-2 order-3" data-product-policies>
                   {%- if shop.taxes_included -%}
                     {{ 'products.product.include_taxes' | t }}
                   {%- endif -%}

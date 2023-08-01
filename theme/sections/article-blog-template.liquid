@@ -48,7 +48,37 @@
                 <span>{{ article.metafields.custom.recommendation_subtitle | newline_to_br }} </span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                {% if article.metafields.recommendation_i.title %}
+                {% for recommendation in article.metafields.recommendations.items.value %}
+                    {% unless recommendation.align_bottom %}
+                        <div class="w-full h-full min-h-64 {% if recommendation.text_dark %} text-blue {% else %} text-white {% endif %} relative">
+                            <img src="{{ recommendation.image | image_url }}" class="absolute inset-0 object-cover object-center w-full h-full" loading="lazy" width="{{ recommendation.image.width }}" height="auto"/>
+                            <div class="relative p-6 lg:p-12 flex flex-col justify-between">
+                                <div>
+                                    <h2 class="mb-4 normal-case tracking-normal text-2xl lg:text-4xl font-bold">{{ recommendation.title }}</h2>
+                                    <div class="block mb-12 text-[10px] xxs:text-xs xs:text-sm">
+                                        {{ recommendation.subtitle | newline_to_br }}
+                                    </div>
+                                </div>
+                                <a href="{{ recommendation.url }}" class="border-b-2 border-white pb-1 font-bold text-[9px] lg:text-xs w-fit">LEARN HOW > </a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="w-full h-full min-h-64 {% if recommendation.text_dark %} text-blue {% else %} text-white {% endif %} relative">
+                            <img src="{{ recommendation.image | image_url }}" class="absolute inset-0 object-cover object-center w-full h-full" loading="lazy" width="auto" height="auto"/>
+                            <div class="h-full relative p-6 lg:p-12 flex justify-end flex-col">
+                                <h2 class="mb-4 normal-case tracking-normal text-2xl lg:text-4xl font-bold">{{ recommendation.title }}</h2>
+                                <div class="flex flex-col 2xl:flex-row gap-6 justify-between 2xl:items-end">
+                                    <p class="2xl:w-3/4 2xl:basis-auto">
+                                        {{ recommendation.subtitle | newline_to_br }}
+                                    </p>
+                                    <div class="2xl:basis-1/4 2xl:text-right"><a href="{{ recommendation.url }}" class="border-b-2 border-blue pb-1 font-bold w-1/4 text-[9px] lg:text-xs">LEARN HOW > </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endunless %}
+                    
+                {% endfor %}
+                {% comment %} {% if article.metafields.recommendation_i.title %}
                     <div class="w-full h-full text-white relative">
                         <img src="{{ article.metafields.recommendation_i.image | image_url }}" class="relative object-cover object-center w-full h-full" loading="lazy" width="auto" height="auto"/>
                         <div class="absolute inset-0 p-6 lg:p-12">
@@ -73,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
             </div>
         </div>
     </div>

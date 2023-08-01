@@ -187,6 +187,8 @@ $(document).ready(function(){
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 1,
+                prevArrow: "#product-recommendations__list-prevArrow",
+                nextArrow: "#product-recommendations__list-nextArrow",
                 responsive : [
                     {
                         breakpoint: 1024,
@@ -221,8 +223,8 @@ $(document).ready(function(){
         if(p && p.featured_image){
             $("#product-gallery").fadeTo("slow", 0, function(){
                 $("#product-gallery").html(`
-                <div class="px-14 md:px-20 xl:px-40 flex items-center" data-slick-index="10" aria-hidden="true" role="option" tabindex="-1">    
-                    <img class="mx-auto max-h-[300px] lg:max-h-[800px] max-w-full" src="${p.featured_image.src}" alt="Subscribe">
+                <div class="px-6 sm:px-14 md:px-20 xl:px-21 3xl:px-32 flexi items-center" data-slick-index="10" aria-hidden="true" role="option" tabindex="-1">    
+                    <img class="mx-auto max-h-[300px] sm:max-h-[400px] lg:max-h-[800px] max-w-full" src="${p.featured_image.src}" alt="Subscribe">
                 </div>`).fadeTo("slow", 1)
             })
             
