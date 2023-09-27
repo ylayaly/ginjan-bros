@@ -1,6 +1,6 @@
 <div class="relative flex flex-col lg:flex-row lg:pt-12 2xl:pt-14 lg:pb-19 product__hero px-10 lg:px-20 2xl:px-35">
     <div
-      class="hidden lg:block min-h-40 md:min-h-56 lg:min-h-72 absolute right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84 product__hero--bg bg-blue"
+      class="hidden lg:block min-h-40 md:min-h-56 lg:min-h-72 absolute right-0 left-0 lg:h-full pt-20 lg:pt-72 2xl:pt-84 product__hero--bg bg-blue xl:min-h-160"
       style="background-color: {{ product.metafields.detail.bg_color }}"
     ></div>
     <div class="mx-auto w-full lg:w-[62%] 2xl:w-[55%] 3xl:w-[62%] relative sm:pt-14 lg:pt-44 xl:pt-56 2xl:pt-60">
@@ -123,8 +123,8 @@
       </div>
     </div>
 
-    <div class="mx-auto w-full sm:w-2/3 lg:w-[38%] 2xl:w-[45%] 3xl:w-[38%] mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-48">
-      <div class="xl:w-[90%] 2xl:w-4/5 ml-auto">
+    <div class="mx-auto w-full sm:w-2/3 lg:w-[38%] 2xl:w-[45%] 3xl:w-[38%] mt-10 relative sm:pt-14 lg:pt-32 xl:pt-44 2xl:pt-48 flex flex-col justify-end">
+      <div class="xl:w-[90%] 2xl:w-4/5 xl:ml-auto">
         <div>
           <h1
             class="text-5xl 2xl:text-[4rem] 3xl:text-7xl text-left font-bold text-blue-mobile text-white"
@@ -147,7 +147,9 @@
             {% unless product.metafields.detail.additional_info == blank %}
               <p class="text-xs font-semibold mt-2 order-4">{{ product.metafields.detail.additional_info }}</p>
             {% endunless %}
-            <div class="font-light text-base lg:text-lg my-9 order-2">{{- product.metafields.hero_section.description | metafield_tag -}}</div>
+            {% unless product.metafields.hero_section.description == blank %}
+              <div class="font-light text-base lg:text-lg my-9 order-2">{{- product.metafields.hero_section.description | metafield_tag -}}</div>  
+            {% endunless %}
             <span
               data-bottel-onetime="{{ product.metafields.custom.price_unit }}"
               data-bottel-subsave="{{ product.metafields.custom.price_unit_subscription }}"

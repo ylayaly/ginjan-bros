@@ -302,6 +302,47 @@ $(() => {
         $(this).closest(".section-collection-gb").find(".collection-gb-link").addClass("flex")
         $(this).remove()
     })
-    
           
 })
+
+function getCartData(){
+    const page =  document.location.pathname
+    
+    $.get({
+        url: '/cart.js',
+        dataType: 'json'
+    }).done(function(cartResponse){
+        cartResponse.items.forEach(function(item){
+            if(item.properties && item.properties.__upsell_id){
+                console.log(item)
+                if(page.includes('/cart')){
+                    window.location.reload()
+                    // const $itemHtml = $($("[data-cart-item]")[0].outerHTML)
+                    // $itemHtml.find("[data-cart-item-image]").attr("src", item.image).attr('alt', item.product_title)
+                    // $itemHtml.find("[data-cart-item-title]").text(item.product_title)
+                    // $itemHtml.find("[data-cart-remove]").attr("aria-label", `Remove ${item.product_title}`)
+                    // $itemHtml.find("[data-quantity-item]").val(item.quantity)
+                    // $itemHtml.find("[data-quantity-item]").attr("value", item.quantity)
+                    // $itemHtml.find("[data-cart-item-regular-price]").text(
+                    //     theme.Currency.formatMoney(
+                    //         item.price,
+                    //         theme.moneyFormat
+                    //     ))
+                    // $itemHtml.find(".cart__final-price").find("[data-cart-item-regular-price]").text(
+                    //     theme.Currency.formatMoney(
+                    //         item.original_line_price,
+                    //         theme.moneyFormat
+                    //     ))
+                    // $("[data-cart-line-items]").append($itemHtml[0].outerHTML)
+                }else{
+                    const $itemHtml = $($(".cart-popup-item")[0].outerHTML)
+                    $itemHtml.find("[data-cart-popup-image-wrapper]").find('img').attr("src", item.image).attr('alt', item.product_title)
+                    $itemHtml.find("[data-cart-popup-image-wrapper]").removeClass("hide")
+                    $itemHtml.find("[data-cart-popup-title]").text(item.product_title)
+                    $itemHtml.find("[data-cart-popup-quantity]").text(item.quantity)
+                    $(".cart-items").append($itemHtml[0].outerHTML)
+                }
+            }
+        })
+    })
+}

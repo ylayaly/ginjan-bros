@@ -5155,7 +5155,8 @@ theme.Cart = (function() {
     thumbnails: '.cart__image',
     unitPrice: '[data-unit-price]',
     unitPriceBaseUnit: '[data-unit-price-base-unit]',
-    unitPriceGroup: '[data-unit-price-group]'
+    unitPriceGroup: '[data-unit-price-group]',
+    addOffer: '.upsellplus-button'
   };
 
   var classes = {
@@ -5204,6 +5205,12 @@ theme.Cart = (function() {
     this.$container.on(
       'change',
       selectors.inputQty,
+      $.debounce(500, this._handleInputQty.bind(this))
+    );
+
+    this.$container.on(
+      'click',
+      selectors.addOffer,
       $.debounce(500, this._handleInputQty.bind(this))
     );
 
@@ -5267,6 +5274,7 @@ theme.Cart = (function() {
     },
 
     _handleInputQty: function(evt) {
+      console.log(evt)
       var $input = $(evt.target);
       var itemIndex = $input.data('quantity-item');
       var $itemElement = $input.closest(selectors.cartItem);
@@ -5398,6 +5406,7 @@ theme.Cart = (function() {
     },
 
     _createCart: function(state) {
+      console.log(state)
       var cartDiscountList = this._createCartDiscountList(state);
 
       $(selectors.cartLineItems, this.$container).html(
@@ -6482,6 +6491,7 @@ theme.Product = (function() {
             this._handleButtonLoadingState(true);
             var $data = $(this.selectors.productForm, this.$container);
             this._addItemToCart($data);
+            
             return;
           }
         }.bind(this)
@@ -6521,6 +6531,7 @@ theme.Product = (function() {
     },
 
     _addItemToCart: function(data) {
+      console.log(data)
       var params = {
         url: '/cart/add.js',
         data: $(data).serialize(),
@@ -6530,8 +6541,10 @@ theme.Product = (function() {
       $.post(params)
         .done(
           function(item) {
+            console.log(item)
             this._hideErrorMessage();
             this._setupCartPopup(item);
+            upsellplusapp.init_drawer_offer();
           }.bind(this)
         )
         .fail(
@@ -6545,7 +6558,6 @@ theme.Product = (function() {
           }.bind(this)
         );
     },
-
     _handleButtonLoadingState: function(isLoading) {
       if (isLoading) {
         this.$addToCart.attr('aria-disabled', true);

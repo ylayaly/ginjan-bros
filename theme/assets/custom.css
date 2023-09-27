@@ -2019,6 +2019,9 @@ a.navbar-link-collection:focus{
         width: 2.25rem;
         height: 2.25rem;
     }
+    .flexi{
+        min-height: 600px!important;
+    }
 }
 
 @media (max-width: 1024px) {

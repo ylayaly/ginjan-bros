@@ -1,4 +1,4 @@
-<div class="flex flex-col lg:flex-row w-full min-h-[30rem] row-span-3 px-10 lg:px-20 2xl:px-35 mt-10 lg:mt-0">
+<div class="flex flex-col lg:flex-row w-full row-span-3 px-10 lg:px-20 2xl:px-35 mt-10 lg:mt-0 lg:min-h-[28rem]">
     <div class="w-full sm:w-1/3 lg:w-[62%] 2xl:w-[55%] 3xl:w-[62%] mx-auto"></div>
     <div class="w-full sm:w-2/3 lg:w-[38%] 2xl:w-[45%] 3xl:w-[38%] mx-auto">
       <div class="xl:w-[90%]  2xl:w-4/5 ml-auto">
@@ -12,7 +12,7 @@
 
         {% form 'product', product, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
           {% unless product.has_only_default_variant %}
-            <div class="product-form__controls-group mx-auto w-full order-1">
+            <div class="product-form__controls-group mx-auto w-full order-1 gap-4">
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
                   <label

@@ -12,6 +12,7 @@
       <h2 id="CartPopupHeading" class="cart-popup__heading">{{ 'cart.popup.added_to_cart' | t }}</h2>
       <button class="cart-popup__close" aria-label="{{ 'general.accessibility.close_modal' | t }}" data-cart-popup-close>{% include 'icon-close' %}</button>
     </div>
+    <div class="cart-items">
     <div class="cart-popup-item">
       <div class="cart-popup-item__image-wrapper hide" data-cart-popup-image-wrapper>
         <div class="cart-popup-item__image cart-popup-item__image--placeholder" data-cart-popup-image-placeholder>
@@ -31,6 +32,9 @@
         </div>
       </div>
     </div>
+  </div>
+
+    <div id="upsellplus_drawer_offer"></div>
 
     <a href="{{ routes.cart_url }}" class="cart-popup__cta-link btn btn--secondary-accent">
       {{ 'products.product.view_cart' | t }} (<span data-cart-popup-cart-quantity></span>)

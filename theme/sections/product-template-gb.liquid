@@ -40,7 +40,7 @@
     var p_plans = {{ product | json }}
   </script>
 
-  <div class="lg:grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %} relative">
+  <div class="lg:grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %} relative lg:min-h-[45rem] xl:min-h-[60rem] 2xl:min-h-[65rem] 3xl:min-h-[70rem]">
     {% comment %}
       {% unless product.has_only_default_variant %}
         <div class="">
